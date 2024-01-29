@@ -1,0 +1,35 @@
+
+body {
+    display: inline;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #f4effa;
+}
+header {
+    color: #2f184b;
+    text-align: center;
+}
+
+header p {
+    padding: 0 1em;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    flex: 0 0 250px;
+    margin: .5rem;
+    padding: .5rem 1rem;
+}
+
+.card h2 {
+    color: #532b88;
+}
