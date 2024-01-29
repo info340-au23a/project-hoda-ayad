@@ -24,11 +24,31 @@
                             <div class="card">
                                 <h2>Problem Description</h2>
                                 <p>
-                                    &nbsp &nbsp lorem ipsum dolor etc etc lorem ipsum dolor etc etclorem ipsum dolor etc etclorem ipsum dolor etc etclorem ipsumipsum dolor etc etclorem   etc etclorem ipsum dolor etc et dolor etc etclorem ipsum dolor etc etclorem ipsum dolor etc etclorem ipsum dolor etc etclorem ipsum dolor etc etclorem ipsum dolor etc etclorem ipsum dolor etc etc
-                                    <br>
-                                    <br>
-                                    &nbsp &nbsp lorem ipsum dolor etc etc lorem ipsum dolor etc etclorem ipsum dolor etc etclorem ipsum dolor etc etclorem ipsumipsum dolor etc etclorem   etc etclorem ipsum dolor etc et dolor etc etclorem ipsum dolor etc etclorem ipsum dolor etc etclorem ipsum dolor etc etclorem ipsum dolor etc etclorem ipsum dolor etc etclorem ipsum dolor etc etc
+                                    &nbsp &nbsp Your proposal will contain a short description of the topic domain and the information/data you'll be presenting, explaining the problem to someone who doesn't know anything about it! Your description should include enough information to:
                                 </p>
+                                <ul>
+                                    <li>
+                                        Provide an overview of the general topic or question of interest (e.g., "what is meant by 'homelessness' and why is it a particular problem in Seattle?").
+
+                                    </li>
+                                    <li> 
+                                        Identify an information technology problem in that space (e.g., "what information problems related to homelessness are unaddressed?").
+                                    </li>
+                                    <li>
+                                        Identify at least 1 previous or existing attempt to solve this problem (e.g., "what other web apps attempt to address homelessness? What has already been tried?")
+
+                                    </li>
+                                </ul>
+                                <p>
+                                    &nbsp &nbsp In short: let us know what you are interested in, and identify a problem that you think needs solving (and that might be amenable to a technological intervention) while also considering what has come before.
+                                </p>
+                                <ul>
+                                    <li>While social injustices are the problems most worth attacking, your project could also address smaller, or more personal "problems". What is something that makes your life worse, and that you think that a web app might be able to help with?</li>
+                                </ul>
+                                <p>
+                                    &nbsp &nbsp This description should be 1-2 paragraphs (~150-250 words) in length. Your overview should explain "what" the problem is and "why" it needs addressing (including why any currently existing apps are insufficient). You will need to include references to other resources to help clarify your explanation of this problem.
+                                </p>
+
                             </div>
                         </section>
                 
@@ -36,9 +56,74 @@
                             <div class="card">
                                 <h2>Proposed Application</h2>
                                 <p>
-                                    lorem ipsum dolor etc etc
+                                    &nbsp &nbsp Your proposal will also contain a description of the web app that you will create to help address your chosen problem (a proposed "solution"). Think about what kind of a web app would help with this problem, and how people would use that app to make their lives better in some way. What is the "use case" or "user story" for the app?
                                 </p>
+                                <ul> 
+                                    <li> 
+                                        Remember that this app will be interactive—it will need to contain buttons, forms, etc that let the user provide some kind of input and modify how data is presented to them. Thus your app will need to do more than just be something for the user to read; it needs to give the user something to <em>do</em>.
+                                    </li>
+                                </ul>
+                                <p>
+                                    &nbsp &nbsp Your app should also be described in <em>2-3 paragraphs</em>. In particular, you should make sure to address:
+                                </p>
+                                <ol>
+                                    <li>
+                                        Who are the users of the application? That is, who will be accessing the website? What impacts might this app have on minority groups?
+                                    </li>
+                                    <li> 
+                                        What will the users do with the web app? What kind of interactive features are you expecting to provide? Remember that you app will need to include at least "two and a half" significant features; be sure to explicitly identify and explain what all of them are! Remember: 
+                                    </li> 
+                                        <ul> <li> 
+                                            Remember that "viewing" information or navigating ("going to") to something isn't a feature! 
+                                        </li></ul>
+                                    <li> 
+                                        What kind of information will the users be viewing? If intend to use data from an external source (a csv file or an API), include a link and citation to that data.
+                                    </li>
+                                        <ul> <li> 
+                                            If you insist on using an API, confirm that you'll be able to access it from a client-side app by testing it at https://joelwross.github.io/cors-test/ . If you can't get data back from this testing site, then it won't work with your project.
+                                        </li></ul>
+                                    <li>
+                                        How will using this app help to solve your chosen problem? That is, how is it a solution to the problem you described?
+                                    </li>
+                                        <ul><li> 
+                                            Remember the app doesn't need to have "business value". But as Informatics students we care about the practical usage and impacts of systems, not just their implementation. Be sure to consider that in your proposal!
+                                        </li></ul>
+                                </ol>
                             </div>
+                        </section>
+                        <section id="guidelines">
+                            <div class="card">
+                                <h2> Web Page Requirements</h2>
+                                <p>
+                                    &nbsp &nbsp You should present the above information (Problem Description and App Description) in the form of a basic web page implemented with HTML and CSS. Create a new proposal.html file in the root of your project repo. This web page should include the following content:
+
+                                </p>
+                                <ol>
+                                    <li>
+                                        An appropriate page structure (including a <em>head</em> element with a <em>title</em>). The basic web page template is a good place to start.
+                                    </li>
+                                    <li>
+                                        A <em>header</em> containing a title for your page as a top-level heading (<em>h1</em>).
+                                    </li>
+                                    <li>
+                                        Different <em>section</em> elements for each major part of your page (e.g., Problem Description, Proposed Application). Note that a functionality walkthrough would be appropriate as a "subsection" (e.g., a <em>section</em> within a <em>section</em>).
+                                    </li>
+                                    <li>
+                                        Use appropriate HTML elements to semantically organize the content. For example, you might describe the different interactions a user can perform using an unordered list.
+                                    </li>
+                                    <li>
+                                        Include hyperlinks to at least two (2) outside resources, references, or data sets related to your topic. These can be links to other applications in the same problem space. If you'll be using an existing data set, be sure to link to that!
+                                    </li>
+                                    <li>
+                                        You will need to include some CSS styling. Create a new css folder inside of your repo, and a new proposal.css file inside of that folder. The styling can be whatever you want (change the font, background, etc), but you should include at least two (2) rules that change at least three (3) different properties total.
+                                    </li>
+                                        <ul><li>
+                                            Adding some spacing around the content is a great use of CSS.
+                                        </li></ul>
+                                </ol>
+                            </div>
+                        </section>
+
                         </section>
                     </div>
                 </div>
