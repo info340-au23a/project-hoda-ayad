@@ -17,10 +17,6 @@ main {
     margin: 1em;
 }
 
-.container {
-    margin-right: 2em;
-}
-
 .card {
     margin: 1rem;
     padding: .5rem 1.5rem;
@@ -28,4 +24,10 @@ main {
 
 .card h2 {
     color: #2b4a88;
+}
+
+@media (min-width: 598px) {
+    .container {
+        margin-right: 2em;
+    }
 }
