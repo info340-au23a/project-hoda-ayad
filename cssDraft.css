@@ -1,0 +1,146 @@
+html, body, main {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background-color: #C3D5F5;
+}
+
+body * {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+;
+}
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+}
+
+#left form, #intro-description, .get-connected   S {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+/* CSS for left side of sign in/up page */
+#left {
+    left: 0
+}
+
+#sign-in-up *, .get-connected * {
+    color: #fff;
+}
+
+h2 {
+    font-size: 45px;
+}
+
+#sign-in-up h2 {
+    width: 70%;
+    margin-top: 22.5%;
+}
+
+input, #log-in-button {
+    background-color: #C3D5F5;
+}
+
+input, .btn{
+    border-radius: 18px;
+    border: 2px solid #fff;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    width: 60%;
+}
+
+#left input {
+    padding-left: 2.5%;
+}
+
+#email-input {
+    margin-top: 5%;
+}
+
+#password-input {
+    margin-top: 2.5%;
+}
+
+::placeholder {
+    color: #fff;
+    font-size: 16px;
+}
+
+#forgot-password, #register {
+    color: #97b2f9;
+}
+
+#log-in-button {
+    margin-top: 12%;
+}
+
+#dont-have-account {
+    margin-top: auto;
+    margin-bottom: 4%;
+}
+
+
+/* CSS for right side of sign in/up page */
+#right {
+    background-color: #fff;
+    right: 0;
+    background: linear-gradient(0deg, rgba(151, 178, 229, 0.65) 0%, rgba(151, 178, 229, 0.65) 100%), url(img/background.jpg), lightgray 100% / cover no-repeat;
+    background-size: cover;
+    border-left: solid 18px #fff;
+    border-top-left-radius: 192px;
+    border-bottom-left-radius: 192px;
+}
+
+#intro-description {
+    left: 50%;
+    margin-top: 25%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+#learn-more-btn {
+    margin-top: 7.5%;
+}
+
+/* CSS for Get Connected page */
+.get-connected * {
+    width: 45%;
+}
+
+.get-connected ::placeholder {
+    text-align: center;
+}
+
+.get-connected h2 {
+    margin-top: 5%;
+}
+
+.get-connected input {
+    margin-top: 3%;
+}
+
+.get-connected div {
+    margin-top: 15%;
+    background-color: #97b2f0;
+}
+
+/* CSS for hiding elements */
+.hidden {
+    display: none;
+}
