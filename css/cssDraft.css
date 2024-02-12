@@ -49,6 +49,16 @@ h2 {
 
 }
 
+h3 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
 #sign-in-up h2 {
     width: 70%;
     margin-top: 22.5%;
@@ -144,4 +154,152 @@ input, .btn{
 /* CSS for hiding elements */
 .hidden {
     display: none;
+}
+
+/* Posting interface */
+#postings-window {
+    display: flex;
+    flex-direction: column;
+}
+
+/* filter bar */
+#filter-bar {
+    display: flex;
+    background-color: white;
+    border-bottom: solid lightgray;
+    padding: 1em;
+    gap: 1.5em;
+}
+
+#filter-bar .search-bar{
+    flex-basis: 10rem;
+    border-radius: 1em;
+    background-color: rgb(224, 224, 224);
+    padding: .5rem;
+}
+
+.filter {
+    flex-basis: 10rem;
+    border-radius: 1em;
+    background-color: rgb(224, 224, 224);
+    padding: .5rem;
+}
+
+#filter-bar span {
+    padding: .5em;
+}
+
+#post-viewer {
+    display: flex;
+}
+
+#posting-list {
+    background-color: white;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 20rem;
+    border-right: solid lightgray;
+}
+
+/* Posting Expanded */
+#post-expanded {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(245, 247, 247);
+    padding: 2.5rem;
+    height: 100%;
+}
+
+.metadata {
+    font-style: italic;
+    font-size: .9rem;
+}
+
+.tag-container {
+    display: flex;
+    flex-grow: 0;
+    flex-wrap: wrap;
+}
+
+.tag {
+    height: .5rem;
+    flex-shrink: 0;
+    margin: .2rem;
+    padding: .75rem;
+    border-radius: 1em;
+    border-style: solid;
+    border-width: .2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    
+
+    /*referenced from this Medium article 
+    medium.com/@bikramkawan/css-alternating-colors-using-nth-child-for-three-elements-scss-370d636d4f40*/
+    &:nth-child(3n-1) {
+        background-color: #8c7ca1;
+        border-color: #412d5a;
+    }
+    &:nth-child(3n-2) {
+        background-color: #797cb5;
+        border-color: #303259;
+    }
+    &:nth-child(3n-3) {
+        background-color: #9ecbe2;
+        border-color: #2a4959;
+    }
+}
+
+.tag span {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.btn {
+    flex-shrink: 0;
+    justify-content: center;
+    text-align: center;
+    justify-content: center;
+    vertical-align: center;
+    font-weight: bold;
+    background-color: #8c7ca1;
+    color: black;
+    margin: .5rem;
+    width: 10em;
+}
+
+
+
+/* Posting Card */
+.posting-card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding: 2em 1.5em;
+    background-color: white;
+    border-bottom: solid rgb(215, 215, 215);
+}
+
+.posting-card h4 {
+    margin: 0;
+}
+
+.posting-card .tag {
+    flex-shrink: 10;
+}
+
+#profile-icon {
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+}
+
+#profile-pic {
+    height: 1.5em;
+    border-radius: 50%;
+    margin-right: .75rem;
 }

@@ -8,7 +8,106 @@
         <link rel="stylesheet" href="css/cssDraft.css">
     </head>
     <body>
-        <main>
+        <header>
+
+        </header>
+        <main id="postings-window">
+            <div id="filter-bar">
+                <div class="search-bar">
+                    <span>Search Input</span>
+                    <!--icon-->
+                </div>
+                <div class="filter" id="skill-filter">
+                    <span>All Roles</span>
+                    <!--icon-->
+                </div>
+                <div class="filter" id="location-filter">
+                    <span>All Locations</span>
+                    <!--icon-->
+                </div>
+            </div>
+           <section id="post-viewer">
+                <section id="posting-list">
+                    <div class="posting-card">
+                        <h4>Travel Fitness App</h4>
+                        <div id="profile-icon">
+                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile picture for Jane Doe">
+                            <p>Jane Doe</p>
+                        </div>
+                        <div class="tag-container">
+                            <div class="tag">
+                                <span>Engineer</span>
+                            </div>
+                            <div class="tag">
+                                <span>Front-End</span>
+                            </div>
+                            <div class="tag">
+                                <span>Graphic Design</span>
+                            </div>
+                        </div>
+                        <div id="short-description">
+                            <p>
+                                Sample description text. this description would be relatively short
+                            </p>
+                        </div>
+                    </div>
+                    <div class="posting-card">
+                        <h4>Wellness Program for Dogs</h4>
+                        <div id="profile-icon">
+                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile picture for Jane Doe">
+                            <p>Dog Doggerton</p>
+                        </div>
+                        <div class="tag-container">
+                            <div class="tag">
+                                <span>Product Manager</span>
+                            </div>
+                        </div>
+                        <div id="short-description">
+                            <p>
+                                Sample description text. this description would be relatively short
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <div id="post-expanded">
+                    <div id="posting-header">
+                        <div id="profile-icon">
+                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile">
+                            <span>Jane Doe</span>
+                        </div>
+                        <h3>Travel Fitness App</h3> 
+                        <p class="metadata">Posted 04-03-2024</p>
+                        <p class="metadata">Located in Seattle, WA</p>
+                    </div>
+                    <div id="posting-body">
+                        <section class="tag-container">
+                            <div class="tag">
+                                <span>Engineer</span>
+                            </div>
+                            <div class="tag">
+                                <span>Front-End</span>
+                            </div>
+                            <div class="tag">
+                                <span>Graphic Design</span>
+                            </div>
+                        </section>
+                        <section id="description">
+                            <h4>Description</h4>
+                            <p>Sample description text. this description would be relatively short but it's likely that it would take up at least a few lines of text overall. We should be prepared for wrapping the text as needed based on the needs of those who use the description of the posting.</p>
+                
+                            <h4>Project Pitch</h4>
+                            <p>Sample description text. this description would be relatively short but it's likely that it would take up at least a few lines of text overall. We should be prepared for wrapping the text as needed based on the needs of those who use the description of the posting.</p>
+                        </section>
+                        <div id="btn-container">
+                            <div class="btn">Apply Now</div>
+                            <div class="btn">Ask A Question</div>
+                        </div>
+                    </div>
+                </div>
+           </section>
         </main>
+        <footer>
+
+        </footer>
     </body>
 </html>
