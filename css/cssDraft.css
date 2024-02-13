@@ -769,12 +769,19 @@ time {
     }
 }
 
+@media (max-width: 768px) {
+    main {
+        padding: 0;
+    }
+}
+
 footer {
     display: none;
 }
 
-@media (min-wdith: 768px) {
+@media (min-width: 768px) {
     footer {
+        display: block;
         background-color: #C3D5FF;
         bottom: 0;
         left: 0;
