@@ -79,24 +79,7 @@ h1 {
 
 /* ----- */
 
-#btn-container {
-    display: flex;
-    flex-flow: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
 
-.btn {
-    text-align: center;
-
-    background-color: #57377d;
-    font-weight: bold;
-    color:white;
-
-    margin: .5rem;
-    width: 16em;
-}
 
 /* get connected */
 h2 {
@@ -144,11 +127,11 @@ h4 {
     display: none;
 }
 
-input, #log-in-button {
+.get-connected input, #log-in-button {
     background-color: #C3D5FF;
 }
 
-input, .btn {
+.get-connected input, .get-connected .btn {
     border-radius: 18px;
     border: 2px solid #fff;
     padding-top: 1%;
@@ -285,7 +268,7 @@ input, .btn {
     gap: 1.5em;
 }
 
-.filter-bar #search-bar{
+.filter-bar #search-bar {
     flex-basis: 10rem;
     border-radius: 1em;
     background-color: rgb(224, 224, 224);
@@ -415,6 +398,25 @@ input, .btn {
 }
 
 /* ------ */
+
+#btn-container {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    text-align: center;
+
+    background-color: #57377d;
+    font-weight: bold;
+    color:white;
+
+    margin: .5rem;
+    width: 16em;
+}
 
 @media (min-width: 410px) {
     #post-viewer {
@@ -639,7 +641,7 @@ nav {
 
 .message-heading {
     border-bottom: solid;
-    margin-bottom: 20px;
+
     text-align: center;
 }
 
