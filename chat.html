@@ -18,70 +18,74 @@
   <meta name="author" content="Hoda Ayad, Yohan Cho, Kina Chong, and Emma Finkel">
 </head>
 
-<body>
-    <!-- side bar -->
-    <nav class="sidebar">
-         <!-- includes: logo, access to jobPosting, find people, and inbox -->
-        <div class="logo">
-            <p>CC</p>
-        </div>
-        <h2>Job Postings</h2>
-        <h2>People</h2>
-        <h2>Inbox</h2>
+<header>
+    <img id="globe" src="img/globe.png" alt="Cloud Campus Globe">
+    <h1 >CAMPUS CLOUD</h1>
+    <nav>
+        <a>Projects</a>
+        <a>Saved</a>
+        <a>Personal</a>
+        <img id="profile-pic" src="img/profile.png" alt="profile">
     </nav>
-    
-    <!-- header -->
-     <nav class="heading">
-        <!-- includes: title of page, access to profile page -->
-        <div id="hamburger-menu"><a href="#"><i class="fa fa-bars" aria-label="menu"></i></a></div>
-        <h1>Inbox</h1>
-        <div id="profile-menu"><a href="#"><i class="fa fa-user" aria-label="profile-menu"></i></a></div>
-    </nav>
+</header>
 
+<body>
     <main>
         <!-- middle area where inbox is -->
-        <div class="middle-area">
+        <div id="middle-area">
             
             <!-- list of messages -->
-            <div class="middle-left">
+            <div id="middle-left">
                 
                 <!-- header -->
                 <!-- includes: title and compose buttons-->
-                <div class="inbox-heading">
+                <div id="inbox-heading">
                     <h1>Inbox</h1>
                     <div class="compose-message"><a href="#"><i class="fa fa-pen-to-square" aria-label="compose-message"></i></a></div>
                     
                 </div>
                 
                 <!-- Search bar-->  
-                <div class="search-bar">
-                    <div class="search-icon"><a href="#search"><i class="fa fa-magnifying-glass" aria-label="search-icon"></i></a></div>
-                    <input class="search" type="text" placeholder="search inbox">
+                <div id="search-bar">
+                    <input type="text" placeholder="search inbox">
                 </div>
                 
                 <!-- people / promo of message (scrollable)-->
-                <div class="choose-message">
-                    
-                    <!-- card for each person -->
-                    <div class="message">
-                        <!-- each card includes: profile pic, persons name, identifier about them, date of last communication, sample of last text -->
-                        
+               <!-- card for each person -->
+                <div class="message-list">
+                    <!-- each card includes: profile pic, persons name, identifier about them, date of last communication, sample of last text -->
+                    <div class="message-card">
                         <!-- profile pic -->
-                        <div class="profile">
-                            <p>INITIAL</p>
-                        </div>
-                        
+                        <div id="profile-icon">
+                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile">
+                        </div>        
                         <!-- name, identifier, last message snippet -->
                         <div class="identifiers">
-                            <h2>First-name Last-name</h2>
+                            <h2>John Doe</h2>
                             <h3>identity</h3>
                             <p>snipet of last message, if too long should cutoff</p>
                         </div>
-
-                        <!-- date of last text -->
+                            <!-- date of last text -->
                         <div class="last-text-date">
-                            <time datetime="2024-2-12" class="date">2/12/2024</time>
+                            <time datetime="2024-2-12" class="date"><p>2/12/2024</p></time>
                         </div>
+                    </div>
+
+                    <div class="message-card">
+                        <!-- profile pic -->
+                        <div id="profile-icon">
+                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile">
+                        </div>
+                        <!-- name, identifier, last message snippet -->
+                        <div id="identifiers">
+                            <h2>Emma Finkel</h2>
+                            <h3>identity</h3>
+                            <p>snipet of last message, if too long should cutoff</p>
+                        </div>
+                    </div>
+                        <!-- date of last text -->
+                    <div class="last-text-date">
+                        <time datetime="2024-2-12" class="date"><p>2/12/2024</p></time>
                     </div>
                 </div>
             </div>
@@ -92,26 +96,23 @@
                 <!-- includes: back arrow, name, identifier about them, and link to profile -->
                 <div class="message-heading">
                     <div class="back-arrow"><a href="#"><i class="fa fa-angle-left" aria-label="back-arrow"></i></a></div>
-                    <h2>First-name Last-name</h2>
-                    <h3>identity</h3>
-                    <div class="profile">
-                        <p>INITIAL</p>
-                    </div>
+                    <h2>John Doe</h2>
+                    <h3>Univeristy of Washington Student</h3>
                 </div>
                 
                 <!-- message area (scrollable)-->
                 <!-- includes: message thread, date that message was sent, time stamp of messages-->
                 <div class="messaging">
                     <!-- first timeframe of messages -->
-                    <time datetime="2024-2-12" class="date">Mon, Feb 12, 2024</time>
+                    <time datetime="2024-2-12" id="date">Mon, Feb 12, 2024</time>
                    
                     <!-- message thread -->
                     <div class="message-thread">
 
-                        <!-- intro -->
+                        <!-- users-contact intro -->
                         <div class="other-messages">
-                            <div class="profile">
-                                <p>INITIAL</p>
+                            <div id="profile-icon">
+                                <img id="profile-pic" src="img/blankpfp.jpg" alt="profile">
                             </div>
                             <div class="message">
                                 <p>Hi Jane Doe! <br>I am also a thrid-year undergraduate student at the University of Washington. I am also really interested in using AI in a healthcare setting. I have an idea for a startup that I would love to run by you.</p>
@@ -120,31 +121,31 @@
 
                         <!-- user response -->
                         <div class="my-messages">
-                            <div class="profile">
-                                <p>INITIAL</p>
-                            </div>
                             <div class="message">
-                                <p>Hi ___, Thank you for reaching out. Let's meetup for coffee to disucuss your idea. Are you availible to meet at Suzzallo Starbucks on Tuesday? </p>
+                                <p>Hi John Doe, Thank you for reaching out. Let's meetup for coffee to disucuss your idea. Are you availible to meet at Suzzallo Starbucks on Tuesday? </p>
+                            </div>
+                            <div id="profile-icon">
+                                <img id="profile-pic" src="img/blankpfp.jpg" alt="profile">
                             </div>
                         </div>    
                             
-                        <!-- user response -->
+                        <!-- users-contact response -->
                         <div class="other-messages">
-                            <div class="profile">
-                                <p>INITIAL</p>
+                            <div id="profile-icon">
+                                <img id="profile-pic" src="img/blankpfp.jpg" alt="profile">
                             </div>
-                            <div class="massage">
+                            <div class="message">
                                 <p>Tuesday works for me. How about 3:30?</p>
-                            </div>  
-                        </div>
+                            </div>
+                        </div> 
                 
                         <!-- user response -->
                         <div class="my-messages">
-                            <div class="profile">
-                                <p>INITIAL</p>
-                            </div>
                             <div class="message">
                                 <p> 3:30 sounds great. See you then. </p>
+                            </div>
+                            <div id="profile-icon">
+                                <img id="profile-pic" src="img/blankpfp.jpg" alt="profile">
                             </div>
                         </div> 
                     </div>
@@ -152,9 +153,9 @@
 
                 <!-- type/send a message -->
                 <!-- inclides: text bar with text inside, send button -->
-                <div class="draft-message">
+                <div id="draft-message">
                     <input class="to-send" placeholder="type your message..."> 
-                    <button type="button" class="send-message">Send</button>
+                    <button type="button" class="btn">Send</button>
                 </div>
             </div>
             
