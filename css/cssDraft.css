@@ -30,7 +30,7 @@ header {
 
     display: block;
         text-align: center;
-    
+
     justify-content: space-between;
     align-items: center;
 }
@@ -264,7 +264,7 @@ h4 {
     background-color: white;
     border-bottom: solid lightgray;
     padding: 1em;
-    
+
     gap: 1.5em;
 }
 
@@ -608,7 +608,7 @@ nav {
     margin-top: 2em;
 }
 
-/* the container for the message cards (.message-card) 
+/* the container for the message cards (.message-card)
 .message-list {
 }
 */
@@ -634,7 +634,7 @@ nav {
 .middle-right {
     background-color: white;
     border-right: solid lightgray;
-  
+
     height: 100%;
     width: 100%;
 }
@@ -707,7 +707,7 @@ time {
 .my-messages {
     display: flex;
     justify-content: flex-end;
-} 
+}
 
 .my-messages .message {
     background-color: #C3D5F5;
@@ -732,7 +732,7 @@ time {
     flex-direction: column;
     padding-bottom: 1rem;
     border-style: solid none none none;
-    border-color: whitesmoke;   
+    border-color: whitesmoke;
     justify-content: space-evenly;
 }
 
@@ -770,12 +770,18 @@ time {
 }
 
 footer {
-    background-color: #C3D5FF;
-    bottom: 0;
-    left: 0;
-    padding-top: 1rem;
-    position: fixed;
-    text-align: center;
-    height: 4rem;
-    width: 100%;
+    display: none;
+}
+
+@media (min-wdith: 768px) {
+    footer {
+        background-color: #C3D5FF;
+        bottom: 0;
+        left: 0;
+        padding-top: 1rem;
+        position: fixed;
+        text-align: center;
+        height: 4rem;
+        width: 100%;
+    }
 }
