@@ -430,7 +430,7 @@ nav {
     flex-grow: 1;
 }
 
-#nav-profile-pic {
+.nav-profile-pic {
     display: none;
 }
 
@@ -476,7 +476,7 @@ nav {
         padding-right: 1.5rem;
     }
 
-    #nav-profile-pic {
+    .nav-profile-pic {
         display: block;
         margin-left: auto;
         height: 4rem;
