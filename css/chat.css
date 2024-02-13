@@ -15,6 +15,7 @@ body * {
     line-height: normal;
 }
 
+
 /* Nav Bar */
 header {
     display: flex;
@@ -40,6 +41,10 @@ nav a {
     font-size: 1.25rem;
 }
 
+/* Nav Bar */
+#hamburger-menu {
+    display:none;
+ }
 /* Nav Bar */
 h1 {
     margin-right: auto;
@@ -72,10 +77,11 @@ nav #profile-pic {
 /* Messaging center */
 #middle-area {
     margin: 2%;
-    background-color: lightgreen;
+    background-color: white;
     display: flex;
     max-height: 75%;
     max-width: 90%;
+    border: solid;
 }
 
 /* profile picture */
@@ -98,16 +104,17 @@ nav #profile-pic {
     flex-shrink: 0;
     flex-basis: 25%;
     margin-right: 2%;
-    border-right: solid lightgray;
+    border-right: solid black;
     overflow-y: auto;
-    border-right: solid;
 }
 
 /* contains "inbox" text (h1) and compose icon (.compose-message) */
 #inbox-heading {
     border-bottom: solid;
-    margin-top: 36px;
+    padding-top:0;
     position: sticky;
+    top: 31px;
+    background-color: white;
 }
 
 /* the bar to search for people in messages. 
@@ -116,24 +123,46 @@ nav #profile-pic {
 #search-bar {
     flex-basis: 90%;
     position: sticky;
+    top: 92.5px;
+    border-bottom: solid;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: white;
 }
 
 
-/* the container for the message cards (.message-card) 
-.message-list {
+/* the container for the message cards (.message-card) */
+#middle-left .message-list {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+
 }
-*/
 
 /* each individual message. contains a profile picture (#profile-icon), identifiers of the people (#identifiers) (name (h2), identity (h3), and snipet of last message (p)) */
 .message-card {
-    border: solid;
+    border-bottom: solid;
     display: flex;
+    flex-direction: row;
 }
 
-.message-card #profile-icon {
-    float:left;
-    padding:5px;
+.message-card .profile-pic {
+    padding: 0 10px;
 }
+
+.message-card .identifiers {
+   display:block;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+
+.message-card .last-text-date {
+    padding: 0px;
+    margin: 0px;
+
+}
+
 
 /* scroll through conversation and send message */
 .middle-right {
@@ -142,14 +171,17 @@ nav #profile-pic {
     flex-shrink: 0;
     flex-basis: 75%;
     margin-right: 2%;
-    border-right: solid lightgray;
+    border-right: solid black;
     overflow-y: auto;
 }
 
 .message-heading {
     border-bottom: solid;
-    margin-bottom: 20px;
-    padding-bottom: 5px;
+    margin-bottom: 5px;
+    position: sticky;
+    top: 20px;
+    background-color: white;
+    height:fit-content;
 }
 
 .message-heading h2 {
@@ -158,20 +190,18 @@ nav #profile-pic {
 
 .message-heading h3 {
     padding: 0;
-    
 }
 
 .back-arrow {
     display: none;
 }
 /* date message was sent */
-time {
+.middle-right #date {
     border-bottom: dashed;
     border-top: dashed;
     text-align: center;
-    padding-left: 5px;
     border-color: lightgray;
-    display: flex;
+    display: block;
 }
 
 /* message sent from other person, on left side of chat.
@@ -186,14 +216,14 @@ time {
     background-color: rgb(233, 233, 233);
     border-radius: 10%;
     max-width: 75%;
-    margin-right: 2em;
+    margin-right: 2.5em;
     margin-top: 10px;
     padding: 0px 10px;
 }
 
 /* ther person profile pic */
 .other-messages #profile-pic {
-    height: 1.5em;
+    height: 2.25em;
     padding-right: 1px;
     margin-right: 1px;
     margin-left: 3px;
@@ -210,13 +240,13 @@ time {
     background-color: #C3D5F5;
     border-radius: 10%;
     max-width: 75%;
-    margin-left: 2em;
+    margin-left: 2.5em;
     margin-top: 10px;
     padding: 0px 10px;
 }
 
 .my-messages #profile-pic {
-    height: 1.5em;
+    height: 2.25em;
     padding-right: 1px;
     margin-right: 1px;
     margin-left: 3px;
@@ -227,7 +257,7 @@ time {
 #draft-messages {
     padding-bottom: 1rem;
     border-style: solid none none none;
-    border-color: whitesmoke;   
+    border-color: whitesmoke;  
 }
 
 input {
@@ -240,7 +270,7 @@ input {
     width: 73%;
     height: 20px;
     background-color: whitesmoke;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .btn {
@@ -249,7 +279,7 @@ input {
     padding-top: 1%;
     margin-top: 2%;
     padding-bottom: 1%;
-    width: 18%;
+    width: 10%;
     background-color: rgb(116, 209, 116);
 }
 
@@ -260,5 +290,41 @@ input {
 
     #middle-left {
         flex-basis: 100%;
+    }
+
+    nav {
+        display:none;
+    }
+
+    #hamburger-menu {
+        display:block;
+        color:white;
+    }
+
+}
+
+@media (max-width: 768px) {
+    #hamburger-menu {
+        display:block;
+        color:white;
+    }
+
+    nav {
+        display:none;
+    }
+
+    .btn {
+        font-size: 12px;
+    }
+    input {
+        font-size: 12px;
+    }
+
+    .other-messages #profile-pic {
+        height: 1.5em;
+    }
+
+    .my-messages #profile-pic {
+        height: 1.5em;
     }
 }
