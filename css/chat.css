@@ -78,6 +78,9 @@ nav #profile-pic {
 #middle-area {
     margin: 2%;
     background-color: white;
+    overflow-y: auto;
+}
+
 #inbox {
     padding-top: 6em;
     display: flex;
@@ -207,6 +210,7 @@ nav #profile-pic {
     overflow: none;
     height: 100%;
     width: 100%;
+    overflow-y: auto;
 }
 
 .message-heading {
