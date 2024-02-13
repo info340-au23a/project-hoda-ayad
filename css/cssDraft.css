@@ -30,7 +30,7 @@ header {
 
     display: block;
         text-align: center;
-    
+
     justify-content: space-between;
     align-items: center;
 }
@@ -102,12 +102,11 @@ h4 {
 }
 
 #intro-description, .get-connected {
-    text-align: center;
     display: flex;
-    flex-wrap: wrap;
+    text-align: center;
     flex-direction: column;
     align-items: center;
-
+    justify-content: space-evenly;
 }
 
 #left {
@@ -127,16 +126,20 @@ h4 {
     display: none;
 }
 
+.get-connected form {
+    width: 100%;
+}
+
 .get-connected input, #log-in-button {
     background-color: #C3D5FF;
 }
 
-.get-connected input, .get-connected .btn {
+.get-connected input, .get-connected button {
     border-radius: 18px;
     border: 2px solid #fff;
     padding-top: 1%;
     padding-bottom: 1%;
-    width: 60%;
+    width: 30%;
 }
 
 #email-input {
@@ -169,6 +172,41 @@ h4 {
 
 #left input {
     padding-left: 2.5%;
+}
+
+/* CSS for Get Connected page */
+.get-connected * {
+    width: 50%;
+    justify-content: space-evenly;
+}
+
+.get-connected ::placeholder {
+    text-align: center;
+}
+
+.get-connected h2 {
+    margin-top: 5%;
+}
+
+@media (max-width: 992px) {
+    .get-connected input, .get-connected button {
+        height: 2.5rem;
+        width: 15rem;
+        margin-top: 7.5%;
+    }
+}
+
+
+
+.get-connected button {
+    background-color: #97b2f0;
+}
+
+.get-connected form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (min-width: 992px) {
@@ -212,29 +250,10 @@ h4 {
         flex-direction: column;
         align-items: center;
     }
-}
 
-
-/* CSS for Get Connected page */
-.get-connected * {
-    width: 45%;
-}
-
-.get-connected ::placeholder {
-    text-align: center;
-}
-
-.get-connected h2 {
-    margin-top: 5%;
-}
-
-.get-connected input {
-    margin-top: 3%;
-}
-
-.get-connected div {
-    margin-top: 15%;
-    background-color: #97b2f0;
+    .get-connected input, .get-connected button {
+        margin-top: 4%;
+    }
 }
 
 /* CSS for hiding elements */
@@ -264,7 +283,7 @@ h4 {
     background-color: white;
     border-bottom: solid lightgray;
     padding: 1em;
-    
+
     gap: 1.5em;
 }
 
@@ -646,7 +665,7 @@ nav {
 .middle-right {
     background-color: white;
     border-right: solid lightgray;
-  
+
     height: 100%;
     width: 100%;
 }
@@ -720,7 +739,7 @@ time {
 .my-messages {
     display: flex;
     justify-content: flex-end;
-} 
+}
 
 .my-messages .message {
     background-color: #C3D5F5;
@@ -745,7 +764,7 @@ time {
     flex-direction: column;
     padding-bottom: 1rem;
     border-style: solid none none none;
-    border-color: whitesmoke;   
+    border-color: whitesmoke;
     justify-content: space-evenly;
 }
 
@@ -782,13 +801,26 @@ time {
     }
 }
 
+@media (max-width: 768px) {
+    main {
+        padding: 0;
+    }
+}
+
 footer {
-    background-color: #C3D5FF;
-    bottom: 0;
-    left: 0;
-    padding-top: 1rem;
-    position: fixed;
-    text-align: center;
-    height: 4rem;
-    width: 100%;
+    display: none;
+}
+
+@media (min-width: 768px) {
+    footer {
+        display: block;
+        background-color: #C3D5FF;
+        bottom: 0;
+        left: 0;
+        padding-top: 1rem;
+        position: fixed;
+        text-align: center;
+        height: 4rem;
+        width: 100%;
+    }
 }
