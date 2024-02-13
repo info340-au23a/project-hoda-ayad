@@ -13,42 +13,38 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   
-  <link rel="stylesheet" href="css/chat.css">
-
+  <link rel="stylesheet" href="css/cssDraft.css">
   <meta name="author" content="Hoda Ayad, Yohan Cho, Kina Chong, and Emma Finkel">
 </head>
-
-<header>
-    <img id="globe" src="img/globe.png" alt="Cloud Campus Globe">
-    <h1 >CAMPUS CLOUD</h1>
-    <nav>
-        <a>Projects</a>
-        <a>Saved</a>
-        <a>Personal</a>
-        <img id="profile-pic" src="img/profile.png" alt="profile">
-    </nav>
-</header>
-
 <body>
+    <header>
+        <h1 >CAMPUS CLOUD</h1>
+            <nav>
+                <a href="/index.html">Projects</a>
+                <a href="/chat.html">Chat</a>
+                <a href="profile.html">Profile</a>
+                <img src="img/profile.png" alt="profile icon" class="nav-profile-pic">
+            </nav>
+    </header>
     <main>
         <!-- middle area where inbox is -->
-        <div id="middle-area">
+        <div id="inbox">
             
             <!-- list of messages -->
-            <div id="middle-left">
+            <div id="list-viewer">
                 
                 <!-- header -->
                 <!-- includes: title and compose buttons-->
                 <div id="inbox-heading">
-                    <h1>Inbox</h1>
+                    <h4>Inbox</h4>
                     <div class="compose-message"><a href="#"><i class="fa fa-pen-to-square" aria-label="compose-message"></i></a></div>
-                    
+                    <!-- Search bar-->  
+                    <div id="search-bar">
+                        <input type="text" placeholder="search inbox">
+                    </div>
                 </div>
                 
-                <!-- Search bar-->  
-                <div id="search-bar">
-                    <input type="text" placeholder="search inbox">
-                </div>
+                
                 
                 <!-- people / promo of message (scrollable)-->
                <!-- card for each person -->
@@ -57,14 +53,13 @@
                     <div class="message-card">
                         <!-- profile pic -->
                         <div id="profile-icon">
-                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile">
-                        </div>        
+                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile picture for Jane Doe">
+                            <p>John Doe</p>
+                            
+                        </div>    
+                        <span id="title">UW student</span>
                         <!-- name, identifier, last message snippet -->
-                        <div class="identifiers">
-                            <h2>John Doe</h2>
-                            <h3>University of Washington Student</h3>
-                            <p>snipet of last message, if too long should cutoff</p>
-                        </div>
+                        <p>snippet of last message, if too long should cutoff</p>
                             <!-- date of last text -->
                         <div class="last-text-date">
                             <time datetime="2024-2-12" class="date"><p>2/12/2024</p></time>
@@ -74,14 +69,11 @@
                     <div class="message-card">
                         <!-- profile pic -->
                         <div id="profile-icon">
-                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile">
-                        </div>
-                        <!-- name, identifier, last message snippet -->
-                        <div id="identifiers">
-                            <h2>Emma Finkel</h2>
-                            <h3>University of Washington Student</h3>
+                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile picture for Jane Doe">
+                            <p>Emma Finkel</p>
+                        </div>    
+                        <span id="title">UW student</span>
                             <p>How's it going?</p>
-                        </div>
                           <!-- date of last text -->
                         <div class="last-text-date">
                             <time datetime="2024-2-12" class="date"><p>2/12/2024</p></time>
@@ -91,14 +83,11 @@
                     <div class="message-card">
                         <!-- profile pic -->
                         <div id="profile-icon">
-                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile">
-                        </div>        
-                        <!-- name, identifier, last message snippet -->
-                        <div class="identifiers">
-                            <h2>Hoda Ayad</h2>
-                            <h3>University of Washington Student</h3>
-                            <p>What do you think?</p>
-                        </div>
+                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile picture for Jane Doe">
+                            <p>Hoda Ayad</p>
+                        </div>    
+                        <span id="title">UW student</span>
+                        <p>What do you think?</p>
                             <!-- date of last text -->
                         <div class="last-text-date">
                             <time datetime="2024-2-12" class="date"><p>2/12/2024</p></time>
@@ -108,14 +97,11 @@
                     <div class="message-card">
                         <!-- profile pic -->
                         <div id="profile-icon">
-                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile">
-                        </div>        
-                        <!-- name, identifier, last message snippet -->
-                        <div class="identifiers">
-                            <h2>Yohan Cho</h2>
-                            <h3>University of Washington Student</h3>
-                            <p>I definatly agree.</p>
-                        </div>
+                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile picture for Jane Doe">
+                            <p>Yohan Cho</p>
+                        </div>    
+                        <span id="title">UW student</span>
+                            <p>I definitely agree.</p>
                             <!-- date of last text -->
                         <div class="last-text-date">
                             <time datetime="2024-2-12" class="date"><p>2/12/2024</p></time>
@@ -125,14 +111,11 @@
                     <div class="message-card">
                         <!-- profile pic -->
                         <div id="profile-icon">
-                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile">
-                        </div>        
-                        <!-- name, identifier, last message snippet -->
-                        <div class="identifiers">
-                            <h2>Kina Chong</h2>
-                            <h3>University of Washington Student</h3>
-                            <p>sounds good!</p>
-                        </div>
+                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile picture for Jane Doe">
+                            <p>Kina Chong</p>
+                        </div>    
+                        <span id="title">UW student</span>
+                        <p>sounds good!</p>
                             <!-- date of last text -->
                         <div class="last-text-date">
                             <time datetime="2024-2-12" class="date"><p>2/12/2024</p></time>
@@ -147,8 +130,8 @@
                 <!-- includes: back arrow, name, identifier about them, and link to profile -->
                 <div class="message-heading">
                     <div class="back-arrow"><a href="#"><i class="fa fa-angle-left" aria-label="back-arrow"></i></a></div>
-                    <h2>John Doe</h2>
-                    <h3>Univeristy of Washington Student</h3>
+                    <h3>John Doe</h3>
+                    <h4>University of Washington Student</h4>
                 </div>
                 
                 <!-- message area (scrollable)-->
@@ -200,17 +183,26 @@
                             </div>
                         </div> 
                     </div>
-                </div>
-
-                <!-- type/send a message -->
-                <!-- inclides: text bar with text inside, send button -->
-                <div id="draft-message">
-                    <input class="to-send" placeholder="type your message..."> 
-                    <button type="button" class="btn">Send</button>
+                        <!-- type/send a message -->
+                    <!-- inclides: text bar with text inside, send button -->
+                    <div id="draft-message">
+                        <input class="to-send" placeholder="type your message..."> 
+                        <button type="button" class="btn">Send</button>
+                    </div>
                 </div>
             </div>
+
+                
             
         </div>
     </main>
+    <footer> Contact us at:
+        <div class="footer-content">
+            <a href="mailto:hayad03@uw.edu">hayad03@uw.edu</a>
+            <a href="mailto:yohhn@uw.edu">yohhn@uw.edu</a>
+            <a href="mailto:kchong@uw.edu">kchong@uw.edu</a>
+            <a href="emmafin@uw.edu">emmafin@uw.edu</a>
+        </div>
+    </footer>
 </body>
 </html>

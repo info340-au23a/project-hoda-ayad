@@ -6,43 +6,41 @@ html, body, main {
     height: 100vh;
 }
 
+main {
+    padding-bottom: 5rem;
+}
+
 body {
     margin: 0;
     padding: 0;
-    background-color: #C3D5FF;
-}
-
-body * {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 }
 
-.set-up {
-    background-color: #C3D5FF;
-}
+/* header */
 
 header {
-    height: 6rem;
+    display: flex;
+    width: 100%;
     position: fixed;
     color: white;
     background-color: #C3D5FF;
-    width: 100%;
 
-    display: flex;
+    display: block;
+        text-align: center;
+    
     justify-content: space-between;
     align-items: center;
-    color: white;
-    background-color: #C3D5FF;
-    padding: 0 1em;
-    height: 6rem;
 }
 
 nav {
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
     flex-grow: 1;
+    padding-bottom: 1rem;
 }
 
 nav a {
@@ -57,10 +55,18 @@ nav a:hover {
     color: rgb(55, 40, 68);
 }
 
+nav #profile-pic {
+    margin-left: auto;
+    width: 4rem;
+    height: 4rem;
+}
+
 h1 {
     margin-right: auto;
+    margin-bottom: 0.5rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+    font-weight: bold;
 }
 
 #globe, #profile-pic {
@@ -71,10 +77,45 @@ h1 {
     flex-grow: 0;
 }
 
-nav #profile-pic {
-    margin-left: auto;
-    width: 4rem;
-    height: 4rem;
+/* ----- */
+
+#btn-container {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    text-align: center;
+
+    background-color: #57377d;
+    font-weight: bold;
+    color:white;
+
+    margin: .5rem;
+    width: 16em;
+}
+
+/* get connected */
+h2 {
+    font-size: 45px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.set-up {
+    background-color: #C3D5FF;
 }
 
 #intro-description, .get-connected {
@@ -99,21 +140,6 @@ nav #profile-pic {
     color: #fff;
 }
 
-h2 {
-    font-size: 45px;
-    text-align: center;
-}
-
-h3 {
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-h4 {
-    font-size: 1.5rem;
-    font-weight: 500;
-}
-
 #right, #intro-description, #learn-more-btn {
     display: none;
 }
@@ -122,7 +148,7 @@ input, #log-in-button {
     background-color: #C3D5FF;
 }
 
-input, .btn{
+input, .btn {
     border-radius: 18px;
     border: 2px solid #fff;
     padding-top: 1%;
@@ -233,6 +259,8 @@ input, .btn{
     display: none;
 }
 
+/* ------ */
+
 /* Posting interface */
 #postings-window {
     display: flex;
@@ -280,26 +308,34 @@ input, .btn{
     padding: .5rem;
 }
 
+/* ------- */
+
+.viewer {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
 #post-viewer {
     display: flex;
     flex-flow: column;
-    padding-top: 14rem;
+    padding-top: 17rem;
     height: 100%;
 }
 
 #posting-list {
     background-color: white;
     flex-shrink: 0;
-    flex-grow: 0;
+    flex-grow: 1;
     flex-basis: 20rem;
     border-right: solid lightgray;
     height: 100vh;
-    overflow: visible;
+    overflow-y: auto;
     height: auto;
 }
 
 
-#post-expanded {
+#post-expanded { /* hidden on mobile */
     display: none;
 }
 
@@ -378,9 +414,11 @@ input, .btn{
     margin-right: .75rem;
 }
 
-@media (max-width: 410px) {
+/* ------ */
+
+@media (min-width: 410px) {
     #post-viewer {
-        padding-top: 17em;
+        padding-top: 14em;
     }
 }
 
@@ -411,9 +449,9 @@ input, .btn{
     }
 
     #btn-container {
-        display: flex;
         flex-flow: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        flex-grow: 0;
     }
 
     #left .btn {
@@ -422,16 +460,6 @@ input, .btn{
 
     #right .btn {
         background-color: #8c7ca1;
-    }
-
-    .btn {
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        font-weight: bold;
-        color:#000000;
-        margin: .5rem;
-        width: 16em;
     }
 }
 
@@ -451,10 +479,6 @@ input, .btn{
     width: 100%;
 }
 
-h1 {
-    font-weight: bold;
-}
-
 nav {
     display: flex;
     align-items: center;
@@ -465,46 +489,33 @@ nav {
     display: none;
 }
 
-@media (max-width: 992px) {
-    header {
-        display: block;
-        text-align: center;
-    }
-
-    h1 {
-        margin-bottom: 0.5rem;
-    }
-
-    nav {
-        justify-content: space-evenly;
-    }
-}
-
 @media (min-width: 992px) {
     header {
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        padding: 0 1em;
+        padding: 0 1rem 0 3rem;
         height: 6rem;
+    }
+
+    header h1 {
+        margin-right: auto;
+        margin-bottom: 1rem;
+        padding: 0 1.5rem;
     }
 
     nav {
         display: flex;
         align-items: center;
         flex-grow: 1;
+        padding-bottom: 0rem;
     }
 
     nav a {
         margin-right: 1rem;
+        margin-bottom: 0;
         padding: 0 2rem;
         font-size: 1.25rem;
-    }
-
-    h1 {
-        margin-right: auto;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
     }
 
     .nav-profile-pic {
@@ -516,12 +527,253 @@ nav {
 }
 
 /*CSS for Profile Page*/
-.profile-body {
-    color: white;
+
+#profile-main {
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+#profile-viewer {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+#profile-body {
+    padding: 0 2rem;
+}
+
+#profile-header {
+    padding-top: 9rem;
+    display: flex;
+    flex-flow: column;
+    justify-items: center;
+    align-items: center;
+}
+
+#profile-header img {
+    flex-grow: 0;
+    height: 20em;
+    width: 26em;
+    border-radius: 5%;
+}
+
+/* Messaging center */
+#inbox {
+    padding-top: 6em;
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: auto;
+    height: 100%;
+    width: 100%;
+}
+
+/* profile picture */
+#inbox #profile-icon {
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+}
+
+/* profile picture */
+#inbox #profile-pic {
+    height: 2em;
+    border-radius: 50%;
+}
+
+/* scroll through people in inbox */
+#list-viewer {
+    background-color: white;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 100%;
+    border-right: solid lightgray;
+    overflow-y: auto;
+}
+
+/* contains "inbox" text (h1) and compose icon (.compose-message) */
+#inbox-heading {
+    padding: 0 2rem;
+}
+
+#inbox-heading h4 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 1.5rem;
+}
+
+.message-list {
+    margin-top: 2em;
+}
+
+/* the container for the message cards (.message-card) 
+.message-list {
+}
+*/
+
+/* each individual message. contains a profile picture (#profile-icon), identifiers of the people (#identifiers) (name (h2), identity (h3), and snipet of last message (p)) */
+.message-card {
+    border: solid;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.message-card #title {
+    font-style: italic;
+}
+
+#inbox #profile-icon p {
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+/* scroll through conversation and send message */
+.middle-right {
+    background-color: white;
+    border-right: solid lightgray;
+  
+    height: 100%;
+    width: 100%;
+}
+
+.message-heading {
+    border-bottom: solid;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.message-heading h2 {
+    font-weight: bold;
+}
+
+.messaging {
+    display: flex;
+    flex-direction: column;
+    overflow-y: none;
+    padding: 2rem;
+    padding-bottom: 7rem;
+}
+
+.message-thread {
+    flex: 0 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    overflow: none;
+    height: 100%;
+}
+
+.message-list {
+    overflow-y: auto;
+}
+
+.back-arrow {
+    display: none;
+}
+/* date message was sent */
+time {
+    text-align: center;
+    padding-left: 5px;
+    display: flex;
+}
+
+/* message sent from other person, on left side of chat.
+   contains a profile picture (#profile-icon) and a message (.message) */
+.other-messages {
+    display: flex;
+    align-self: flex-start;
+}
+
+/* message sent from other person */
+.other-messages .message {
+    background-color: rgb(233, 233, 233);
+    border-radius: 14px;
+    max-width: 75%;
+    padding: 0 1em;
+}
+
+/* ther person profile pic */
+.other-messages #profile-pic {
+    height: 1.5em;
+    padding-right: 1px;
+    margin-right: 1px;
+    margin-left: 3px;
+}
+
+/* message sent from user, on right side of chat.
+   contains a profile picture (#profile-icon) and a message (.message) */
+.my-messages {
+    display: flex;
+    justify-content: flex-end;
+} 
+
+.my-messages .message {
+    background-color: #C3D5F5;
+    border-radius: 14px;
+    max-width: 75%;
+    margin-left: 2em;
+    margin: 1.5rem;
+    padding: 0 1rem;
+}
+
+.my-messages #profile-pic {
+    height: 1.5em;
+    padding-right: 1px;
+    margin-right: 1px;
+    margin-left: 3px;
+}
+
+/* container for sending a message.
+   contains a input section (.to-send) and a button (.btn) */
+#draft-messages {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    border-style: solid none none none;
+    border-color: whitesmoke;   
+    justify-content: space-evenly;
+}
+
+#draft-message input {
+    border-radius: 18px;
+    border: 2px solid whitesmoke;
+    padding-top: 1%;
+    margin-top: 2%;
+    margin-left: 3%;
+    padding-bottom: 1%;
+    width: 5;
+    height: 3em;
+    background-color: whitesmoke;
+    font-size: 13px;
+}
+
+#draft-message .btn {
+    border-radius: 18px;
+    border: 2px solid rgb(116, 209, 116);
+    padding-top: 1%;
+    margin-top: 2%;
+    padding-bottom: 1%;
+    width: 18%;
+    background-color: rgb(116, 209, 116);
+}
+
+@media (max-width: 598px) {
+    .middle-right {
+        display: none;
+    }
+
+    #middle-left {
+        flex-basis: 100%;
+    }
 }
 
 footer {
-    color: white;
+    background-color: #C3D5FF;
+    bottom: 0;
+    left: 0;
+    padding-top: 1rem;
+    position: fixed;
     text-align: center;
     height: 4rem;
+    width: 100%;
 }

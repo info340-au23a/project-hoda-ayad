@@ -15,67 +15,14 @@ body * {
     line-height: normal;
 }
 
-/* Nav Bar */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    background-color: #9ecbe2;
-    padding: 0 1em;
-    height: 6rem;
-}
-
-/* Nav Bar */
-nav {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-}
-
-/* Nav Bar */
-nav a {
-    margin-right: 1rem;
-    padding: 0 2rem;
-    font-size: 1.25rem;
-}
-
-/* Nav Bar */
-h1 {
-    margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-}
-
-/* Nav Bar */
-#globe, #profile-pic {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    object-fit: cover;
-    border-radius: 50%;
-    flex-grow: 0;
-}
-
-/* Nav Bar */
-#globe {
-    width: 5rem;
-    height: 5rem;
-}
-
-/* Nav Bar */
-nav #profile-pic {
-    margin-left: auto;
-    width: 4rem;
-    height: 4rem;
-}
-
 /* Messaging center */
-#middle-area {
-    margin: 2%;
-    background-color: lightgreen;
+#inbox {
+    padding-top: 6em;
     display: flex;
-    max-height: 75%;
-    max-width: 90%;
+    flex-grow: 0;
+    flex-shrink: auto;
+    height: 100%;
+    width: 100%;
 }
 
 /* profile picture */
@@ -92,32 +39,30 @@ nav #profile-pic {
 }
 
 /* scroll through people in inbox */
-#middle-left {
+#list-viewer {
     background-color: white;
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: 25%;
-    margin-right: 2%;
+    height: 100%;
     border-right: solid lightgray;
     overflow-y: auto;
-    border-right: solid;
 }
 
 /* contains "inbox" text (h1) and compose icon (.compose-message) */
 #inbox-heading {
-    border-bottom: solid;
-    margin-top: 36px;
-    position: sticky;
+    padding: 0 2rem;
 }
 
-/* the bar to search for people in messages. 
-   contians the search icon (.search-icon) and input (.search) */
-
-#search-bar {
-    flex-basis: 90%;
-    position: sticky;
+#inbox-heading h4 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 1.5rem;
 }
 
+.message-list {
+    margin-top: 2em;
+}
 
 /* the container for the message cards (.message-card) 
 .message-list {
@@ -128,28 +73,32 @@ nav #profile-pic {
 .message-card {
     border: solid;
     display: flex;
+    flex-direction: column;
+    padding: 1rem;
 }
 
-.message-card #profile-icon {
-    float:left;
-    padding:5px;
+.message-card #title {
+    font-style: italic;
+}
+
+#profile-icon p {
+    font-weight: 500;
+    font-size: 1.5rem;
 }
 
 /* scroll through conversation and send message */
 .middle-right {
     background-color: white;
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 75%;
-    margin-right: 2%;
     border-right: solid lightgray;
-    overflow-y: auto;
+    overflow: none;
+    height: 100%;
+    width: 100%;
 }
 
 .message-heading {
     border-bottom: solid;
     margin-bottom: 20px;
-    padding-bottom: 5px;
+    text-align: center;
 }
 
 .message-heading h2 {
@@ -161,16 +110,28 @@ nav #profile-pic {
     
 }
 
+.messaging {
+    display: flex;
+    flex-flow: column nowrap;
+    overflow: none;
+    padding: 2rem;
+}
+
+.message-thread {
+    flex: 0 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    overflow-y: scroll;
+    height: 100%;
+}
+
 .back-arrow {
     display: none;
 }
 /* date message was sent */
 time {
-    border-bottom: dashed;
-    border-top: dashed;
     text-align: center;
     padding-left: 5px;
-    border-color: lightgray;
     display: flex;
 }
 
@@ -178,17 +139,15 @@ time {
    contains a profile picture (#profile-icon) and a message (.message) */
 .other-messages {
     display: flex;
-    float: left;
+    align-self: flex-start;
 }
 
 /* message sent from other person */
 .other-messages .message {
     background-color: rgb(233, 233, 233);
-    border-radius: 10%;
+    border-radius: 14px;
     max-width: 75%;
-    margin-right: 2em;
-    margin-top: 10px;
-    padding: 0px 10px;
+    padding: 0 1em;
 }
 
 /* ther person profile pic */
@@ -203,16 +162,16 @@ time {
    contains a profile picture (#profile-icon) and a message (.message) */
 .my-messages {
     display: flex;
-    float:right;
+    justify-content: flex-end;
 } 
 
 .my-messages .message {
     background-color: #C3D5F5;
-    border-radius: 10%;
+    border-radius: 14px;
     max-width: 75%;
     margin-left: 2em;
-    margin-top: 10px;
-    padding: 0px 10px;
+    margin: 1.5rem;
+    padding: 0 1rem;
 }
 
 .my-messages #profile-pic {
@@ -225,25 +184,28 @@ time {
 /* container for sending a message.
    contains a input section (.to-send) and a button (.btn) */
 #draft-messages {
+    display: flex;
+    flex-direction: column;
     padding-bottom: 1rem;
     border-style: solid none none none;
     border-color: whitesmoke;   
+    justify-content: space-evenly;
 }
 
-input {
+#draft-message input {
     border-radius: 18px;
     border: 2px solid whitesmoke;
     padding-top: 1%;
     margin-top: 2%;
     margin-left: 3%;
     padding-bottom: 1%;
-    width: 73%;
-    height: 20px;
+    width: 5;
+    height: 3em;
     background-color: whitesmoke;
     font-size: 13px;
 }
 
-.btn {
+#draft-message .btn {
     border-radius: 18px;
     border: 2px solid rgb(116, 209, 116);
     padding-top: 1%;
