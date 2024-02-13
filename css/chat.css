@@ -97,7 +97,7 @@ nav #profile-pic {
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: 25%;
-    margin-right: 2%
+    margin-right: 2%;
     border-right: solid lightgray;
     overflow-y: auto;
     border-right: solid;
@@ -119,13 +119,14 @@ nav #profile-pic {
 }
 
 
-/* the container for the message cards (.message-card) */
+/* the container for the message cards (.message-card) 
 .message-list {
 }
+*/
 
 /* each individual message. contains a profile picture (#profile-icon), identifiers of the people (#identifiers) (name (h2), identity (h3), and snipet of last message (p)) */
 .message-card {
-    border: solid
+    border: solid;
     display: flex;
 }
 
