@@ -9,21 +9,23 @@
     </head>
     <body>
         <header>
-
+            
         </header>
         <main id="postings-window">
-            <div id="filter-bar">
-                <div class="search-bar">
-                    <span>Search Input</span>
-                    <!--icon-->
-                </div>
-                <div class="filter" id="skill-filter">
-                    <span>All Roles</span>
-                    <!--icon-->
-                </div>
-                <div class="filter" id="location-filter">
-                    <span>All Locations</span>
-                    <!--icon-->
+            <div class="parent">
+                <div class="filter-bar">
+                    <div class="search-bar">
+                        <span>Search Input</span>
+                        <!--icon-->
+                    </div>
+                    <div class="filter" id="skill-filter">
+                        <span>All Roles</span>
+                        <!--icon-->
+                    </div>
+                    <div class="filter" id="location-filter">
+                        <span>All Locations</span>
+                        <!--icon-->
+                    </div>
                 </div>
             </div>
            <section id="post-viewer">
@@ -68,8 +70,42 @@
                             </p>
                         </div>
                     </div>
+                    <div class="posting-card">
+                        <h4>Beach Home Generator App</h4>
+                        <div id="profile-icon">
+                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile picture for Jane Doe">
+                            <p>Joe Beachhouse</p>
+                        </div>
+                        <div class="tag-container">
+                            <div class="tag">
+                                <span>Product Manager</span>
+                            </div>
+                        </div>
+                        <div id="short-description">
+                            <p>
+                                Sample description text. this description would be relatively short
+                            </p>
+                        </div>
+                    </div>
+                    <div class="posting-card">
+                        <h4>Miniature GoPros for Koi Fish</h4>
+                        <div id="profile-icon">
+                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile picture for Jane Doe">
+                            <p>Bob Pondenjoyer</p>
+                        </div>
+                        <div class="tag-container">
+                            <div class="tag">
+                                <span>Product Manager</span>
+                            </div>
+                        </div>
+                        <div id="short-description">
+                            <p>
+                                Sample description text. this description would be relatively short
+                            </p>
+                        </div>
+                    </div>
                 </section>
-                <div id="post-expanded">
+                <div id="post-expanded" class="hidden lg:block">
                     <div id="posting-header">
                         <div id="profile-icon">
                             <img id="profile-pic" src="img/blankpfp.jpg" alt="profile">
