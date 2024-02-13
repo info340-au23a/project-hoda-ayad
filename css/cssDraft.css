@@ -21,6 +21,7 @@ body * {
 
 header {
     height: 6rem;
+    position: fixed;
 }
 
 .split {
@@ -188,14 +189,20 @@ input, .btn{
     background-color: white;
     border-bottom: solid lightgray;
     padding: 1em;
+    margin-top: 6em;
     gap: 1.5em;
 }
 
-.filter-bar .search-bar{
+.filter-bar #search-bar{
     flex-basis: 10rem;
     border-radius: 1em;
     background-color: rgb(224, 224, 224);
+    color: black;
     padding: .5rem;
+}
+
+#search-bar::placeholder {
+    color: gray;
 }
 
 .filter-bar span {
@@ -212,8 +219,7 @@ input, .btn{
 #post-viewer {
     display: flex;
     flex-flow: column;
-    padding-top: 8rem;
-
+    padding-top: 14rem;
     height: 100%;
 }
 
@@ -241,7 +247,7 @@ input, .btn{
     flex-wrap: wrap;
     flex-grow: 0;
     flex-shrink: 0;
-    padding: 2em 1.5em;
+    padding: 2em;
     background-color: white;
     border-bottom: solid rgb(215, 215, 215);
 }
@@ -303,9 +309,15 @@ input, .btn{
 }
 
 #profile-pic {
-    height: 1.5em;
+    height: 4em;
     border-radius: 50%;
-    margin-right: .75rem;
+    margin-right: .75rem;  
+}
+
+@media (max-width: 410px) {
+    #post-viewer {
+        padding-top: 17em;
+    }
 }
 
 @media (min-width: 598px) {
@@ -316,7 +328,7 @@ input, .btn{
     #post-viewer {
         flex-flow: row;
         overflow: hidden;
-        padding-top: 4rem;
+        padding-top: 10rem;
     }
 
     /* Posting Expanded */
@@ -353,13 +365,14 @@ input, .btn{
         width: 16em;
     }
 }
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
     background-color: #9ecbe2;
-    padding: 0 20px;
+    padding: 0 1em;
     height: 6rem;
 }
 
@@ -370,7 +383,7 @@ nav {
 }
 
 nav a {
-    margin-right: 20px;
+    margin-right: 1rem;
     padding: 0 2rem;
     font-size: 1.25rem;
 }
@@ -386,52 +399,7 @@ h1 {
     padding-bottom: 1rem;
     object-fit: cover;
     border-radius: 50%;
-}
-
-#globe {
-    width: 5rem;
-    height: 5rem;
-}
-
-nav #profile-pic {
-    margin-left: auto;
-    width: 4rem;
-    height: 4rem;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    background-color: #9ecbe2;
-    padding: 0 20px;
-    height: 6rem;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-}
-
-nav a {
-    margin-right: 20px;
-    padding: 0 2rem;
-    font-size: 1.25rem;
-}
-
-h1 {
-    margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-}
-
-#globe, #profile-pic {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    object-fit: cover;
-    border-radius: 50%;
+    flex-grow: 0;
 }
 
 #globe {
