@@ -413,6 +413,8 @@ nav #profile-pic {
     height: 4rem;
 }
 /*CSS for Profile Page*/
-.profile-body {
-    color: white;
+#profile-header {
+}
+#profile-body {
+    background-color: white;
 }
