@@ -29,9 +29,7 @@ header {
     color: white;
     background-color: #C3D5FF;
     width: 100%;
-}
 
-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,6 +37,24 @@ header {
     background-color: #C3D5FF;
     padding: 0 1em;
     height: 6rem;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+nav a {
+    margin-right: 1rem;
+    padding: 0 2rem;
+    font-size: 1.25rem;
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: rgb(55, 40, 68);
 }
 
 h1 {
@@ -228,6 +244,7 @@ input, .btn{
     position: fixed;
     width: 100%;
     margin: auto;
+    margin-top: 6em;
 }
 
 .filter-bar {
@@ -236,7 +253,7 @@ input, .btn{
     background-color: white;
     border-bottom: solid lightgray;
     padding: 1em;
-    margin-top: 6em;
+    
     gap: 1.5em;
 }
 
@@ -501,4 +518,10 @@ nav {
 /*CSS for Profile Page*/
 .profile-body {
     color: white;
+}
+
+footer {
+    color: white;
+    text-align: center;
+    height: 4rem;
 }
