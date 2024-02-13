@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 html, body, main {
     height: 100vh;
 }
@@ -21,6 +25,7 @@ body * {
 
 header {
     height: 6rem;
+    position: fixed;
 }
 
 .split {
@@ -172,23 +177,40 @@ input, .btn{
 /* Posting interface */
 #postings-window {
     display: flex;
-    flex-direction: column;
+    flex-flow: column;
 }
 
 /* filter bar */
-#filter-bar {
+.parent {
+    position: fixed;
+    width: 100%;
+    margin: auto;
+}
+
+.filter-bar {
     display: flex;
+    flex-wrap: wrap;
     background-color: white;
     border-bottom: solid lightgray;
     padding: 1em;
+    margin-top: 6em;
     gap: 1.5em;
 }
 
-#filter-bar .search-bar{
+.filter-bar #search-bar{
     flex-basis: 10rem;
     border-radius: 1em;
     background-color: rgb(224, 224, 224);
+    color: black;
     padding: .5rem;
+}
+
+#search-bar::placeholder {
+    color: gray;
+}
+
+.filter-bar span {
+    padding: .5em;
 }
 
 .filter {
@@ -198,35 +220,48 @@ input, .btn{
     padding: .5rem;
 }
 
-#filter-bar span {
-    padding: .5em;
-}
-
 #post-viewer {
     display: flex;
+    flex-flow: column;
+    padding-top: 14rem;
+    height: 100%;
 }
 
 #posting-list {
     background-color: white;
-    flex-grow: 0;
     flex-shrink: 0;
+    flex-grow: 0;
     flex-basis: 20rem;
     border-right: solid lightgray;
     height: 100vh;
+    overflow: visible;
+    height: auto;
 }
 
-/* Posting Expanded */
+
 #post-expanded {
+    display: none;
+}
+
+
+/* Posting Card */
+.posting-card {
     display: flex;
     flex-direction: column;
-    background-color: rgb(245, 247, 247);
-    padding: 2.5rem;
-    height: 100%;
+    flex-wrap: wrap;
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding: 2em;
+    background-color: white;
+    border-bottom: solid rgb(215, 215, 215);
 }
 
-.metadata {
-    font-style: italic;
-    font-size: .9rem;
+.posting-card h4 {
+    margin: 0;
+}
+
+.posting-card .tag {
+    flex-shrink: 10;
 }
 
 .tag-container {
@@ -271,41 +306,6 @@ input, .btn{
     font-size: 1rem;
 }
 
-.btn {
-    flex-shrink: 0;
-    justify-content: center;
-    text-align: center;
-    justify-content: center;
-    vertical-align: center;
-    font-weight: bold;
-    background-color: #8c7ca1;
-    color: black;
-    margin: .5rem;
-    width: 10em;
-}
-
-
-
-/* Posting Card */
-.posting-card {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    flex-grow: 0;
-    flex-shrink: 0;
-    padding: 2em 1.5em;
-    background-color: white;
-    border-bottom: solid rgb(215, 215, 215);
-}
-
-.posting-card h4 {
-    margin: 0;
-}
-
-.posting-card .tag {
-    flex-shrink: 10;
-}
-
 #profile-icon {
     display: flex;
     align-items: center;
@@ -313,9 +313,61 @@ input, .btn{
 }
 
 #profile-pic {
-    height: 1.5em;
+    height: 4em;
     border-radius: 50%;
-    margin-right: .75rem;
+    margin-right: .75rem;  
+}
+
+@media (max-width: 410px) {
+    #post-viewer {
+        padding-top: 17em;
+    }
+}
+
+@media (min-width: 598px) {
+    #posting-list {
+        overflow: auto;
+    }
+
+    #post-viewer {
+        flex-flow: row;
+        overflow: hidden;
+        padding-top: 10rem;
+    }
+
+    /* Posting Expanded */
+    #post-expanded {
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(245, 247, 247);
+        padding: 2.5rem;
+        height: 100%;
+        overflow: auto;
+    }
+
+    .metadata {
+        font-style: italic;
+        font-size: .9rem;
+    }
+
+    #btn-container {
+        display: flex;
+        flex-flow: row;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        flex-shrink: 0;
+        justify-content: center;
+        text-align: center;
+        justify-content: center;
+        vertical-align: center;
+        font-weight: bold;
+        background-color: #8c7ca1;
+        color:#000000;
+        margin: .5rem;
+        width: 16em;
+    }
 }
 
 header {
@@ -324,7 +376,7 @@ header {
     align-items: center;
     color: white;
     background-color: #9ecbe2;
-    padding: 0 20px;
+    padding: 0 1em;
     height: 6rem;
 }
 
@@ -335,7 +387,7 @@ nav {
 }
 
 nav a {
-    margin-right: 20px;
+    margin-right: 1rem;
     padding: 0 2rem;
     font-size: 1.25rem;
 }
@@ -351,6 +403,7 @@ h1 {
     padding-bottom: 1rem;
     object-fit: cover;
     border-radius: 50%;
+    flex-grow: 0;
 }
 
 #globe {

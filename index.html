@@ -15,22 +15,28 @@
                     <a>Projects</a>
                     <a>Saved</a>
                     <a>Personal</a>
-                <img id="profile-pic" src="img/profile.png" alt="profile">
-            </nav>
+                    <img id="profile-pic" src="img/profile.png" alt="profile">
+                </nav>
         </header>
         <main id="postings-window">
-            <div id="filter-bar">
-                <div class="search-bar">
-                    <span>Search Input</span>
-                    <!--icon-->
-                </div>
-                <div class="filter" id="skill-filter">
-                    <span>All Roles</span>
-                    <!--icon-->
-                </div>
-                <div class="filter" id="location-filter">
-                    <span>All Locations</span>
-                    <!--icon-->
+            <div class="parent">
+                <div class="filter-bar">
+                    <span>Filter:</span>
+                    <input id="search-bar" placeholder="Search Input"></input>
+                    <select class="filter" id="skill-filter">
+                        <option value="all">All Roles</option>
+                        <option value="engineer">Engineer</option>
+                        <option value="front-end">Front-End</option>
+                        <option value="product-man">Product Manager</option>
+                        <option value="graphic-des">Graphic Designer</option>
+                    </select>
+                    <select class="filter" id="skill-filter">
+                        <option value="all">All Locations</option>
+                        <option value="seattle">Seattle, WA</option>
+                        <option value="bellevue">Bellevue, WA</option>
+                        <option value="uw">University of Washington</option>
+                        <option value="cap-hill">Capitol Hill, Seattle</option>
+                    </select>
                 </div>
             </div>
            <section id="post-viewer">
@@ -54,7 +60,7 @@
                         </div>
                         <div id="short-description">
                             <p>
-                                Sample description text. this description would be relatively short
+                                Imagine a workout plan you could keep up no matter where in the world you are. 
                             </p>
                         </div>
                     </div>
@@ -71,12 +77,49 @@
                         </div>
                         <div id="short-description">
                             <p>
-                                Sample description text. this description would be relatively short
+                                Your dog could use a break. Pamper them with a program to make them more at peace with their busy lives.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="posting-card">
+                        <h4>Beach Home Generator App</h4>
+                        <div id="profile-icon">
+                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile picture for Jane Doe">
+                            <p>Joe Beachhouse</p>
+                        </div>
+                        <div class="tag-container">
+                            <div class="tag">
+                                <span>Engineer</span>
+                            </div>
+                            <div class="tag">
+                                <span>Graphic Designer</span>
+                            </div>
+                        </div>
+                        <div id="short-description">
+                            <p>
+                                An app to generate schematic layouts for beach houses.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="posting-card">
+                        <h4>Miniature GoPros for Koi Fish</h4>
+                        <div id="profile-icon">
+                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile picture for Jane Doe">
+                            <p>Bob Pondenjoyer</p>
+                        </div>
+                        <div class="tag-container">
+                            <div class="tag">
+                                <span>Product Manager</span>
+                            </div>
+                        </div>
+                        <div id="short-description">
+                            <p>
+                                Wouldn't it be cool to see first-person footage of a koi fish's day? Help us make it happen.
                             </p>
                         </div>
                     </div>
                 </section>
-                <div id="post-expanded">
+                <div id="post-expanded" class="hidden lg:block">
                     <div id="posting-header">
                         <div id="profile-icon">
                             <img id="profile-pic" src="img/blankpfp.jpg" alt="profile">
@@ -100,10 +143,14 @@
                         </section>
                         <section id="description">
                             <h4>Description</h4>
-                            <p>Sample description text. this description would be relatively short but it's likely that it would take up at least a few lines of text overall. We should be prepared for wrapping the text as needed based on the needs of those who use the description of the posting.</p>
+                            <p>
+                                 Looking for a collaborator to develop application front-end and client interactions. Must be a diligent worker, experienced in React Native. 
+                            </p>
 
                             <h4>Project Pitch</h4>
-                            <p>Sample description text. this description would be relatively short but it's likely that it would take up at least a few lines of text overall. We should be prepared for wrapping the text as needed based on the needs of those who use the description of the posting.</p>
+                            <p>
+                                Imagine a workout plan you could keep up no matter where in the world you are. Find the best gyms, sports leagues, and outdoor activities in every country.
+                            </p>
                         </section>
                         <div id="btn-container">
                             <div class="btn">Apply Now</div>
