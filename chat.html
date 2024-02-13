@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Inbox</title>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- normalize.css for cross-browser stuff -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+
+  <!-- required fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/cssDraft.css">
+  <meta name="author" content="Hoda Ayad, Yohan Cho, Kina Chong, and Emma Finkel">
+</head>
+<body>
+    <header>
+        <h1 >CAMPUS CLOUD</h1>
+            <nav>
+                <a href="/index.html">Projects</a>
+                <a href="/chat.html">Chat</a>
+                <a href="profile.html">Profile</a>
+                <img src="img/profile.png" alt="profile icon" class="nav-profile-pic">
+            </nav>
+    </header>
+    <main>
+        <!-- middle area where inbox is -->
+        <div id="inbox">
+            
+            <!-- list of messages -->
+            <div id="list-viewer">
+                
+                <!-- header -->
+                <!-- includes: title -->
+                <div id="inbox-heading">
+                    <h4>Inbox</h4>
+                    <div class="compose-message"><a href="#"><i class="fa fa-pen-to-square" aria-label="compose-message"></i></a></div>
+                    <!-- Search bar-->  
+                    <div id="search-bar">
+                        <input type="text" placeholder="search inbox">
+                    </div>
+                </div>
+                
+                
+                
+                <!-- people / promo of message (scrollable)-->
+               <!-- card for each person -->
+                <div class="message-list">
+                    <!-- each card includes: profile pic, persons name, identifier about them, date of last communication, sample of last text -->
+                    <div class="message-card">
+                        <!-- profile pic -->
+                        <div id="profile-icon">
+                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile picture for Jane Doe">
+                            <p>John Doe</p>
+                            
+                        </div>    
+                        <span id="title">UW student</span>
+                        <!-- name, identifier, last message snippet -->
+                        <p>snippet of last message, if too long should cutoff</p>
+                            <!-- date of last text -->
+                        <div class="last-text-date">
+                            <time datetime="2024-2-12"><p>2/12/2024</p></time>
+                        </div>
+                    </div>
+
+                    <div class="message-card">
+                        <!-- profile pic -->
+                        <div id="profile-icon">
+                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile picture for Jane Doe">
+                            <p>Emma Finkel</p>
+                        </div>    
+                        <span id="title">UW student</span>
+                            <p>How's it going?</p>
+                          <!-- date of last text -->
+                        <div class="last-text-date">
+                            <time datetime="2024-2-12"><p>2/12/2024</p></time>
+                        </div>
+                    </div>
+
+                    <div class="message-card">
+                        <!-- profile pic -->
+                        <div id="profile-icon">
+                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile picture for Jane Doe">
+                            <p>Hoda Ayad</p>
+                        </div>    
+                        <span id="title">UW student</span>
+                        <p>What do you think?</p>
+                            <!-- date of last text -->
+                        <div class="last-text-date">
+                            <time datetime="2024-2-12"><p>2/12/2024</p></time>
+                        </div>
+                    </div>
+
+                    <div class="message-card">
+                        <!-- profile pic -->
+                        <div id="profile-icon">
+                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile picture for Jane Doe">
+                            <p>Yohan Cho</p>
+                        </div>    
+                        <span id="title">UW student</span>
+                            <p>I definitely agree.</p>
+                            <!-- date of last text -->
+                        <div class="last-text-date">
+                            <time datetime="2024-2-12"><p>2/12/2024</p></time>
+                        </div>
+                    </div>
+
+                    <div class="message-card">
+                        <!-- profile pic -->
+                        <div id="profile-icon">
+                            <img id="profile-pic" src="img/blankpfp.jpg" alt="profile picture for Jane Doe">
+                            <p>Kina Chong</p>
+                        </div>    
+                        <span id="title">UW student</span>
+                        <p>sounds good!</p>
+                            <!-- date of last text -->
+                        <div class="last-text-date">
+                            <time datetime="2024-2-12"><p>2/12/2024</p></time>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- message -->
+            <div class="middle-right">
+                <!-- header (who you are talking to) -->
+                <!-- includes: back arrow, name, identifier about them, and link to profile -->
+                <div class="message-heading">
+                    <div class="back-arrow"><a href="#"><i class="fa fa-angle-left" aria-label="back-arrow"></i></a></div>
+                    <h3>John Doe</h3>
+                    <h4>University of Washington Student</h4>
+                </div>
+                
+                <!-- message area (scrollable)-->
+                <!-- includes: message thread, date that message was sent, time stamp of messages-->
+                <div class="messaging">
+                    <!-- first timeframe of messages -->
+                    <time datetime="2024-2-12" id="date">Mon, Feb 12, 2024</time>
+                   
+                    <!-- message thread -->
+              
+
+                        <!-- users-contact intro -->
+                        <div class="other-messages">
+                            <div id="profile-icon">
+                                <img id="profile-pic" src="img/blankpfp.jpg" alt="profile">
+                            </div>
+                            <div class="message">
+                                <p>Hi Jane Doe! <br>I am also a thrid-year undergraduate student at the University of Washington. I am also really interested in using AI in a healthcare setting. I have an idea for a startup that I would love to run by you.</p>
+                            </div>
+                        </div>
+
+                        <!-- user response -->
+                        <div class="my-messages">
+                            <div class="message">
+                                <p>Hi John Doe, Thank you for reaching out. Are you availible to meet at Suzzallo Starbucks on Tuesday to discuss your idea? </p>
+                            </div>
+                            <div id="profile-icon">
+                                <img id="profile-pic" src="img/blankpfp.jpg" alt="profile">
+                            </div>
+                        </div>    
+                            
+                        <!-- users-contact response -->
+                        <div class="other-messages">
+                            <div id="profile-icon">
+                                <img id="profile-pic" src="img/blankpfp.jpg" alt="profile">
+                            </div>
+                            <div class="message">
+                                <p>Tuesday at 3:30 works for me</p>
+                            </div>
+                        </div> 
+                
+                        <!-- user response -->
+                        <div class="my-messages">
+                            <div class="message">
+                                <p>3:30 sounds great. See you then. </p>
+                            </div>
+                            <div id="profile-icon">
+                                <img id="profile-pic" src="img/blankpfp.jpg" alt="profile">
+                            </div>
+                        </div> 
+                    </div>
+                        <!-- type/send a message -->
+                    <!-- inclides: text bar with text inside, send button -->
+                    <div id="draft-message">
+                        <input class="to-send" placeholder="type your message..."> 
+                        <button type="button" class="btn">Send</button>
+                    </div>
+                </div>
+            </div>
+
+                
+            
+        </div>
+    </main>
+    <footer> Contact us at:
+        <div class="footer-content">
+            <a href="mailto:hayad03@uw.edu">hayad03@uw.edu</a>
+            <a href="mailto:yohhn@uw.edu">yohhn@uw.edu</a>
+            <a href="mailto:kchong@uw.edu">kchong@uw.edu</a>
+            <a href="emmafin@uw.edu">emmafin@uw.edu</a>
+        </div>
+    </footer>
+</body>
+</html>

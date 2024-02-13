@@ -1,0 +1,125 @@
+body div {
+    margin: 2em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(245, 247, 247);
+    border-radius: 5rem;
+}
+
+h3 {
+    margin-top: 0;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#posting-header {
+    background-color: white;
+    margin: 0;
+    padding: 2rem;
+    padding-top: 1rem;
+    border-radius: 5rem 5rem 0 0 ;
+}
+
+#posting-header * {
+    margin-bottom: .75rem;
+}
+
+#tag-container {
+    display: flex;
+    flex-grow: 0;
+    flex-wrap: wrap;
+}
+
+#btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0;
+    justify-content: center;
+}
+
+#metadata {
+    font-style: italic;
+    font-size: .9rem;
+}
+
+#profile {
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+}
+
+#profile-pic {
+    height: 1.5em;
+    border-radius: 50%;
+    margin-right: .75rem;
+}
+
+#description {
+    margin-left: .5rem;
+}
+
+.tag {
+    background-color: white;
+    flex-shrink: 0;
+    margin: .2rem;
+    padding: .75rem;
+    border-radius: 18px;
+    border-style: solid;
+    border-color: gray;
+    border-width: .2rem;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: center;
+
+    &:nth-child(3n-1) {
+        background-color: #8c7ca1 !important;
+        border-color: #412d5a !important;
+    }
+    &:nth-child(3n-2) {
+        background-color: #797cb5 !important;
+        border-color: #303259 !important;
+    }
+    &:nth-child(3n-3) {
+        background-color: #9ecbe2 !important;
+        border-color: #2a4959 !important;
+    }
+}
+
+.btn {
+    flex-shrink: 0;
+    justify-content: center;
+    text-align: center;
+    justify-content: center;
+    vertical-align: center;
+    font-weight: bold;
+    background-color: #8c7ca1;
+    color: black;
+    margin: .5rem;
+    width: 10em;
+}
+
+@media (min-width: 598px) {
+    #posting-body {
+        padding-left: 1rem;
+    }
+
+    #posting-header {
+        padding-left: 3.5rem;
+    }
+
+    #description {
+        margin-right: 5rem;
+    }
+
+    .btn {
+        width: 16em;
+    }
+}
