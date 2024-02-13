@@ -1,33 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <title>Inbox</title>
+    
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Hoda Ayad, Yohan Cho, Kina Chong, and Emma Finkel">
+
+  <!-- normalize.css for cross-browser stuff -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+
+  <!-- required fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
   <link rel="stylesheet" href="css/chat.css">
-  <title>chat page</title>
+
+  <meta name="author" content="Hoda Ayad, Yohan Cho, Kina Chong, and Emma Finkel">
 </head>
+
 <body>
     <!-- side bar -->
-        <!-- includes: logo, access to jobPosting, find people, and inbox -->
-     
-    <!-- header -->
-        <!-- includes: title of page, access to profile page -->
+    <nav class="sidebar">
+         <!-- includes: logo, access to jobPosting, find people, and inbox -->
+        <div class="logo">
+            <p>CC</p>
+        </div>
+        <h2>Job Postings</h2>
+        <h2>People</h2>
+        <h2>Inbox</h2>
+    </nav>
     
-    <!-- middle area where inbox is -->
-        <!-- list of messages -->
-            <!-- header -->
-                <!-- includes: title, ..., and compose buttons-->
-            <!-- people / promo of message (scrollable)-->
-                <!-- card for each person -->
-                    <!-- each card includes: profile pic, persons name, identifier about them, date of last communication, sample of last text -->
-        <!-- message -->
-            <!-- header (who you are talking to) -->
-                <!-- includes: name, identifier about them, and ... -->
-            <!-- message area (scrollable)-->
+    <!-- header -->
+     <nav class="heading">
+        <!-- includes: title of page, access to profile page -->
+        <div id="hamburger-menu"><a href="#"><i class="fa fa-bars" aria-label="menu"></i></a></div>
+        <h1>Inbox</h1>
+        <div id="profile-menu"><a href="#"><i class="fa fa-user" aria-label="profile-menu"></i></a></div>
+    </nav>
+
+    <main>
+        <!-- middle area where inbox is -->
+        <div class="middle-area">
+            
+            <!-- list of messages -->
+            <div class="middle-left">
+                
+                <!-- header -->
+                <!-- includes: title and compose buttons-->
+                <div class="inbox-heading">
+                    <h1>Inbox</h1>
+                    <div class="compose-message"><a href="#"><i class="fa fa-pen-to-square" aria-label="compose-message"></i></a></div>
+                    
+                </div>
+                
+                <!-- Search bar-->  
+                <div class="search-bar">
+                    <div class="search-icon"><a href="#search"><i class="fa fa-magnifying-glass" aria-label="search-icon"></i></a></div>
+                    <input class="search" type="text" placeholder="search inbox">
+                </div>
+                
+                <!-- people / promo of message (scrollable)-->
+                <div class="choose-message">
+                    
+                    <!-- card for each person -->
+                    <div class="message">
+                        <!-- each card includes: profile pic, persons name, identifier about them, date of last communication, sample of last text -->
+                        
+                        <!-- profile pic -->
+                        <div class="profile">
+                            <p>INITIAL</p>
+                        </div>
+                        
+                        <!-- name, identifier, last message snippet -->
+                        <div class="identifiers">
+                            <h2>First-name Last-name</h2>
+                            <h3>identity</h3>
+                            <p>snipet of last message, if too long should cutoff</p>
+                        </div>
+
+                        <!-- date of last text -->
+                        <div class="last-text-date">
+                            <time datetime="2024-2-12" class="date">2/12/2024</time>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- message -->
+            <div class="middle-right">
+                <!-- header (who you are talking to) -->
+                <!-- includes: back arrow, name, identifier about them, and link to profile -->
+                <div class="message-heading">
+                    <div class="back-arrow"><a href="#"><i class="fa fa-angle-left" aria-label="back-arrow"></i></a></div>
+                    <h2>First-name Last-name</h2>
+                    <h3>identity</h3>
+                    <div class="profile">
+                        <p>INITIAL</p>
+                    </div>
+                </div>
+                
+                <!-- message area (scrollable)-->
                 <!-- includes: message thread, date that message was sent, time stamp of messages-->
-            <!-- type/send a message -->
+                <div class="messaging">
+                    <!-- first timeframe of messages -->
+                    <time datetime="2024-2-12" class="date">Mon, Feb 12, 2024</time>
+                   
+                    <!-- message thread -->
+                    <div class="message-thread">
+
+                        <!-- intro -->
+                        <div class="other-messages">
+                            <div class="profile">
+                                <p>INITIAL</p>
+                            </div>
+                            <div class="message">
+                                <p>Hi Jane Doe! <br>I am also a thrid-year undergraduate student at the University of Washington. I am also really interested in using AI in a healthcare setting. I have an idea for a startup that I would love to run by you.</p>
+                            </div>
+                        </div>
+
+                        <!-- user response -->
+                        <div class="my-messages">
+                            <div class="profile">
+                                <p>INITIAL</p>
+                            </div>
+                            <div class="message">
+                                <p>Hi ___, Thank you for reaching out. Let's meetup for coffee to disucuss your idea. Are you availible to meet at Suzzallo Starbucks on Tuesday? </p>
+                            </div>
+                        </div>    
+                            
+                        <!-- user response -->
+                        <div class="other-messages">
+                            <div class="profile">
+                                <p>INITIAL</p>
+                            </div>
+                            <div class="massage">
+                                <p>Tuesday works for me. How about 3:30?</p>
+                            </div>  
+                        </div>
+                
+                        <!-- user response -->
+                        <div class="my-messages">
+                            <div class="profile">
+                                <p>INITIAL</p>
+                            </div>
+                            <div class="message">
+                                <p> 3:30 sounds great. See you then. </p>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <!-- type/send a message -->
                 <!-- inclides: text bar with text inside, send button -->
+                <div class="draft-message">
+                    <input class="to-send" placeholder="type your message..."> 
+                    <button type="button" class="send-message">Send</button>
+                </div>
+            </div>
+            
+        </div>
+    </main>
 </body>
 </html>

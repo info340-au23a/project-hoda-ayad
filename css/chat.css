@@ -1,0 +1,36 @@
+html {
+    height: 100%
+}
+
+body * {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar {
+    background-color: aquamarine;
+    flex-direction: column;
+}
+
+.heading {
+    background-color: pink;
+}
+
+.middle-area {
+    margin: 5%;
+    background-color: lightgreen;
+    flex-direction: row;
+}
+
+.middle-left {
+    background-color: antiquewhite;
+}
+
+.middle-right {
+    background-color: aliceblue;
+}

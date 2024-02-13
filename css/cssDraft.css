@@ -3,13 +3,13 @@
 }
 
 html, body, main {
-    height: 100%;
+    height: 100vh;
 }
 
 body {
     margin: 0;
     padding: 0;
-    background-color: #C3D5F5;
+    background-color: #9ecbe2;
 }
 
 body * {
@@ -17,7 +17,10 @@ body * {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-;
+}
+
+header {
+    height: 6rem;
 }
 
 .split {
@@ -133,6 +136,12 @@ input, .btn{
     margin-top: 7.5%;
 }
 
+.get-connected {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /* CSS for Get Connected page */
 .get-connected * {
     width: 45%;
@@ -214,6 +223,7 @@ input, .btn{
     flex-grow: 0;
     flex-basis: 20rem;
     border-right: solid lightgray;
+    height: 100vh;
     overflow: visible;
     height: auto;
 }
@@ -263,9 +273,9 @@ input, .btn{
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    
 
-    /*referenced from this Medium article 
+
+    /*referenced from this Medium article
     medium.com/@bikramkawan/css-alternating-colors-using-nth-child-for-three-elements-scss-370d636d4f40*/
     &:nth-child(3n-1) {
         background-color: #8c7ca1;
@@ -342,4 +352,95 @@ input, .btn{
         margin: .5rem;
         width: 16em;
     }
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background-color: #9ecbe2;
+    padding: 0 20px;
+    height: 6rem;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+nav a {
+    margin-right: 20px;
+    padding: 0 2rem;
+    font-size: 1.25rem;
+}
+
+h1 {
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+#globe, #profile-pic {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#globe {
+    width: 5rem;
+    height: 5rem;
+}
+
+nav #profile-pic {
+    margin-left: auto;
+    width: 4rem;
+    height: 4rem;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background-color: #9ecbe2;
+    padding: 0 20px;
+    height: 6rem;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+nav a {
+    margin-right: 20px;
+    padding: 0 2rem;
+    font-size: 1.25rem;
+}
+
+h1 {
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+#globe, #profile-pic {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#globe {
+    width: 5rem;
+    height: 5rem;
+}
+
+nav #profile-pic {
+    margin-left: auto;
+    width: 4rem;
+    height: 4rem;
 }
