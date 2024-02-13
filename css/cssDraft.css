@@ -413,3 +413,8 @@ input, .btn{
     }
 }
 
+
+/*CSS for Profile Page*/
+.profile-body {
+    color: white;
+}
