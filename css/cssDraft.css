@@ -7,7 +7,7 @@ html, body, main {
 }
 
 main {
-    padding-bottom: 5rem;
+    padding-bottom: 2rem;
 }
 
 body {
@@ -287,7 +287,7 @@ h4 {
     gap: 1.5em;
 }
 
-.filter-bar #search-bar {
+#search-bar {
     flex-basis: 10rem;
     border-radius: 1em;
     background-color: rgb(224, 224, 224);
@@ -428,11 +428,11 @@ h4 {
 
 .btn {
     text-align: center;
-
+    border-radius: 14px;
     background-color: #57377d;
     font-weight: bold;
     color:white;
-
+    padding: .5rem;
     margin: .5rem;
     width: 16em;
 }
@@ -551,7 +551,7 @@ nav {
 
 #profile-main {
     height: auto;
-    margin-bottom: 1rem;
+    padding-bottom: 1rem;
 }
 
 #profile-viewer {
@@ -561,6 +561,7 @@ nav {
 
 #profile-body {
     padding: 0 2rem;
+    padding-bottom: 4em;
 }
 
 #profile-header {
@@ -580,13 +581,13 @@ nav {
 
 /* Messaging center */
 #inbox {
-    padding-top: 6em;
+    padding-top: 6.5em;
     display: flex;
     flex-grow: 0;
     flex-shrink: auto;
     height: 100%;
     width: 100%;
-    border: solid;
+    border: solid lightgray;
     overflow-x: auto;
 }
 
@@ -606,18 +607,16 @@ nav {
 /* scroll through people in inbox */
 #list-viewer {
     background-color: white;
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 25;
+    flex: 0 0 auto;
     height: 100%;
-    border-right: solid black;
+    border-right: solid lightgray;
     overflow-y: auto;
 }
 
 /* contains "inbox" text (h1) and compose icon (.compose-message) */
 #inbox-heading {
     padding: 0 0rem;
-    border-bottom: solid;
+    border-bottom: solid lightgray;
     position: sticky;
     top: 10px;
     background-color: white;
@@ -628,16 +627,18 @@ nav {
     font-weight: bold;
     margin: 0;
     margin-top: 1.5rem;
+    padding-bottom: 10px;
+    border-bottom: solid;
 }
 
-#search-bar {
-    flex-basis: 90%;
-    position: sticky;
-    top: 92.5px;
-    border-top: solid;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    background-color: white;
+#inbox #search-bar-formating {
+    padding-bottom: 12px;
+}
+
+.message-list {
+    padding-bottom: 10em;
+    height: 100%;
+    overflow-y: auto;
 }
 
 .message-list {
@@ -646,7 +647,7 @@ nav {
 
 /* each individual message. contains a profile picture (#profile-icon), identifiers of the people (#identifiers) (name (h2), identity (h3), and snipet of last message (p)) */
 .message-card {
-    border: solid;
+    border-top: solid lightgray;
     display: flex;
     flex-direction: column;
     padding: 1rem;
@@ -665,23 +666,22 @@ nav {
 .middle-right {
     background-color: white;
     border-right: solid lightgray;
-
+    
+    flex-grow: 0;
     height: 100%;
-    width: 100%;
+   
+    overflow-y: hidden;
+    padding-bottom: 10em;
 }
 
 .message-heading {
-    border-bottom: solid;
+    border-bottom: solid lightgray;
     text-align: center;
     position: sticky;
     top: 20px;
     background-color: white;
     height: 19%;
-}
-
-.message-heading h3 {
-    font-weight: bold;
-    font-size: large;
+    padding-bottom: 7rem;
 }
 
 .message-heading h2 {
@@ -689,18 +689,11 @@ nav {
 }
 
 .messaging {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    padding: 2rem;
-    padding-bottom: 7rem;
     flex: 0 1 auto;
     flex-flow: column nowrap;
+    padding: 2rem;
+    padding-bottom: 7.5rem;
     height: 100%;
-    border-bottom: solid;
-}
-
-.message-list {
     overflow-y: auto;
 }
 
@@ -757,37 +750,44 @@ time {
     margin-left: 3px;
 }
 
-/* container for sending a message.
-   contains a input section (.to-send) and a button (.btn) */
-#draft-messages {
+#draft-wrapper {
+    position:fixed;
+    bottom: 2em;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    padding-bottom: 1rem;
-    border-style: solid none none none;
-    border-color: whitesmoke;
-    justify-content: space-evenly;
+    flex-flow: column nowrap;
+    padding-bottom: 3rem;
+    background-color: white;   
 }
 
+/* container for sending a message.
+   contains a input section (.to-send) and a button (.btn) */
+
 #draft-message input {
+    flex-shrink: 10;
     border-radius: 18px;
     border: 2px solid whitesmoke;
-    padding-top: 1%;
+    padding: 1 em;
     margin-top: 2%;
     margin-left: 3%;
-    padding-bottom: 1%;
-    width: 5;
     height: 3em;
+    width: 35em;
+    max-width: 35rem;
     background-color: whitesmoke;
     font-size: 13px;
 }
 
+#draft-message input::placeholder {
+    color: lightgray;
+}
+
 #draft-message .btn {
+    flex: 0 0 auto;
     border-radius: 18px;
     border: 2px solid rgb(116, 209, 116);
-    padding-top: 1%;
+    padding: 1% 0;
     margin-top: 2%;
-    padding-bottom: 1%;
-    width: 18%;
+    width: 10em;
     background-color: rgb(116, 209, 116);
 }
 
@@ -796,7 +796,7 @@ time {
         display: none;
     }
 
-    #middle-left {
+    #list-viewer {
         flex-basis: 100%;
     }
 }
