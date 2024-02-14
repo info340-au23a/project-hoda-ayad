@@ -134,7 +134,7 @@ h4 {
     background-color: #C3D5FF;
 }
 
-.get-connected input, .get-connected button {
+.get-connected input, .get-connected a {
     border-radius: 18px;
     border: 2px solid #fff;
     padding-top: 1%;
@@ -189,7 +189,7 @@ h4 {
 }
 
 @media (max-width: 992px) {
-    .get-connected input, .get-connected button {
+    .get-connected input, .get-connected a {
         height: 2.5rem;
         width: 15rem;
         margin-top: 7.5%;
@@ -198,7 +198,7 @@ h4 {
 
 
 
-.get-connected button {
+.get-connected a {
     background-color: #97b2f0;
 }
 
@@ -251,7 +251,7 @@ h4 {
         align-items: center;
     }
 
-    .get-connected input, .get-connected button {
+    .get-connected input, .get-connected a {
         margin-top: 4%;
     }
 }
