@@ -287,7 +287,7 @@ h4 {
     gap: 1.5em;
 }
 
-.filter-bar #search-bar {
+#search-bar {
     flex-basis: 10rem;
     border-radius: 1em;
     background-color: rgb(224, 224, 224);
@@ -677,7 +677,7 @@ nav {
     flex: 0 1 auto;
     flex-flow: column nowrap;
     padding: 2rem;
-    padding-bottom: 7rem;
+    padding-bottom: 7.5rem;
     height: 100%;
     overflow-y: auto;
 }
@@ -740,13 +740,12 @@ time {
 
 #draft-wrapper {
     position:fixed;
-    bottom:2em;
-    width:100%;
+    bottom: 2em;
+    width: 100%;
     display: flex;
     flex-flow: column nowrap;
     padding-bottom: 3rem;
-    background-color: white;
-    justify-content:space-around;
+    background-color: white;   
 }
 
 /* container for sending a message.
