@@ -15,6 +15,7 @@ body * {
     line-height: normal;
 }
 
+
 /* Nav Bar */
 header {
     display: flex;
@@ -40,6 +41,10 @@ nav a {
     font-size: 1.25rem;
 }
 
+/* Nav Bar */
+#hamburger-menu {
+    display:none;
+ }
 /* Nav Bar */
 h1 {
     margin-right: auto;
@@ -72,10 +77,17 @@ nav #profile-pic {
 /* Messaging center */
 #middle-area {
     margin: 2%;
-    background-color: lightgreen;
+    background-color: white;
+#inbox {
+    padding-top: 6em;
     display: flex;
     max-height: 75%;
     max-width: 90%;
+    border: solid;
+    flex-grow: 0;
+    flex-shrink: auto;
+    height: 100%;
+    width: 100%;
 }
 
 /* profile picture */
@@ -92,64 +104,120 @@ nav #profile-pic {
 }
 
 /* scroll through people in inbox */
-#middle-left {
+#list-viewer {
     background-color: white;
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: 25%;
-    margin-right: 2%;
-    border-right: solid lightgray;
+    height: 100%;
+    border-right: solid black;
     overflow-y: auto;
-    border-right: solid;
 }
 
 /* contains "inbox" text (h1) and compose icon (.compose-message) */
 #inbox-heading {
     border-bottom: solid;
-    margin-top: 36px;
+    padding-top:0;
     position: sticky;
 }
 
-/* the bar to search for people in messages. 
-   contians the search icon (.search-icon) and input (.search) */
-
-#search-bar {
-    flex-basis: 90%;
-    position: sticky;
+.message-list {
+    margin-top: 2em;
+    top: 92.5px;
+    border-bottom: solid;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: white;
 }
-
 
 /* the container for the message cards (.message-card) 
 .message-list {
+    margin-top: 2em;
+    top: 92.5px;
+    border-bottom: solid;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: white;
 }
-*/
+
+/* the container for the message cards (.message-card) */
+#middle-left .message-list {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+
+    
+}
 
 /* each individual message. contains a profile picture (#profile-icon), identifiers of the people (#identifiers) (name (h2), identity (h3), and snipet of last message (p)) */
 .message-card {
-    border: solid;
+    border-bottom: solid;
     display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    flex-direction: row;
 }
 
-.message-card #profile-icon {
-    float:left;
-    padding:5px;
+.message-card .profile-pic {
+    padding: 0 10px;
 }
+
+.message-card .identifiers {
+   display:block;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+
+.message-card .last-text-date {
+    padding: 0px;
+    margin: 0px;
+
+}
+
+.message-card #title {
+    font-style: italic;
+}
+
+#profile-icon p {
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+.message-card .profile-pic {
+    padding: 0 10px;
+}
+
+.message-card .identifiers {
+   display:block;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+
+.message-card .last-text-date {
+    padding: 0px;
+    margin: 0px;
+
+}
+
 
 /* scroll through conversation and send message */
 .middle-right {
     background-color: white;
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 75%;
-    margin-right: 2%;
-    border-right: solid lightgray;
-    overflow-y: auto;
+    border-right: solid black;
+    overflow: none;
+    height: 100%;
+    width: 100%;
 }
 
 .message-heading {
     border-bottom: solid;
+    margin-bottom: 5px;
+    position: sticky;
+    top: 20px;
+    background-color: white;
+    height:fit-content;
     margin-bottom: 20px;
-    padding-bottom: 5px;
+    text-align: center;
 }
 
 .message-heading h2 {
@@ -158,42 +226,55 @@ nav #profile-pic {
 
 .message-heading h3 {
     padding: 0;
-    
+}
+
+.messaging {
+    display: flex;
+    flex-flow: column nowrap;
+    overflow: none;
+    padding: 2rem;
+}
+
+.message-thread {
+    flex: 0 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    overflow-y: scroll;
+    height: 100%;
+
 }
 
 .back-arrow {
     display: none;
 }
 /* date message was sent */
-time {
-    border-bottom: dashed;
-    border-top: dashed;
+.middle-right #date {
     text-align: center;
-    padding-left: 5px;
     border-color: lightgray;
-    display: flex;
+    display: block;
 }
 
 /* message sent from other person, on left side of chat.
    contains a profile picture (#profile-icon) and a message (.message) */
 .other-messages {
     display: flex;
-    float: left;
+    align-self: flex-start;
 }
 
 /* message sent from other person */
 .other-messages .message {
     background-color: rgb(233, 233, 233);
-    border-radius: 10%;
+    border-radius: 14px;
     max-width: 75%;
-    margin-right: 2em;
+    padding: 0 1em;
+    margin-right: 2.5em;
     margin-top: 10px;
     padding: 0px 10px;
 }
 
 /* ther person profile pic */
 .other-messages #profile-pic {
-    height: 1.5em;
+    height: 2.25em;
     padding-right: 1px;
     margin-right: 1px;
     margin-left: 3px;
@@ -203,20 +284,20 @@ time {
    contains a profile picture (#profile-icon) and a message (.message) */
 .my-messages {
     display: flex;
-    float:right;
+    justify-content: flex-end;
 } 
 
 .my-messages .message {
     background-color: #C3D5F5;
-    border-radius: 10%;
+    border-radius: 14px;
     max-width: 75%;
-    margin-left: 2em;
+    margin-left: 2.5em;
     margin-top: 10px;
     padding: 0px 10px;
 }
 
 .my-messages #profile-pic {
-    height: 1.5em;
+    height: 2.25em;
     padding-right: 1px;
     margin-right: 1px;
     margin-left: 3px;
@@ -225,31 +306,34 @@ time {
 /* container for sending a message.
    contains a input section (.to-send) and a button (.btn) */
 #draft-messages {
+    display: flex;
+    flex-direction: column;
     padding-bottom: 1rem;
     border-style: solid none none none;
-    border-color: whitesmoke;   
+    border-color: whitesmoke;  
+    justify-content: space-evenly;
 }
 
-input {
+#draft-message input {
     border-radius: 18px;
     border: 2px solid whitesmoke;
     padding-top: 1%;
     margin-top: 2%;
     margin-left: 3%;
     padding-bottom: 1%;
-    width: 73%;
-    height: 20px;
+    width: 5;
+    height: 3em;
     background-color: whitesmoke;
-    font-size: 13px;
+    font-size: 15px;
 }
 
-.btn {
+#draft-message .btn {
     border-radius: 18px;
     border: 2px solid rgb(116, 209, 116);
     padding-top: 1%;
     margin-top: 2%;
     padding-bottom: 1%;
-    width: 18%;
+    width: 10%;
     background-color: rgb(116, 209, 116);
 }
 
@@ -261,4 +345,40 @@ input {
     #middle-left {
         flex-basis: 100%;
     }
+
+    nav {
+        display:none;
+    }
+
+    #hamburger-menu {
+        display:block;
+        color:white;
+    }
+
 }
+
+@media (max-width: 768px) {
+    #hamburger-menu {
+        display:block;
+        color:white;
+    }
+
+    nav {
+        display:none;
+    }
+
+    .btn {
+        font-size: 12px;
+    }
+    input {
+        font-size: 12px;
+    }
+
+    .other-messages #profile-pic {
+        height: 1.5em;
+    }
+
+    .my-messages #profile-pic {
+        height: 1.5em;
+    }
+}}
