@@ -32,7 +32,7 @@ export default function JobFilter(props) {
         return <option key={loc} value={loc}>{loc}</option>
     })
 
-    // console.log(query, role, location);
+    //console.log(query, role, location);
 
     return (
         <Form className="job-filter-form p-4">
