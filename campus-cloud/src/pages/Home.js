@@ -9,15 +9,9 @@ function Home(props) {
     const [query, setQuery] = useState('');
     const [role, setRole] = useState('All Roles');
     const [location, setLocation] = useState('All Locations');
+    const [selectedPosting, setSelectedPosting] = useState(null);
     const [filteredData, setFilteredData] = useState(props.postings);
 
-    
-    // const filteredPostings = props.postings.filter((posting) => {
-    //     const nameMatch = (query === '') || ((posting.title.toLowerCase()).includes(query.toLowerCase()));
-    //     const roleMatch = (role === 'All Roles') || (role in posting.roles);
-    //     const locMatch = (location === 'All Locations') || (location === posting.location);
-    //     return nameMatch && roleMatch && locMatch;
-    // });
 
     
     const roleOptions = [...new Set(props.postings.reduce((all, current) => {
@@ -32,6 +26,7 @@ function Home(props) {
         setQuery(query);
         setRole(role);
         setLocation(loc);
+        setSelectedPosting(null);
         setFilteredData(() => {
             const filteredPostings = props.postings.filter((posting) => {
                 const nameMatch = (query === '') || ((posting.title.toLowerCase()).includes(query.toLowerCase()));
@@ -43,19 +38,29 @@ function Home(props) {
         });
     }
 
-    
+    function selectPosting(posting) {
+        setSelectedPosting(posting);
+    }
+
+    function clearFilter() {
+        setQuery('');
+        setRole('All Roles');
+        setLocation('All Locations');
+        console.log(query, role, location)
+    }
 
     return (
         <div className="home">
             <JobFilter roleOptions={roleOptions} 
                   locOptions={locOptions}
-                  applyFilterCallback={applyFilter}/>
+                  applyFilterCallback={applyFilter}
+                  clearFilterCallback={clearFilter}/>
             <Row style={{minHeight:'100%'}}>
                 <Col className='p-0' style={{minHeight:'100%'}}>
-                    <PostingsList key="postings-list" postings={filteredData}/>
+                    <PostingsList key="postings-list" postings={filteredData} selectPostingCallback={selectPosting}/>
                 </Col>
                 <Col className='p-0' style={{minHeight:'100%'}}>
-                    <PostingWindow key="posting-window" data={filteredData[0]}/>
+                    <PostingWindow key="posting-window" data={selectedPosting}/>
                 </Col>
             </Row>
         </div>

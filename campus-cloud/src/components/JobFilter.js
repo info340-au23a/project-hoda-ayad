@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import {
-    Form, Input, Row, Col, Label
+    Form, Input, Row, Col, Label, Button
 } from 'reactstrap'
 
 export default function JobFilter(props) {
@@ -21,12 +21,18 @@ export default function JobFilter(props) {
         if (event.target.id === "role-select") {
             setRole(newVal); 
             props.applyFilterCallback(query, newVal, location);
-            console.log("Set new role to: ", newVal)
         } else {
             setLocation(newVal);
             props.applyFilterCallback(query, role, newVal);
         }
         
+    }
+
+    function handleClear() {
+        setQuery('');
+        setLocation('All Locations');
+        setRole('All Roles'); 
+        props.applyFilterCallback('', 'All Roles', 'All Locations');
     }
 
     const roleElems = props.roleOptions.map((role) => {
@@ -36,7 +42,7 @@ export default function JobFilter(props) {
         return <option key={loc} value={loc}>{loc}</option>
     });
 
-    //console.log(query, role, location);
+    
 
     return (
         <Form className="job-filter-form p-4">
@@ -83,6 +89,11 @@ export default function JobFilter(props) {
                         </option>
                         {locElems}
                     </Input>
+                </Col>
+                <Col className="px-0">
+                    <Button onClick={handleClear}>
+                        Clear
+                    </Button>
                 </Col>
             </Row>
         </Form>

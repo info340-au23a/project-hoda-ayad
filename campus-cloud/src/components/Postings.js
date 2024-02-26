@@ -6,7 +6,7 @@ import { Card, CardSubtitle, CardTitle, CardText,
 
 export function PostingWindow({ data }) {
     let windowContent = <SelectPrompt />;
-    if (data !== undefined) {
+    if (data !== null) {
         windowContent = <PostingView data={data}/>;
     }
 
@@ -20,7 +20,12 @@ export function PostingWindow({ data }) {
 
 export function PostingsList(props) {
 
-    const postingCards = props.postings.map((posting) => <PostingCard key={posting.title} data={posting}/>)
+    function handleClick(posting) {
+        props.selectPostingCallback(posting);
+    }
+
+    const postingCards = props.postings.map((posting) => <PostingCard data={posting} 
+                                                                      onClick={() => handleClick(posting)}/>)
 
     return (
         <div className="postings">
@@ -29,11 +34,11 @@ export function PostingsList(props) {
     )
 }
 
-function PostingCard({ data }) {
-    const roleBadges = data.roles.map((role) => <Badge pill>{role}</Badge>)
+function PostingCard({ data, onClick }) {
+    const roleBadges = data.roles.map((role) => <Badge className="m-1" pill>{role}</Badge>)
 
     return (
-        <Card className="p-4 text-start">
+        <Card className="p-4 text-start" onClick={() => onClick(data)}>
             <div className="mb-2">
                 {roleBadges}
             </div>
@@ -51,7 +56,7 @@ function PostingCard({ data }) {
 }
 
 function PostingView({ data }) {
-    const roleBadges = data.roles.map((role) => <Badge pill>{role}</Badge>)
+    const roleBadges = data.roles.map((role) => <Badge className="m-1"pill>{role}</Badge>)
 
     const [open, setOpen] = useState('');
     const toggle = (id) => {
@@ -75,6 +80,9 @@ function PostingView({ data }) {
             </CardSubtitle>
             <CardText className="short-desc">
                 {data.shortdesc}
+            </CardText>
+            <CardText className="long-desc">
+                {data.longdesc}
             </CardText>
             <Accordion open={open} toggle={toggle} className="pb-4">
                 <AccordionItem>
@@ -112,6 +120,6 @@ function PostingView({ data }) {
 
 function SelectPrompt(props) {
     return (
-        <h2>Select a Job Listing to View</h2>
+        <h2 className="text-center">Select a Job Listing to View</h2>
     )
 }
