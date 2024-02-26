@@ -40,6 +40,12 @@ const sampleData = [{"title": "Travel Fitness App",
                      "location":"Capitol Hill, Seattle",
                      "shortdesc":"Wouldn't it be cool to see first-person footage of a koi fish's day? Help us make it happen.",
                      "longdesc":"Imagine a workout plan you could keep up no matter where in the world you are. Imagine a workout plan you could keep up no matter where in the world you are. Imagine a workout plan you could keep up no matter where in the world you are.",
+                     "poster":"Bob Pondenjoyer"},
+                     {"title": "Miniature GoPros for Koi", 
+                     "roles":["Product Manager"], 
+                     "location":"Capitol Hill, Seattle",
+                     "shortdesc":"Wouldn't it be cool to see first-person footage of a koi fish's day? Help us make it happen.",
+                     "longdesc":"Imagine a workout plan you could keep up no matter where in the world you are. Imagine a workout plan you could keep up no matter where in the world you are. Imagine a workout plan you could keep up no matter where in the world you are.",
                      "poster":"Bob Pondenjoyer"}]
 
 
@@ -49,7 +55,7 @@ function App() {
         <Router>
             <NavBar />
             <Routes>
-                <Route exact path="/" element={<Home postings={sampleData} className="full-height"/>} />
+                <Route exact path="/" element={<Home postings={sampleData} />} />
                 <Route path="/about" element={<About />} />
                 <Route
                     path="/chat"

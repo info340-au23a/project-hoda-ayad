@@ -50,16 +50,16 @@ function Home(props) {
     }
 
     return (
-        <div className="home">
+        <div className="page home">
             <JobFilter roleOptions={roleOptions} 
                   locOptions={locOptions}
                   applyFilterCallback={applyFilter}
                   clearFilterCallback={clearFilter}/>
-            <Row style={{minHeight:'100%'}}>
-                <Col className='p-0' style={{minHeight:'100%'}}>
+            <Row className='postings-view'>
+                <Col className='p-0 border posting-list-container'>
                     <PostingsList key="postings-list" postings={filteredData} selectPostingCallback={selectPosting}/>
                 </Col>
-                <Col className='p-0' style={{minHeight:'100%'}}>
+                <Col className='p-0 border'>
                     <PostingWindow key="posting-window" data={selectedPosting}/>
                 </Col>
             </Row>

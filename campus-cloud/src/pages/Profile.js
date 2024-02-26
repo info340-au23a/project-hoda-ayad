@@ -4,7 +4,7 @@ import React from 'react';
 
 function Profile() {
     return (
-      <div className="profile">
+      <div className="page profile">
         This is the profile page
       </div>
     );

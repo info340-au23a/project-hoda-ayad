@@ -4,7 +4,7 @@ import React from 'react';
 
 function Splash() {
     return (
-      <div className="splash">
+      <div className="page splash">
        this is the splash page
       </div>
     );

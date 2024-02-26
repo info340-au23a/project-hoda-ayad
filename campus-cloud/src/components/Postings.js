@@ -11,7 +11,7 @@ export function PostingWindow({ data }) {
     }
 
     return (
-        <Card className="p-4 text-start" style={{minHeight:'100%'}}>
+        <Card className="p-4 text-start" style={{minHeight:'100%', border:'none'}}>
             {windowContent}
         </Card>
     )
@@ -38,7 +38,11 @@ function PostingCard({ data, onClick }) {
     const roleBadges = data.roles.map((role) => <Badge className="m-1" pill>{role}</Badge>)
 
     return (
-        <Card className="p-4 text-start" onClick={() => onClick(data)}>
+        <Card className=" text-start" onClick={() => onClick(data)} style={{border:'none', 
+                                                                               borderBottom:'solid lightgray 2px', 
+                                                                               borderRadius:'0',
+                                                                               padding:'2em',
+                                                                               paddingLeft:'4em'}}>
             <div className="mb-2">
                 {roleBadges}
             </div>
@@ -68,7 +72,7 @@ function PostingView({ data }) {
     };
 
     return (
-        <div>
+        <div className="p-4 px-5">
             <div className="mb-2">
                 {roleBadges}
             </div>
