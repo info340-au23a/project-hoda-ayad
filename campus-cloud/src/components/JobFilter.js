@@ -13,24 +13,28 @@ export default function JobFilter(props) {
 
     function handleInput(event) {
         setQuery(event.target.value);
-        props.applyFilterCallback(query, role, location);
+        props.applyFilterCallback(event.target.value, role, location);
     }
 
     function handleSelect(event) {
+        const newVal = event.target.value;
         if (event.target.id === "role-select") {
-            setRole(event.target.value); 
+            setRole(newVal); 
+            props.applyFilterCallback(query, newVal, location);
+            console.log("Set new role to: ", newVal)
         } else {
-            setLocation(event.target.value);
+            setLocation(newVal);
+            props.applyFilterCallback(query, role, newVal);
         }
-        props.applyFilterCallback(query, role, location);
+        
     }
 
     const roleElems = props.roleOptions.map((role) => {
         return <option key={role} value={role}>{role}</option>
-    })
+    });
     const locElems = props.locOptions.map((loc) => {
         return <option key={loc} value={loc}>{loc}</option>
-    })
+    });
 
     //console.log(query, role, location);
 

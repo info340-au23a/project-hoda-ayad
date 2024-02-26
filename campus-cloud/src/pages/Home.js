@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react';
 import JobFilter from '../components/JobFilter';
-import PostingsList from '../components/Postings';
+import { PostingWindow, PostingsList } from '../components/Postings';
+import { Row, Col } from 'reactstrap';
 
 function Home(props) {
     const [query, setQuery] = useState('');
@@ -11,12 +12,12 @@ function Home(props) {
     const [filteredData, setFilteredData] = useState(props.postings);
 
     
-    const filteredPostings = props.postings.filter((posting) => {
-        const nameMatch = (query === '') || ((posting.title.toLowerCase()).includes(query.toLowerCase()));
-        const roleMatch = (role === 'All Roles') || (role in posting.roles);
-        const locMatch = (location === 'All Locations') || (location === posting.location);
-        return nameMatch && roleMatch && locMatch;
-    });
+    // const filteredPostings = props.postings.filter((posting) => {
+    //     const nameMatch = (query === '') || ((posting.title.toLowerCase()).includes(query.toLowerCase()));
+    //     const roleMatch = (role === 'All Roles') || (role in posting.roles);
+    //     const locMatch = (location === 'All Locations') || (location === posting.location);
+    //     return nameMatch && roleMatch && locMatch;
+    // });
 
     
     const roleOptions = [...new Set(props.postings.reduce((all, current) => {
@@ -31,7 +32,15 @@ function Home(props) {
         setQuery(query);
         setRole(role);
         setLocation(loc);
-        setFilteredData(filteredPostings);
+        setFilteredData(() => {
+            const filteredPostings = props.postings.filter((posting) => {
+                const nameMatch = (query === '') || ((posting.title.toLowerCase()).includes(query.toLowerCase()));
+                const roleMatch = (role === 'All Roles') || (posting.roles.includes(role));
+                const locMatch = (loc === 'All Locations') || (location === posting.location);
+                return nameMatch && roleMatch && locMatch;
+            });
+            return filteredPostings;
+        });
     }
 
     
@@ -41,8 +50,14 @@ function Home(props) {
             <JobFilter roleOptions={roleOptions} 
                   locOptions={locOptions}
                   applyFilterCallback={applyFilter}/>
-            
-            <PostingsList postings={filteredData}/>
+            <Row style={{minHeight:'100%'}}>
+                <Col className='p-0' style={{minHeight:'100%'}}>
+                    <PostingsList key="postings-list" postings={filteredData}/>
+                </Col>
+                <Col className='p-0' style={{minHeight:'100%'}}>
+                    <PostingWindow key="posting-window" data={filteredData[0]}/>
+                </Col>
+            </Row>
         </div>
     );
   }

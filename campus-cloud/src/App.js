@@ -41,7 +41,7 @@ const sampleData = [{"title": "Travel Fitness App",
 
 function App() {
   return (
-    <div className="App">
+    <div className="App"> 
         <Router>
             <NavBar />
             <Routes>
