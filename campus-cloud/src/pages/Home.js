@@ -31,7 +31,7 @@ function Home(props) {
             const filteredPostings = props.postings.filter((posting) => {
                 const nameMatch = (query === '') || ((posting.title.toLowerCase()).includes(query.toLowerCase()));
                 const roleMatch = (role === 'All Roles') || (posting.roles.includes(role));
-                const locMatch = (loc === 'All Locations') || (location === posting.location);
+                const locMatch = (loc === 'All Locations') || (loc === posting.location);
                 return nameMatch && roleMatch && locMatch;
             });
             return filteredPostings;
