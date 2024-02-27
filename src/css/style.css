@@ -1,0 +1,28 @@
+html, body, #root, .App{
+    height: 100vh;
+  }
+  
+  .App {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .page {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .home {
+    overflow: hidden;
+  }
+  
+  .postings-view {
+    height: 100%;
+    overflow-y: auto;
+    border-top: solid lightgray;
+  }
+  
+  .col.posting-list-container {
+    max-width: 30em;
+  }
