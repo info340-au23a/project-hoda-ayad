@@ -7,7 +7,7 @@ import { Card, CardSubtitle, CardTitle, CardText,
 export function PostingWindow({ data }) {
     let windowContent = <SelectPrompt />;
     if (data !== null) {
-        windowContent = <PostingView data={data}/>;
+        windowContent = <PostingView key={data.title} data={data}/>;
     }
 
     return (
@@ -24,7 +24,8 @@ export function PostingsList(props) {
         props.selectPostingCallback(posting);
     }
 
-    const postingCards = props.postings.map((posting) => <PostingCard data={posting} 
+    const postingCards = props.postings.map((posting) => <PostingCard key={posting.title}
+                                                                      data={posting} 
                                                                       onClick={() => handleClick(posting)}/>)
 
     return (

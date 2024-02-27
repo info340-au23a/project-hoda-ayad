@@ -11,8 +11,6 @@ function Home(props) {
     const [location, setLocation] = useState('All Locations');
     const [selectedPosting, setSelectedPosting] = useState(null);
     const [filteredData, setFilteredData] = useState(props.postings);
-
-
     
     const roleOptions = [...new Set(props.postings.reduce((all, current) => {
         return all.concat(current.roles);
@@ -21,6 +19,7 @@ function Home(props) {
     const locOptions = [...new Set(props.postings.reduce((all, current) => {
         return all.concat(current.location);
     }, []))].sort();
+
 
     function applyFilter(query, role, loc) {
         setQuery(query);
@@ -59,7 +58,7 @@ function Home(props) {
                 <Col className='p-0 border posting-list-container'>
                     <PostingsList key="postings-list" postings={filteredData} selectPostingCallback={selectPosting}/>
                 </Col>
-                <Col className='p-0 border'>
+                <Col className='p-0 border posting-window'>
                     <PostingWindow key="posting-window" data={selectedPosting}/>
                 </Col>
             </Row>

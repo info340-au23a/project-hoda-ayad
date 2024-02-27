@@ -56,6 +56,7 @@ export default function JobFilter(props) {
                     <Input id="search"
                         placeholder="Search"
                         type="search" 
+                        value={query}
                         onChange={handleInput}/>
                 </Col>
                 <Col>
@@ -67,6 +68,7 @@ export default function JobFilter(props) {
                     <Input id="role-select"
                         placeholder="All Roles"
                         type="select"
+                        value={role}
                         onChange={handleSelect}>
                         <option>
                             All Roles
@@ -83,6 +85,7 @@ export default function JobFilter(props) {
                     <Input id="location-select"
                         placeholder="All Locations"
                         type="select"
+                        value={location}
                         onChange={handleSelect}>
                         <option>
                             All Locations

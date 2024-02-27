@@ -12,17 +12,26 @@ html, body, #root, .App{
     display: flex;
     flex-direction: column;
   }
-  
+
+  /* page div including filter bar */
   .home {
     overflow: hidden;
   }
   
+  /* parent content reactstrap Row element */
   .postings-view {
     height: 100%;
-    overflow-y: auto;
+    overflow: auto;
     border-top: solid lightgray;
   }
   
-  .col.posting-list-container {
+  /* col 1 reactstrap Col with child div containing reactstrap Cards */
+  .row .col.postings {
+    overflow-y: auto;
     max-width: 30em;
+  }
+
+   /* col 2 reactstrap Col with one child reactstrap Card elem*/
+   .row .col.posting-window {
+    overflow-y: auto;
   }

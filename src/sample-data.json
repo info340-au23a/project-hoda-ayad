@@ -1,18 +1,18 @@
 [
     {
-      "title": "Travel Fitness App",
-      "roles": ["Engineer", "Front-End", "Graphic Designer"],
-      "location": "Seattle, WA",
-      "shortdesc": "Imagine a workout plan you could keep up no matter where in the world you are.",
-      "longdesc": "Imagine a workout plan you could keep up no matter where in the world you are. Imagine a workout plan you could keep up no matter where in the world you are. Imagine a workout plan you could keep up no matter where in the world you are.",
-      "poster": "Jane Doe"
+        "title": "Travel Fitness App",
+        "roles": ["Engineer", "Front-End", "Graphic Designer"],
+        "location": "Seattle, WA",
+        "shortdesc": "Imagine a workout plan you could keep up no matter where in the world you are.",
+        "longdesc": "This is a classic app creation project created by like-minded travelers who want to keep themselves healthy. We're seeking an Engineer and Designer to help bring our conceptual idea to life.",
+        "poster": "Jane Doe"
     },
     {
       "title": "Wellness Program for Dogs",
       "roles": ["Product Manager"],
       "location": "Seattle, WA",
       "shortdesc": "Your dog could use a break. Pamper them with a program to make them more at peace with their busy lives.",
-      "longdesc": "Imagine a workout plan you could keep up no matter where in the world you are. Imagine a workout plan you could keep up no matter where in the world you are. Imagine a workout plan you could keep up no matter where in the world you are.",
+      "longdesc": "",
       "poster": "Dog Doggerton"
     },
     {

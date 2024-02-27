@@ -36,23 +36,21 @@ function App() {
   const samplePosts = SAMPLE_POSTS;
 
   return (
-    <div className="App full-height"> 
-        
-            <NavBar />
-            <Routes>
-              <Route exact path="/" element={<Home postings={samplePosts} />} />
-              <Route element={<RequireAuth />} >
-                
-                <Route path="/about" element={<About />} />
-                <Route
-                    path="/chat"
-                    element={<Chat />}
-                />
-                <Route path="/profile" element={<Profile />} />
-              </Route>
-            </Routes>
-            <Footer />
-        
+    <div>
+      <div className="App full-height"> 
+              <NavBar />
+              <Routes>
+                <Route exact path="/" element={<Home postings={samplePosts} />} />
+                <Route element={<RequireAuth />} >
+                  <Route path="/about" element={<About />} />
+                  <Route path="/chat" element={<Chat />} />
+                  <Route path="/profile" element={<Profile />} />
+                </Route>
+              </Routes>
+      </div>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }
