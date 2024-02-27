@@ -11,7 +11,7 @@ export function PostingWindow({ data }) {
     }
 
     return (
-        <Card className="p-4 text-start" style={{minHeight:'100%', border:'none'}}>
+        <Card className="p-4 text-start" style={{minHeight:'100%', border:'none', overflowY:'hidden'}}>
             {windowContent}
         </Card>
     )

@@ -3,9 +3,9 @@
 import React from 'react';
 import './App.css';
 import {
-  BrowserRouter as Router,
   Routes,
   Route,
+  Outlet
 } from "react-router-dom";
 
 import NavBar from './components/NavBar';
@@ -48,23 +48,37 @@ const sampleData = [{"title": "Travel Fitness App",
                      "longdesc":"Imagine a workout plan you could keep up no matter where in the world you are. Imagine a workout plan you could keep up no matter where in the world you are. Imagine a workout plan you could keep up no matter where in the world you are.",
                      "poster":"Bob Pondenjoyer"}]
 
+function RequireAuth(props) {
+  //...determine if user is logged in
+  const userIsLoggedIn = true;
+  if(!userIsLoggedIn) { //if no user, say so
+    return <p>Forbidden!</p>
+  }
+  else { //otherwise, show the child route content
+    return <Outlet />
+  }
+} 
+
 
 function App() {
   return (
     <div className="App full-height"> 
-        <Router>
+        
             <NavBar />
             <Routes>
-                <Route exact path="/" element={<Home postings={sampleData} />} />
+              <Route exact path="/" element={<Home postings={sampleData} />} />
+              <Route element={<RequireAuth />} >
+                
                 <Route path="/about" element={<About />} />
                 <Route
                     path="/chat"
                     element={<Chat />}
                 />
                 <Route path="/profile" element={<Profile />} />
+              </Route>
             </Routes>
             <Footer />
-        </Router>
+        
     </div>
   );
 }
