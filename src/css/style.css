@@ -35,3 +35,211 @@ html, body, #root, .App{
    .row .col.posting-window {
     overflow-y: auto;
   }
+
+  /* Messaging center */
+#inbox {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: auto;
+  height: 100%;
+  width: 100%;
+  border: solid lightgray;
+  overflow-x: auto;
+}
+
+/* profile picture */
+#inbox #profile-icon {
+  display: flex;
+  align-items: center;
+  margin-left: 0;
+}
+
+/* profile picture */
+#inbox #profile-pic {
+  height: 2em;
+  border-radius: 50%;
+}
+
+/* scroll through people in inbox */
+#list-viewer {
+  background-color: white;
+  flex: 0 0 auto;
+  height: 100%;
+  border-right: solid lightgray;
+  overflow-y: hidden;
+}
+
+/* contains "inbox" text (h1) and compose icon (.compose-message) */
+#inbox-heading {
+  padding: 0 1rem;
+  border-bottom: solid lightgray;
+  position: sticky;
+  top: 10px;
+  background-color: white;
+}
+
+#inbox-heading h4 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  margin-top: 1.5rem;
+  padding-bottom: 10px;
+  border-bottom: solid lightgray;
+}
+
+#inbox #search-bar-formating {
+  padding-bottom: 12px;
+  padding-top: 12px;
+}
+
+.message-list {
+  padding-bottom: 10em;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* each individual message. contains a profile picture (#profile-icon), identifiers of the people (#identifiers) (name (h2), identity (h3), and snipet of last message (p)) */
+.message-card {
+  border-top: solid lightgray;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.message-card #title {
+  font-style: italic;
+}
+
+#inbox #profile-icon p {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+/* scroll through conversation and send message */
+.middle-right {
+  background-color: white;
+  border-right: solid lightgray;
+  
+  flex-grow: 0;
+  height: 100%;
+  width: 98%;
+  overflow-y: hidden;
+  padding-bottom: 10em;
+}
+
+.message-heading {
+  border-bottom: solid lightgray;
+  text-align: center;
+  position: sticky;
+  top: 20px;
+  background-color: white;
+  height: 19%;
+  padding-bottom: 7rem;
+}
+
+.message-heading h2 {
+  font-size:medium;
+}
+
+.messaging {
+  flex: 0 1 auto;
+  flex-flow: column nowrap;
+  padding: 2rem;
+  padding-bottom: 7.5rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* date message was sent */
+time {
+  text-align: center;
+  padding-left: 5px;
+  display: flex;
+}
+
+/* message sent from other person, on left side of chat.
+ contains a profile picture (#profile-icon) and a message (.message) */
+.other-messages {
+  display: flex;
+  align-self: flex-start;
+}
+
+/* message sent from other person */
+.other-messages .message {
+  background-color: rgb(233, 233, 233);
+  border-radius: 14px;
+  max-width: 75%;
+  padding: 0 1em;
+}
+
+/* ther person profile pic */
+.other-messages #profile-pic {
+  height: 1.5em;
+  padding-right: 1px;
+  margin-right: 1px;
+  margin-left: 3px;
+}
+
+/* message sent from user, on right side of chat.
+ contains a profile picture (#profile-icon) and a message (.message) */
+.my-messages {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.my-messages .message {
+  background-color: #C3D5F5;
+  border-radius: 14px;
+  max-width: 75%;
+  margin-left: 2em;
+  margin: 1.5rem;
+  padding: 0 1rem;
+}
+
+.my-messages #profile-pic {
+  height: 1.5em;
+  padding-right: 1px;
+  margin-right: 1px;
+  margin-left: 3px;
+}
+
+#draft-wrapper {
+  position:fixed;
+  bottom: 2em;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  padding-bottom: 3rem;
+  background-color: white;   
+}
+
+/* container for sending a message.
+ contains a input section (.to-send) and a button (.btn) */
+
+#draft-message input {
+  flex-shrink: 10;
+  border-radius: 18px;
+  border: 2px solid whitesmoke;
+  padding: 1 em;
+  margin-top: 2%;
+  margin-left: 3%;
+  height: 3em;
+  width: 35em;
+  max-width: 35rem;
+  background-color: whitesmoke;
+  font-size: 13px;
+}
+
+#draft-message input::placeholder {
+  color: lightgray;
+}
+
+#draft-message .btn {
+  flex: 0 0 auto;
+  border-radius: 18px;
+  border: 2px solid rgb(116, 209, 116);
+  padding: 1% 0;
+  margin-top: 2%;
+  width: 10em;
+  background-color: rgb(116, 209, 116);
+}
