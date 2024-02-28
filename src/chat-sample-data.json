@@ -1,0 +1,43 @@
+[
+    {
+      "name": "Jane Doe",
+      "title": "University of Washington Student",
+      "profilePic": "../img/blankpfp.jpg",
+      "location": "Seattle, WA",
+      "convo": ["M my message here", "O other persons message here", "O the big O with a space denotes the message comes from other"],
+      "endPoint": [{"date": "", "message": ""}, {"date": "", "message": ""}]
+    },
+    {
+      "name": "Dog Doggerton",
+      "title": "University of Washington Student",
+      "profilePic": "../img/blankpfp.jpg",
+      "location": "Seattle, WA",
+      "convo": ["M my message here", "O other persons message here", "O the big O with a space denotes the message comes from other"],
+      "endPoint": [{"date": "", "message": ""}, {"date": "", "message": ""}]
+    },
+    {
+      "name": "Joe Beachhouse",
+      "title": "University of Washington Student",
+      "profilePic": "../img/blankpfp.jpg",
+      "location": "Portland, OR",
+      "convo": ["M my message here", "O other persons message here", "O the big O with a space denotes the message comes from other"],
+      "endPoint": [{"date": "", "message": ""}, {"date": "", "message": ""}]
+    },
+    {
+      "name": "Bob Pondenjoyer",
+      "title": "University of Washington Student",
+      "profilePic": "../img/blankpfp.jpg",
+      "location": "Capitol Hill, Seattle",
+      "convo": ["M my message here", "O other persons message here", "O the big O with a space denotes the message comes from other"],
+      "endPoint": [{"date": "", "message": ""}, {"date": "", "message": ""}]
+    },
+    {
+      "name": "John Doe",
+      "title": "University of Washington Student",
+      "profilePic": "../img/blankpfp.jpg",
+      "location": "Seattle, WA",
+      "convo": ["M my message here", "O other persons message here", "O the big O with a space denotes the message comes from other"],
+      "endPoint": [{"date": "", "message": ""}, {"date": "", "message": ""}]
+    }
+  ]
+  

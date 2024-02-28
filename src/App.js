@@ -18,6 +18,7 @@ import Footer from './components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import SAMPLE_POSTS from './sample-data.json';
+import SAMPLE_CHATS from './chat-sample-data.json';
 
 
 function RequireAuth(props) {
@@ -34,6 +35,7 @@ function RequireAuth(props) {
 
 function App() {
   const samplePosts = SAMPLE_POSTS;
+  const sampleChats = SAMPLE_CHATS;
 
   return (
     <div>
@@ -43,7 +45,7 @@ function App() {
                 <Route exact path="/" element={<Home postings={samplePosts} />} />
                 <Route element={<RequireAuth />} >
                   <Route path="/about" element={<About />} />
-                  <Route path="/chat" element={<Chat />} />
+                  <Route path="/chat" element={<Chat chats={sampleChats} />} />
                   <Route path="/profile" element={<Profile />} />
                 </Route>
               </Routes>
