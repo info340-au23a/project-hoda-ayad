@@ -26,7 +26,7 @@ html, body, #root, .App{
   }
   
   /* col 1 reactstrap Col with child div containing reactstrap Cards */
-  .row .col.postings {
+  .col.posting-list-container {
     overflow-y: auto;
     max-width: 30em;
   }
