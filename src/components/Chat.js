@@ -42,6 +42,7 @@ export function MessageCard({data}) {
 }
 
 export function MessageHeader({data}) {
+    const name = data
     return (
         <div className="message-heading">
             <h3>{data.name}</h3>
