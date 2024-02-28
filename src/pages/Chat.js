@@ -31,9 +31,6 @@ function Chat(props) {
     );
   }
 
-  MessageCard
-  MessageHeader
-  Converse
-  SendMessage
+
   
   export default Chat;

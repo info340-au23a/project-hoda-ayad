@@ -1,4 +1,6 @@
 'use strict'
+import React from "react";
+import { Button, Input, InputGroup } from "reactstrap";
 
 export function InboxHeader() {
     return (
@@ -80,16 +82,32 @@ export function Converse({data}) {
     */
 }
 
-export function SendMessage() {
+export function SendMessage(props) {
     return (
-        <div id="draft-wrapper">
-            <div id="draft-message">
-                <input className="to-send" placeholder="type your message..."></input>
-                <button type="button" className="btn">Send</button>
-            </div>
-        </div>
-    );
+        <InputGroup className="draft-message">
+            <Input 
+                id="messageBox"
+                name="send"
+                placeholder="type your message..."
+                className="to-send"
+                />
+            <Button>
+                Send
+            </Button>
+        </InputGroup>
+    )
 }
+
+// export function SendMessage() {
+//     return (
+//         <div id="draft-wrapper">
+//             <div id="draft-message">
+//                 <input className="to-send" placeholder="type your message..."></input>
+//                 <button type="button" className="btn">Send</button>
+//             </div>
+//         </div>
+//     );
+// }
 
 
 /*
