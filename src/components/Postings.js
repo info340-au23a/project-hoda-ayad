@@ -3,15 +3,29 @@
 import React, { useState } from "react";
 import { Card, CardSubtitle, CardTitle, CardText,
          Row, Col, Badge, Button, Accordion, AccordionHeader, AccordionBody, AccordionItem } from 'reactstrap';
+import { FaArrowLeftLong } from "react-icons/fa6";
 
-export function PostingWindow({ data }) {
+
+
+export function PostingWindow({ data, handleBackClickCb, isNotPhone }) {
     let windowContent = <SelectPrompt />;
     if (data !== null) {
         windowContent = <PostingView key={data.title} data={data}/>;
     }
 
+    function handleBack() {
+        handleBackClickCb();
+    }
+
+    const styling = {
+        minHeight:'100%', 
+        border:'none'
+    }
+
+
     return (
-        <Card className="p-4 text-start" style={{minHeight:'100%', border:'none', overflowY:'hidden'}}>
+        <Card className="p-4 text-start" style={styling}>
+            {isNotPhone ? <></> : <div onClick={handleBack}><FaArrowLeftLong /></div>}
             {windowContent}
         </Card>
     )
@@ -40,10 +54,10 @@ function PostingCard({ data, onClick }) {
 
     return (
         <Card className=" text-start" onClick={() => onClick(data)} style={{border:'none', 
-                                                                               borderBottom:'solid lightgray 2px', 
-                                                                               borderRadius:'0',
-                                                                               padding:'2em',
-                                                                               paddingLeft:'4em'}}>
+                                                                            borderBottom:'solid lightgray 2px', 
+                                                                            borderRadius:'0',
+                                                                            padding:'2em',
+                                                                            paddingLeft:'4em'}}>
             <div className="mb-2">
                 {roleBadges}
             </div>
