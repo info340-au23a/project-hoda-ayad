@@ -27,7 +27,7 @@ function NavBar() {
             
                 <Nav className="me-auto" navbar>
                     <NavItem>
-                        <NavLink href="/about">About</NavLink>
+                        <NavLink href="/splash">About</NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink href="/chat">

@@ -243,3 +243,14 @@ time {
   width: 10em;
   background-color: rgb(116, 209, 116);
 }
+
+@media (min-width: 1450px) {
+  #root {
+    display: flex;
+    justify-content: center;
+  }
+
+  .App {
+    min-width: 140em;
+  }
+}

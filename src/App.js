@@ -44,7 +44,7 @@ function App() {
               <Routes>
                 <Route exact path="/" element={<Home postings={samplePosts} />} />
                 <Route element={<RequireAuth />} >
-                  <Route path="/about" element={<About />} />
+                  <Route path="/splash" element={<Splash />} />
                   <Route path="/chat" element={<Chat chats={sampleChats} />} />
                   <Route path="/profile" element={<Profile />} />
                 </Route>
