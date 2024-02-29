@@ -29,11 +29,13 @@ html, body, #root, .App{
   .col.posting-list-container {
     overflow-y: auto;
     max-width: 30em;
+    height: 100%;
   }
 
    /* col 2 reactstrap Col with one child reactstrap Card elem*/
    .row .col.posting-window {
     overflow-y: auto;
+    height: 100%;
   }
 
   /* Messaging center */
