@@ -1,27 +1,24 @@
 'use strict'
 
 import React from 'react';
-import { InboxHeader, MessageCard, MessageHeader, Converse, SendMessage } from '../components/Chat.js';
+import { InboxHeader, MessageCardRow, MessageHeader, Converse, SendMessage } from '../components/Inbox.js';
 
 function Chat(props) {
     return (
       <div className="page chat">
-        this is the chat page
         <main>
         <div id="inbox"> 
 
           <div id="list-viewer">
             < InboxHeader />
             <div className="message-list">
-              < MessageCard data={props} />
+              < MessageCardRow data={props.chats} />
             </div>
           </div>
 
           <div className="middle-right">
-            <MessageHeader data={props} />
-            <div className="messaging">
-              < Converse data={props} />
-            </div>
+            <MessageHeader data={props.chats} name="Dog Doggerton" />
+            <Converse data={props.chats} name="Dog Doggerton" />
             <SendMessage />
           </div>  
 
