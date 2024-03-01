@@ -4,7 +4,7 @@
       "title": "University of Washington Student",
       "profilePic": "/img/blankpfp.jpg",
       "location": "Seattle, WA",
-      "convo": ["M my message here"],
+      "convo": ["O Hey Jane! It's been so long :( How are you doing"],
       "endPoint": [{"date": "", "message": ""}, {"date": "", "message": ""}]
     },
     {
@@ -25,7 +25,7 @@
       "title": "University of Washington Student",
       "profilePic": "../img/blankpfp.jpg",
       "location": "Portland, OR",
-      "convo": ["M my message here", "O other persons message here", "O the big O with a space denotes the message comes fr"],
+      "convo": ["M The pitch competition is on Thursday. Do you think you'll be able to make it? We'd love to have you there."],
       "endPoint": [{"date": "", "message": ""}, {"date": "", "message": ""}]
     },
     {
@@ -33,7 +33,7 @@
       "title": "University of Washington Student",
       "profilePic": "../img/blankpfp.jpg",
       "location": "Capitol Hill, Seattle",
-      "convo": ["M my message here", "O other persons message here", "O the big O with a space denotes the message comes from other"],
+      "convo": ["O Joe and I were just talking about the pitch comp"],
       "endPoint": [{"date": "", "message": ""}, {"date": "", "message": ""}]
     },
     {
@@ -41,7 +41,7 @@
       "title": "University of Washington Student",
       "profilePic": "../img/blankpfp.jpg",
       "location": "Seattle, WA",
-      "convo": ["M my message here", "O other persons message here", "O the big O with a space denotes the message comes from other"],
+      "convo": ["O Hey sis! I just met an awesome software engineer on this site that I think you'd like to meet. Do you want his info?"],
       "endPoint": [{"date": "", "message": ""}, {"date": "", "message": ""}]
     }
   ]
