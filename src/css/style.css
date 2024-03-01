@@ -89,7 +89,7 @@ html, body, #root, .App{
   border-bottom: solid lightgray;
 }
 
-#inbox #search-bar-formating {
+#inbox-heading #search-bar-formating {
   padding-bottom: 12px;
   padding-top: 12px;
 }
@@ -102,7 +102,7 @@ html, body, #root, .App{
 
 /* each individual message. contains a profile picture (#profile-icon), identifiers of the people (#identifiers) (name (h2), identity (h3), and snipet of last message (p)) */
 .message-card {
-  border-top: solid lightgray;
+  border-bottom: solid lightgray;
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -112,9 +112,19 @@ html, body, #root, .App{
   font-style: italic;
 }
 
+#profile-icon p {
+  padding-left: 10px;
+}
+
 #inbox #profile-icon p {
   font-weight: 500;
   font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.message-card p {
+  margin-top: 2px;
+  margin-bottom: 0px;
 }
 
 /* scroll through conversation and send message */
@@ -135,12 +145,16 @@ html, body, #root, .App{
   position: sticky;
   top: 20px;
   background-color: white;
-  height: 19%;
-  padding-bottom: 7rem;
+  height: 125px;
+}
+
+.message-heading h3 {
+  padding-top: 15px;
 }
 
 .message-heading h2 {
   font-size:medium;
+  padding-bottom: 10px;
 }
 
 .messaging {
@@ -149,7 +163,7 @@ html, body, #root, .App{
   padding: 2rem;
   padding-bottom: 7.5rem;
   height: 100%;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 /* date message was sent */
@@ -164,6 +178,8 @@ time {
 .other-messages {
   display: flex;
   align-self: flex-start;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 /* message sent from other person */
@@ -172,14 +188,15 @@ time {
   border-radius: 14px;
   max-width: 75%;
   padding: 0 1em;
+  margin-left: 10px;
 }
 
 /* ther person profile pic */
 .other-messages #profile-pic {
   height: 1.5em;
-  padding-right: 1px;
+  padding-right: 2px;
   margin-right: 1px;
-  margin-left: 3px;
+  
 }
 
 /* message sent from user, on right side of chat.
@@ -202,48 +219,14 @@ time {
   height: 1.5em;
   padding-right: 1px;
   margin-right: 1px;
-  margin-left: 3px;
+  margin-left: -15px;
 }
 
-#draft-wrapper {
-  position:fixed;
-  bottom: 2em;
-  width: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  padding-bottom: 3rem;
-  background-color: white;   
-}
-
-/* container for sending a message.
- contains a input section (.to-send) and a button (.btn) */
-
-#draft-message input {
-  flex-shrink: 10;
-  border-radius: 18px;
-  border: 2px solid whitesmoke;
-  padding: 1 em;
-  margin-top: 2%;
-  margin-left: 3%;
-  height: 3em;
-  width: 35em;
-  max-width: 35rem;
-  background-color: whitesmoke;
-  font-size: 13px;
-}
-
-#draft-message input::placeholder {
-  color: lightgray;
-}
-
-#draft-message .btn {
-  flex: 0 0 auto;
-  border-radius: 18px;
-  border: 2px solid rgb(116, 209, 116);
-  padding: 1% 0;
-  margin-top: 2%;
-  width: 10em;
-  background-color: rgb(116, 209, 116);
+.subDiv {
+  position: absolute;
+  bottom: 0px;
+  width: 60%;
+  padding-left: 20px;
 }
 
 @media (min-width: 1450px) {

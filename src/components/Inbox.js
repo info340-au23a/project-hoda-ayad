@@ -108,15 +108,11 @@ export function Converse({data, name}) {
         msg = msg.substring(2, msg.length)
         index++;
         if(who === "O") {
-            console.log("here " + index + " " + msg);
             return OtherResponse(index, msg, person[0].profilePic);
         } else if (who === "M") {
-            console.log("here " + index + " " + msg);
             return UserResponse(index, msg, person[0].profilePic);
         }
     });
-    
-    console.log(conversation);
     return (
         <div className="messaging">
             {conversation}
@@ -139,24 +135,10 @@ export function SendMessage() {
                 </Button>
             </InputGroup>
         </div>
-        
     )
 }
 
-// export function SendMessage() {
-//     return (
-//         <div id="draft-wrapper">
-//             <div id="draft-message">
-//                 <input className="to-send" placeholder="type your message..."></input>
-//                 <button type="button" className="btn">Send</button>
-//             </div>
-//         </div>
-//     );
-// }
-
-
 /*
-
 
 <main>
 <div id="inbox"> // hard code

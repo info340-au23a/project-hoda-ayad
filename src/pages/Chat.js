@@ -8,7 +8,7 @@ function Chat(props) {
       <div className="page chat">
         <main>
         <div id="inbox"> 
-
+        
           <div id="list-viewer">
             < InboxHeader />
             <div className="message-list">
@@ -19,8 +19,11 @@ function Chat(props) {
           <div className="middle-right">
             <MessageHeader data={props.chats} name="Dog Doggerton" />
             <Converse data={props.chats} name="Dog Doggerton" />
-            <SendMessage />
-          </div>  
+            <div className="subDiv">
+              <SendMessage />
+            </div>
+            
+          </div> 
 
         </div>
         </main>
