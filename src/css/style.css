@@ -43,7 +43,12 @@ html, body, #root, .App{
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: white;
+    background-color: #ffff;
+    border-top: solid lightgray;
+  }
+
+  .footer a {
+    color: black;
   }
 
   .footer .large-footer-content {
