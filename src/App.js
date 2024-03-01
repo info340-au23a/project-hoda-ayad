@@ -1,4 +1,3 @@
-'use strict'
 
 import React, { useState } from 'react';
 import './css/style.css';
@@ -6,7 +5,6 @@ import {
   Routes,
   Route,
   Outlet,
-  BrowserRouter
 } from "react-router-dom";
 
 import NavBar from './components/NavBar';
@@ -15,13 +13,14 @@ import Home from './pages/Home';
 import Chat from './pages/Chat';
 import Profile from './pages/Profile';
 import Footer from './components/Footer';
+import Setup from './pages/Setup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import SAMPLE_POSTS from './sample-data.json';
 import SAMPLE_CHATS from './chat-sample-data.json';
 
-function Authenticator({ signedIn, setSignInCB, children}) {
 
+function Authenticator({ signedIn, setSignInCB, children}) {
   function toggleSignIn(toggle) {
     setSignInCB(toggle);
   }
@@ -33,6 +32,7 @@ function Authenticator({ signedIn, setSignInCB, children}) {
         <Route path='/' element={<RequireAuth signedIn={signedIn} setSignedIn={toggleSignIn}/>} >
           {children}
         </Route>
+        <Route path="set-up" element={<Setup setSignInCB={toggleSignIn} />} />
       </Routes>
     </div>
   )
@@ -59,7 +59,6 @@ function App() {
   const sampleChats = SAMPLE_CHATS;
 
   const [signedIn, setSignedIn] = useState(false);
-  console.log(signedIn)
 
   function toggleSignIn(toggle) {
     setSignedIn(toggle);
@@ -74,7 +73,7 @@ function App() {
                   <Route index element={<Home postings={samplePosts} />} />
                   <Route path="chat" element={<Chat chats={sampleChats} />} />
                   <Route path="profile" element={<Profile />} />
-                
+                  
               </Authenticator>
                 
               

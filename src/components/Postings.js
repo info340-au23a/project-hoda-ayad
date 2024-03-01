@@ -1,4 +1,3 @@
-'use strict'
 
 import React, { useState } from "react";
 import { Card, CardSubtitle, CardTitle, CardText,
@@ -43,7 +42,7 @@ export function PostingsList(props) {
                                                                       onClick={() => handleClick(posting)}/>)
 
     return (
-        <div className="postings">
+        <div className="postings-list-container">
             {postingCards}
         </div>
     )

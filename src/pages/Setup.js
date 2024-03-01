@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import '../css/setup.css';
 
-function Setup() {
+import { useNavigate } from 'react-router-dom';
+
+function Setup(props) {
+  const navigate = useNavigate();
+
   let views = [<SetupBasic />, <SetupEducation />, <SetupPassword/>, <SetupSkill/>];
   let [currView, updateView] = useState(0);
 
@@ -9,11 +12,17 @@ function Setup() {
     updateView(currView+1);
   }
 
+  let handleSubmit = function(event) {
+    event.preventDefault();
+    props.setSignInCB(true);
+    navigate('/');
+  }
+
   return (
-    <div className="set-up">
+    <div className="page set-up">
       <h2>Get Connected</h2>
       {views[currView]}
-      <button onClick={nextView}>Continue</button>
+      {currView < views.length ? <button onClick={nextView}>Continue</button> : <button onClick={handleSubmit}>Complete Registration</button>}
     </div>
   )
 }

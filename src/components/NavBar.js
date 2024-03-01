@@ -1,4 +1,4 @@
-'use strict'
+
 import React, { useState } from "react";
 import {
     Collapse,
@@ -34,11 +34,7 @@ function NavBar({ setSignInCB }) {
                   Chat
                 </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink tag={Link} to="profile">
-                  Profile
-                </NavLink>
-              </NavItem>
+              
             </Nav>
             <NavLink tag={Link} to="/" onClick={handleLogOut}>
               Log Out

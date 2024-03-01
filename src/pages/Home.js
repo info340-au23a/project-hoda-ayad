@@ -1,4 +1,3 @@
-'use strict'
 
 import React, { useState } from 'react';
 import JobFilter from '../components/JobFilter';
@@ -68,7 +67,7 @@ function Home(props) {
                   applyFilterCallback={applyFilter}
                   clearFilterCallback={clearFilter}/>
             {isNotPhone ? 
-                <Row className='postings-view'>
+                <Row className='postings-view content-container'>
                     <Col className='p-0 border posting-list-container'>
                         <PostingsList key="postings-list" postings={filteredData} selectPostingCallback={selectPosting}/>
                     </Col>
@@ -77,7 +76,7 @@ function Home(props) {
                     </Col>
                 </Row> :
                 <div className='postings-view'>
-                    {viewList ? <PostingsList key="postings-list" postings={filteredData} selectPostingCallback={selectPosting}/>
+                    {viewList ? <PostingsList key="postings-list" className='posting-list-container col' postings={filteredData} selectPostingCallback={selectPosting}/>
                     : <PostingWindow key="posting-window" 
                                      data={selectedPosting} handleBackClickCb={handleBackClick} 
                                      isNotPhone={isNotPhone}/>}
