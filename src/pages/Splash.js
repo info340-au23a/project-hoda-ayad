@@ -5,11 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import '../css/splash.css';
 
 function Splash(props) {
-  let navigate = useNavigate();
+  console.log(props)
   let handleSubmit = function(event) {
     event.preventDefault();
-    props.toggleLoggedIn(true);
-    navigate("/");
+    props.signInCB();
   }
   return (
     <div className="page splash" id="splash">

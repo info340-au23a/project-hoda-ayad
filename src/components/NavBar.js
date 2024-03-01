@@ -15,10 +15,14 @@ import {
     NavbarText,
   } from 'reactstrap';
 
-function NavBar() {
+function NavBar({ setSignInCB }) {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
+
+    function handleLogOut() {
+      setSignInCB(false);
+    }
 
     return (
       <div className="nav-bar">
@@ -38,6 +42,8 @@ function NavBar() {
                         <NavLink href="/profile">Profile</NavLink>
                     </NavItem>
                 </Nav>
+                
+                  <NavLink href="/" onClick={handleLogOut}>Log Out</NavLink>
                 
         </Navbar>
       </div>

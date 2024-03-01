@@ -169,7 +169,7 @@ main #inbox {
   }
 
   .App {
-    min-width: 140em;
+    width: 100vw;
   }
   
   .footer .large-footer-content {
