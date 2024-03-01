@@ -38,8 +38,22 @@ html, body, #root, .App{
     height: 100%;
   }
 
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+  }
+
+  main {
+    padding-bottom: 50px;
+  }
   /* Messaging center */
-#inbox {
+main #inbox {
+  height: 600px;
+}
+
+  #inbox {
   display: flex;
   flex-grow: 0;
   flex-shrink: auto;
@@ -76,7 +90,7 @@ html, body, #root, .App{
   padding: 0 1rem;
   border-bottom: solid lightgray;
   position: sticky;
-  top: 3px;
+  padding-top: 1px;
   background-color: white;
 }
 
@@ -95,7 +109,6 @@ html, body, #root, .App{
 }
 
 .message-list {
-  padding-bottom: 10em;
   height: 100%;
   overflow-y: auto;
 }
@@ -145,7 +158,7 @@ html, body, #root, .App{
   position: sticky;
   top: 20px;
   background-color: white;
-  height: 125px;
+  height: 120px;
 }
 
 .message-heading h3 {
