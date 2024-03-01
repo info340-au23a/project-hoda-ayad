@@ -12,7 +12,12 @@ export function InboxHeader() {
                 </a>
             </div>
             <div id="search-bar-formating">
-                <input id="search-bar" placeholder="Search Inbox"></input>
+                <InputGroup>
+                    <Input id="search-bar" placeholder="Search Inbox"/>
+                    <Button className="btn" color="success"> 
+                        search 
+                    </Button>
+                </InputGroup>
             </div>
         </div>
     )

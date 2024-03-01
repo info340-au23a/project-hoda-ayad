@@ -67,8 +67,8 @@ html, body, #root, .App{
   background-color: white;
   flex: 0 0 auto;
   height: 100%;
-  border-right: solid lightgray;
-  overflow-y: hidden;
+  border: solid lightgray;
+  overflow-y: scroll;
 }
 
 /* contains "inbox" text (h1) and compose icon (.compose-message) */
@@ -76,7 +76,7 @@ html, body, #root, .App{
   padding: 0 1rem;
   border-bottom: solid lightgray;
   position: sticky;
-  top: 10px;
+  top: 3px;
   background-color: white;
 }
 
