@@ -5,13 +5,13 @@ import './css/style.css';
 import {
   Routes,
   Route,
-  Outlet
+  Outlet,
+  BrowserRouter
 } from "react-router-dom";
 
 import NavBar from './components/NavBar';
 import Splash from './pages/Splash';
 import Home from './pages/Home';
-import About from './pages/About';
 import Chat from './pages/Chat';
 import Profile from './pages/Profile';
 import Footer from './components/Footer';
@@ -20,6 +20,24 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import SAMPLE_POSTS from './sample-data.json';
 import SAMPLE_CHATS from './chat-sample-data.json';
 
+function Authenticator({ signedIn, setSignInCB, children}) {
+
+  function toggleSignIn(toggle) {
+    setSignInCB(toggle);
+  }
+
+  return (
+    <div className="App full-height">
+      <NavBar setSignInCB={toggleSignIn}/>
+      <Routes>
+        <Route path='/' element={<RequireAuth signedIn={signedIn} setSignedIn={toggleSignIn}/>} >
+          {children}
+        </Route>
+      </Routes>
+    </div>
+  )
+
+}
 
 function RequireAuth({ signedIn, setSignedIn }) {
   function signIn() {
@@ -27,10 +45,10 @@ function RequireAuth({ signedIn, setSignedIn }) {
   }
   
 
-  if(!signedIn) { //if no user, say so
+  if(!signedIn) { 
     return <Splash signInCB={signIn} />
   }
-  else { //otherwise, show the child route content
+  else { 
     return <Outlet />
   }
 }
@@ -41,18 +59,25 @@ function App() {
   const sampleChats = SAMPLE_CHATS;
 
   const [signedIn, setSignedIn] = useState(false);
+  console.log(signedIn)
+
+  function toggleSignIn(toggle) {
+    setSignedIn(toggle);
+  }
 
   return (
     <div>
       <div className="App full-height">
-              <NavBar setSignInCB={setSignedIn}/>
-              <Routes>
-                <Route path='/' element={<RequireAuth signedIn={signedIn} setSignedIn={setSignedIn}/>} >
+
+              <Authenticator signedIn={signedIn} setSignInCB={toggleSignIn} >
+                
                   <Route index element={<Home postings={samplePosts} />} />
                   <Route path="chat" element={<Chat chats={sampleChats} />} />
                   <Route path="profile" element={<Profile />} />
-                </Route>
-              </Routes>
+                
+              </Authenticator>
+                
+              
       </div>
       <footer>
         <Footer />

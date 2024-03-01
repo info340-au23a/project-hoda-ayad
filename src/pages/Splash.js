@@ -1,14 +1,14 @@
 'use strict'
 
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import '../css/splash.css';
+import { redirect } from 'react-router-dom';
 
 function Splash(props) {
-  console.log(props)
   let handleSubmit = function(event) {
     event.preventDefault();
     props.signInCB();
+    redirect('/');
   }
   return (
     <div className="page splash" id="splash">
