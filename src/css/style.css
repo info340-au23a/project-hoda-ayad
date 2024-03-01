@@ -38,6 +38,7 @@ html, body, #root, .App{
     height: 100%;
   }
 
+  /* footer organizer */
   .footer {
     position: fixed;
     bottom: 0;
@@ -45,9 +46,18 @@ html, body, #root, .App{
     background-color: white;
   }
 
+  .footer .large-footer-content {
+    display: none;
+  }
+
+  .footer .small-footer-content {
+    display: none;
+  }
+
   main {
     padding-bottom: 50px;
   }
+
   /* Messaging center */
 main #inbox {
   height: 600px;
@@ -81,6 +91,7 @@ main #inbox {
   background-color: white;
   flex: 0 0 auto;
   height: 100%;
+  width: 98%;
   border: solid lightgray;
   overflow-y: scroll;
 }
@@ -90,6 +101,7 @@ main #inbox {
   padding: 0 1rem;
   border-bottom: solid lightgray;
   position: sticky;
+  top: 0;
   padding-top: 1px;
   background-color: white;
 }
@@ -142,104 +154,7 @@ main #inbox {
 
 /* scroll through conversation and send message */
 .middle-right {
-  background-color: white;
-  border-right: solid lightgray;
-  
-  flex-grow: 0;
-  height: 100%;
-  width: 98%;
-  overflow-y: hidden;
-  padding-bottom: 10em;
-}
-
-.message-heading {
-  border-bottom: solid lightgray;
-  text-align: center;
-  position: sticky;
-  top: 20px;
-  background-color: white;
-  height: 120px;
-}
-
-.message-heading h3 {
-  padding-top: 15px;
-}
-
-.message-heading h2 {
-  font-size:medium;
-  padding-bottom: 10px;
-}
-
-.messaging {
-  flex: 0 1 auto;
-  flex-flow: column nowrap;
-  padding: 2rem;
-  padding-bottom: 7.5rem;
-  height: 100%;
-  overflow-y: scroll;
-}
-
-/* date message was sent */
-time {
-  text-align: center;
-  padding-left: 5px;
-  display: flex;
-}
-
-/* message sent from other person, on left side of chat.
- contains a profile picture (#profile-icon) and a message (.message) */
-.other-messages {
-  display: flex;
-  align-self: flex-start;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-/* message sent from other person */
-.other-messages .message {
-  background-color: rgb(233, 233, 233);
-  border-radius: 14px;
-  max-width: 75%;
-  padding: 0 1em;
-  margin-left: 10px;
-}
-
-/* ther person profile pic */
-.other-messages #profile-pic {
-  height: 1.5em;
-  padding-right: 2px;
-  margin-right: 1px;
-  
-}
-
-/* message sent from user, on right side of chat.
- contains a profile picture (#profile-icon) and a message (.message) */
-.my-messages {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.my-messages .message {
-  background-color: #C3D5F5;
-  border-radius: 14px;
-  max-width: 75%;
-  margin-left: 2em;
-  margin: 1.5rem;
-  padding: 0 1rem;
-}
-
-.my-messages #profile-pic {
-  height: 1.5em;
-  padding-right: 1px;
-  margin-right: 1px;
-  margin-left: -15px;
-}
-
-.subDiv {
-  position: absolute;
-  bottom: 0px;
-  width: 60%;
-  padding-left: 20px;
+  display: none;
 }
 
 @media (min-width: 1450px) {
@@ -250,5 +165,152 @@ time {
 
   .App {
     min-width: 140em;
+  }
+  
+  .footer .large-footer-content {
+    display: flex;
+    justify-content: center;
+  }
+  .footer .small-footer-content {
+    display: none;
+  }
+
+  .subDiv {
+    width: 40%;
+  }
+}
+
+
+
+@media (min-width: 768px) {
+  .footer .large-footer-content {
+    display: flex;
+  }
+  .footer .small-footer-content {
+    display: none;
+  }
+
+  .subDiv {
+    width: 100%;
+  }
+}
+
+@media (min-width: 660px) {
+  .footer .large-footer-content {
+    display: none;
+  }
+  .footer .small-footer-content {
+    display: flex;
+  }
+
+  .footer .extra-small-footer-content {
+    display: none;
+  }
+
+  #list-viewer {
+    width: 450px;
+  }
+
+  .middle-right {
+    display: block;
+    background-color: white;
+    border-right: solid lightgray;
+    flex-grow: 0;
+    height: 100%;
+    width: 98%;
+    overflow-y: hidden;
+    padding-bottom: 10em;
+  }
+  
+  .message-heading {
+    border-bottom: solid lightgray;
+    text-align: center;
+    position: sticky;
+    top: 20px;
+    background-color: white;
+    height: 120px;
+  }
+  
+  .message-heading h3 {
+    padding-top: 15px;
+  }
+  
+  .message-heading h2 {
+    font-size:medium;
+    padding-bottom: 10px;
+  }
+  
+  .messaging {
+    flex: 0 1 auto;
+    flex-flow: column nowrap;
+    padding-top: 35px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 100%;
+    overflow-y: scroll;
+  }
+  
+  /* date message was sent */
+  time {
+    text-align: center;
+    padding-left: 5px;
+    display: flex;
+  }
+  
+  /* message sent from other person, on left side of chat.
+   contains a profile picture (#profile-icon) and a message (.message) */
+  .other-messages {
+    display: flex;
+    align-self: flex-start;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  
+  /* message sent from other person */
+  .other-messages .message {
+    background-color: rgb(233, 233, 233);
+    border-radius: 14px;
+    max-width: 75%;
+    padding: 0 1em;
+    margin-left: 10px;
+  }
+  
+  /* ther person profile pic */
+  .other-messages #profile-pic {
+    height: 1.5em;
+    padding-right: 2px;
+    margin-right: 1px;
+    
+  }
+  
+  /* message sent from user, on right side of chat.
+   contains a profile picture (#profile-icon) and a message (.message) */
+  .my-messages {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .my-messages .message {
+    background-color: #C3D5F5;
+    border-radius: 14px;
+    max-width: 75%;
+    margin-left: 2em;
+    margin: 22px;
+    padding: 0 1rem;
+  }
+  
+  .my-messages #profile-pic {
+    height: 1.5em;
+    padding-right: 1px;
+    margin-right: 1px;
+    margin-left: -15px;
+  }
+  
+  .subDiv {
+    position: absolute;
+    width: 40%;
+    padding-left: 20px;
+    background-color: white;
   }
 }
