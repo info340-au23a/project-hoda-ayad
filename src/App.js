@@ -1,10 +1,10 @@
-
 import React, { useState } from 'react';
 import './css/style.css';
 import {
   Routes,
   Route,
   Outlet,
+  useLocation
 } from "react-router-dom";
 
 import NavBar from './components/NavBar';
@@ -13,7 +13,7 @@ import Home from './pages/Home';
 import Chat from './pages/Chat';
 import Profile from './pages/Profile';
 import Footer from './components/Footer';
-import Setup from './pages/Setup';
+import {SetupBasic, SetupEducation, SetupPassword, SetupSkill} from './pages/Setup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import SAMPLE_POSTS from './sample-data.json';
@@ -25,14 +25,21 @@ function Authenticator({ signedIn, setSignInCB, children}) {
     setSignInCB(toggle);
   }
 
+  const location = useLocation();
+  const isNavBarVisible = location.pathname !== '/set-up-college' && location.pathname !== '/set-up-password'&&
+    location.pathname !== '/set-up-skills' && location.pathname !== '/set-up-basic' && location.pathname !== '/';
+
   return (
     <div className="App full-height">
-      <NavBar setSignInCB={toggleSignIn}/>
+      {isNavBarVisible && <NavBar setSignInCB={toggleSignIn} />}
       <Routes>
         <Route path='/' element={<RequireAuth signedIn={signedIn} setSignedIn={toggleSignIn}/>} >
           {children}
         </Route>
-        <Route path="set-up" element={<Setup setSignInCB={toggleSignIn} />} />
+        <Route path="set-up-basic" element={<SetupBasic />} />
+        <Route path="set-up-college" element={<SetupEducation />} />
+        <Route path="set-up-password" element={<SetupPassword />} />
+        <Route path="set-up-skills" element={<SetupSkill />} />
       </Routes>
     </div>
   )
@@ -43,12 +50,12 @@ function RequireAuth({ signedIn, setSignedIn }) {
   function signIn() {
     setSignedIn(true);
   }
-  
 
-  if(!signedIn) { 
+
+  if(!signedIn) {
     return <Splash signInCB={signIn} />
   }
-  else { 
+  else {
     return <Outlet />
   }
 }
@@ -64,22 +71,26 @@ function App() {
     setSignedIn(toggle);
   }
 
+  const location = useLocation();
+  const isFooterVisible = location.pathname !== '/set-up-college' && location.pathname !== '/set-up-password'&&
+    location.pathname !== '/set-up-skills' && location.pathname !== '/set-up-basic' && location.pathname !== '/';
+
   return (
     <div>
       <div className="App full-height">
 
               <Authenticator signedIn={signedIn} setSignInCB={toggleSignIn} >
-                
+
                   <Route index element={<Home postings={samplePosts} />} />
                   <Route path="chat" element={<Chat chats={sampleChats} />} />
                   <Route path="profile" element={<Profile />} />
-                  
+
               </Authenticator>
-                
-              
+
+
       </div>
       <footer>
-        <Footer />
+        {isFooterVisible && <footer><Footer /></footer>}
       </footer>
     </div>
   );
