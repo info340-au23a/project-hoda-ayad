@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Card, CardSubtitle, CardTitle, CardText,
          Row, Col, Badge, Button, Accordion, AccordionHeader, AccordionBody, AccordionItem } from 'reactstrap';
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 
 
@@ -122,14 +123,9 @@ function PostingView({ data }) {
             </Accordion>
             <Row className="buttons text-center">
                 <Col>
-                    <Button>
-                        Apply Now
-                    </Button>
-                </Col>
-                <Col>
-                    <Button>
+                    <Link to='chat' className='btn btn-secondary'>
                         Message
-                    </Button>
+                    </Link>
                 </Col>
             </Row>
         </div>

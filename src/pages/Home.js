@@ -56,7 +56,7 @@ function Home(props) {
         setQuery(query);
         setRole(role);
         setLocation(loc);
-        setSelectedPosting(null);
+        //setSelectedPosting(null);
         setFilteredData(() => {
             const filteredPostings = data.filter((posting) => {
                 const nameMatch = (query === '') || ((posting.title.toLowerCase()).includes(query.toLowerCase()));
