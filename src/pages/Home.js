@@ -1,5 +1,5 @@
-
-import React, { useState } from 'react';
+import { getDatabase, onValue, ref } from 'firebase/database';
+import React, { useEffect, useState } from 'react';
 import JobFilter from '../components/JobFilter';
 import { PostingWindow, PostingsList } from '../components/Postings';
 import { Row, Col } from 'reactstrap';
@@ -12,18 +12,42 @@ function Home(props) {
 
     // Handle mobile toggle view
     const [viewList, setViewList] = useState(true);
-
+    // Other states
     const [query, setQuery] = useState('');
     const [role, setRole] = useState('All Roles');
     const [location, setLocation] = useState('All Locations');
     const [selectedPosting, setSelectedPosting] = useState(null);
-    const [filteredData, setFilteredData] = useState(props.postings);
+    const [data, setData] = useState([]);
+    const [filteredData, setFilteredData] = useState([]);
+
     
-    const roleOptions = [...new Set(props.postings.reduce((all, current) => {
+    // gets data as an array
+    useEffect(() => {
+        const db = getDatabase();
+        const postingsRef = ref(db, 'postings');
+
+        const unregisterFunction = onValue(postingsRef, (snapshot) => {
+            const dataArr = Object.entries(snapshot.val()).map(
+                ([key, value]) => ({ id: key, ...value }));;
+            
+            setData(dataArr);
+            // initializes filteredData
+            applyFilter(query, role, location);
+        })
+
+        function cleanup() {
+            unregisterFunction()
+        }
+        return cleanup;
+    })
+
+    
+    
+    const roleOptions = [...new Set(data.reduce((all, current) => {
         return all.concat(current.roles);
     }, []))].sort();
 
-    const locOptions = [...new Set(props.postings.reduce((all, current) => {
+    const locOptions = [...new Set(data.reduce((all, current) => {
         return all.concat(current.location);
     }, []))].sort();
 
@@ -34,7 +58,7 @@ function Home(props) {
         setLocation(loc);
         setSelectedPosting(null);
         setFilteredData(() => {
-            const filteredPostings = props.postings.filter((posting) => {
+            const filteredPostings = data.filter((posting) => {
                 const nameMatch = (query === '') || ((posting.title.toLowerCase()).includes(query.toLowerCase()));
                 const roleMatch = (role === 'All Roles') || (posting.roles.includes(role));
                 const locMatch = (loc === 'All Locations') || (loc === posting.location);
@@ -57,7 +81,6 @@ function Home(props) {
         setQuery('');
         setRole('All Roles');
         setLocation('All Locations');
-        console.log(query, role, location)
     }
 
     return (
