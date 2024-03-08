@@ -50,7 +50,17 @@ export function PostingsList(props) {
 }
 
 function PostingCard({ data, onClick }) {
-    const roleBadges = data.roles.map((role) => <Badge className="m-1" pill>{role}</Badge>)
+    function getBadgeColor(role) {
+        if (role === 'Graphic Designer'
+            || role === 'Engineer' ) {
+            return 'primary';
+        }
+        else {
+            return 'secondary';
+        }
+    }
+
+    const roleBadges = data.roles.map((role) => <Badge color={getBadgeColor(role)} className={`m-1`} pill>{role}</Badge>)
 
     return (
         <Card className=" text-start" onClick={() => onClick(data)} style={{border:'none', 

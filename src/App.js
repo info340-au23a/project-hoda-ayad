@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/style.css';
 import {
   Routes,
@@ -14,7 +15,7 @@ import Chat from './pages/Chat';
 import Profile from './pages/Profile';
 import Footer from './components/Footer';
 import {SetupBasic, SetupEducation, SetupPassword, SetupSkill} from './pages/Setup';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 import SAMPLE_POSTS from './sample-data.json';
 import SAMPLE_CHATS from './chat-sample-data.json';

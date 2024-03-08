@@ -1,3 +1,8 @@
+:root {
+  --primary-color: #c583f0;
+  --secondary-color: #ffab19;
+}
+
 html, body, #root, .App {
   height: 100vh;
 }
@@ -68,6 +73,31 @@ html, body, #root, .App {
 .footer .small-footer-content {
   display: none;
 }
+
+.btn {
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  --bs-btn-hover-bg: #a064d8;
+  --bs-btn-active-bg: rgb(121, 79, 149);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  --bs-btn-hover-bg: #e5a331;
+  --bs-btn-active-bg: #b38332;
+}
+
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.bg-secondary {
+  background-color: var(--secondary-color);
+}
+
 
 /* Messaging center */
 
