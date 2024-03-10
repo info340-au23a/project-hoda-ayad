@@ -25,19 +25,27 @@ function Authenticator({ signedIn, setSignInCB, children}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [uid, setUser] = useState('');
+  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
+  const [college, setCollege] = useState('');
+  const [major, setMajor] = useState('');
+  const [gradDate, setGradDate] = useState(null);
+  const [skills, setSkills] = useState([]);
 
   return (
     <div className="App full-height">
       <NavBar setSignInCB={toggleSignIn} />
       <Routes>
         <Route path='/' element={<RequireAuth signedIn={signedIn} setSignedIn={toggleSignIn} email={email}
-        password={password} setUser={setUser} setEmail={setEmail} setPassword={setPassword} />} >
+          password={password} setUser={setUser} setEmail={setEmail} setPassword={setPassword}
+        />} >
           {children}
         </Route>
-        <Route path="set-up-basic" element={<SetupBasic setEmail={setEmail} />} />
-        <Route path="set-up-college" element={<SetupEducation />} />
+        <Route path="set-up-basic" element={<SetupBasic setEmail={setEmail} setName={setName} setUsername={setUsername} />} />
+        <Route path="set-up-college" element={<SetupEducation setCollege={setCollege} setMajor={setMajor} setGradDate={setGradDate} />} />
         <Route path="set-up-password" element={<SetupPassword setPassword={setPassword} />} />
-        <Route path="set-up-skills" element={<SetupSkill email={email} password={password} />} />
+        <Route path="set-up-skills" element={<SetupSkill setSkills={setSkills} email={email} password={password} name={name}
+          username={username} college={college} major={major} gradDate={gradDate} skills={skills} />} />
         <Route path="reset-password" element={<ResetPassword />} />
       </Routes>
     </div>

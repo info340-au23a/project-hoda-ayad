@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getDatabase, ref, set } from "firebase/database";
 
-export function SetupBasic({setEmail}) {
+export function SetupBasic({setEmail, setName, setUsername}) {
   const nextView = useCustomNavigate();
   return (
     <div className="page set-up">
       <h2>Get Connected</h2>
       <form>
-        <input type="text" placeholder="Name"></input>
-        <input type="text" placeholder="Username"></input>
+        <input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)}></input>
+        <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)}></input>
         <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input>
       </form>
       <button onClick={nextView('/set-up-college')}>Continue</button>
@@ -19,15 +20,15 @@ export function SetupBasic({setEmail}) {
   )
 }
 
-export function SetupEducation() {
+export function SetupEducation({ setCollege, setMajor, setGradDate}) {
   const nextView = useCustomNavigate();
   return (
     <div className="page set-up">
       <h2>Get Connected</h2>
       <form>
-        <input type="text" placeholder="College"></input>
-        <input type="text" placeholder="Major"></input>
-        <input type="number" placeholder="Expected Graduation Date"></input>
+        <input type="text" placeholder="College" onChange={(e) => setCollege(e.target.value)}></input>
+        <input type="text" placeholder="Major" onChange={(e) => setMajor(e.target.value)}></input>
+        <input type="date" placeholder="Expected Graduation Date" onChange={(e) => setGradDate(e.target.value)}></input>
       </form>
       <button onClick={nextView('/set-up-password')}>Continue</button>
     </div>
@@ -50,7 +51,7 @@ export function SetupPassword({setPassword}) {
   )
 }
 
-export function SetupSkill({email, password}) {
+export function SetupSkill({ setSkills, email, password, name, username, college, major, gradDate, skills }) {
   const navigate = useNavigate();
   const handleSubmit = function() {
     // create user using firebase
@@ -59,6 +60,8 @@ export function SetupSkill({email, password}) {
       .then((userCredential) => {
         // Signed up
         const user = userCredential.user;
+        let uid = user.uid;
+        writeUserData(name, username, college, major, gradDate, skills, uid)
         // ...
       })
       .catch((error) => {
@@ -114,4 +117,16 @@ function useCustomNavigate() {
   };
 
   return nextView;
+}
+
+function writeUserData(name, username, college, major, gradDate, skills, uid) {
+  const db = getDatabase();
+  set(ref(db, 'users/' + uid), {
+    name: name,
+    username: username,
+    college: college,
+    major: major,
+    gradDate: gradDate,
+    skills: skills,
+  });
 }
