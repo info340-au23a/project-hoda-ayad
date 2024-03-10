@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
-
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 export function SetupBasic({setEmail}) {
   const nextView = useCustomNavigate();
@@ -35,13 +35,13 @@ export function SetupEducation() {
   )
 }
 
-export function SetupPassword() {
+export function SetupPassword({setPassword}) {
   const nextView = useCustomNavigate();
   return (
     <div className="page set-up">
       <h2>Get Connected</h2>
       <form>
-        <input type="password" placeholder="Create Password"></input>
+        <input type="password" placeholder="Create Password" onChange={(e) => setPassword(e.target.value)}></input>
         <input type="password" placeholder="Re-enter Password"></input>
       </form>
       <button onClick={nextView('/set-up-skills')}>Continue</button>
@@ -50,8 +50,26 @@ export function SetupPassword() {
   )
 }
 
-export function SetupSkill() {
-  const nextView = useCustomNavigate();
+export function SetupSkill({email, password}) {
+  const handleSubmit = function() {
+    // create user using firebase
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed up
+        const user = userCredential.user;
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
+
+    // navigate to splash
+      console.log(email);
+      console.log(password);
+  };
   return (
     <div className="page set-up">
       <h2>Get Connected</h2>
@@ -64,7 +82,7 @@ export function SetupSkill() {
         </p>
         <input id="inputSkills" type="text" placeholder="What are your skills?"></input>
       </form>
-      <button onClick={nextView('/')}>Complete Registration</button>
+      <button onClick={handleSubmit}>Complete Registration</button>
     </div>
 
   )

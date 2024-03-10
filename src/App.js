@@ -26,6 +26,10 @@ function Authenticator({ signedIn, setSignInCB, children}) {
     setSignInCB(toggle);
   }
 
+  // use states to keep track of user email and password for firebase sign up
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
     <div className="App full-height">
       <NavBar setSignInCB={toggleSignIn} />
@@ -33,10 +37,10 @@ function Authenticator({ signedIn, setSignInCB, children}) {
         <Route path='/' element={<RequireAuth signedIn={signedIn} setSignedIn={toggleSignIn}/>} >
           {children}
         </Route>
-        <Route path="set-up-basic" element={<SetupBasic />} />
+        <Route path="set-up-basic" element={<SetupBasic setEmail={setEmail} />} />
         <Route path="set-up-college" element={<SetupEducation />} />
-        <Route path="set-up-password" element={<SetupPassword />} />
-        <Route path="set-up-skills" element={<SetupSkill />} />
+        <Route path="set-up-password" element={<SetupPassword setPassword={setPassword} />} />
+        <Route path="set-up-skills" element={<SetupSkill email={email} password={password} />} />
         <Route path="reset-password" element={<ResetPassword />} />
       </Routes>
     </div>
