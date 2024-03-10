@@ -24,12 +24,14 @@ function Authenticator({ signedIn, setSignInCB, children}) {
   // use states to keep track of user email and password for firebase sign up
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [uid, setUser] = useState('');
 
   return (
     <div className="App full-height">
       <NavBar setSignInCB={toggleSignIn} />
       <Routes>
-        <Route path='/' element={<RequireAuth signedIn={signedIn} setSignedIn={toggleSignIn} email={email} password={password} />} >
+        <Route path='/' element={<RequireAuth signedIn={signedIn} setSignedIn={toggleSignIn} email={email}
+        password={password} setUser={setUser} setEmail={setEmail} setPassword={setPassword} />} >
           {children}
         </Route>
         <Route path="set-up-basic" element={<SetupBasic setEmail={setEmail} />} />
@@ -43,13 +45,13 @@ function Authenticator({ signedIn, setSignInCB, children}) {
 
 }
 
-function RequireAuth({ signedIn, setSignedIn, email, password }) {
+function RequireAuth({ signedIn, setSignedIn, email, password, setUser, setEmail, setPassword }) {
   function signIn() {
     setSignedIn(true);
   }
 
   if(!signedIn) {
-    return <Splash signInCB={signIn} email={email} password={password} />
+    return <Splash signInCB={signIn} email={email} password={password} setUser={setUser} setEmail={setEmail} setPassword={setPassword}  />
   }
   else {
     return <Outlet />
