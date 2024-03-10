@@ -11,7 +11,7 @@ import {
 import { Link, useLocation } from 'react-router-dom';
 import { getAuth, signOut } from "firebase/auth";
 
-function NavBar({ setSignInCB }) {
+function NavBar({ setSignInCB, setUser }) {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
@@ -22,6 +22,7 @@ function NavBar({ setSignInCB }) {
       signOut(auth).then(() => {
         // Sign-out successful.
         setSignInCB(false);
+        setUser('');
       }).catch((error) => {
         // An error happened.
       });

@@ -22,6 +22,7 @@ function Authenticator({ signedIn, setSignInCB, children}) {
   }
 
   // use states to keep track of user email and password for firebase sign up
+  // use states to keep track of user info so the infromation from each set-up component can be relayed to each other and the Splash
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [uid, setUser] = useState('');
@@ -34,7 +35,7 @@ function Authenticator({ signedIn, setSignInCB, children}) {
 
   return (
     <div className="App full-height">
-      <NavBar setSignInCB={toggleSignIn} />
+      <NavBar setSignInCB={toggleSignIn} setUser={setUser} />
       <Routes>
         <Route path='/' element={<RequireAuth signedIn={signedIn} setSignedIn={toggleSignIn} email={email}
           password={password} setUser={setUser} setEmail={setEmail} setPassword={setPassword}
