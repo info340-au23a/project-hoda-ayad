@@ -2,12 +2,25 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
 
 function Splash(props) {
 
   let handleSubmit = function(event) {
     event.preventDefault();
-    props.signInCB();
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, props.email, props.password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        props.signInCB();
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+
   }
   return (
     <div className="page splash" id="splash">

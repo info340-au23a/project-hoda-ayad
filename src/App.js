@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/style.css';
-import {
-  Routes,
-  Route,
-  Outlet,
-  useLocation
-} from "react-router-dom";
+import { Routes, Route, Outlet,useLocation } from "react-router-dom";
 
 import NavBar from './components/NavBar';
 import Splash from './pages/Splash';
@@ -34,7 +29,7 @@ function Authenticator({ signedIn, setSignInCB, children}) {
     <div className="App full-height">
       <NavBar setSignInCB={toggleSignIn} />
       <Routes>
-        <Route path='/' element={<RequireAuth signedIn={signedIn} setSignedIn={toggleSignIn}/>} >
+        <Route path='/' element={<RequireAuth signedIn={signedIn} setSignedIn={toggleSignIn} email={email} password={password} />} >
           {children}
         </Route>
         <Route path="set-up-basic" element={<SetupBasic setEmail={setEmail} />} />
@@ -48,14 +43,13 @@ function Authenticator({ signedIn, setSignInCB, children}) {
 
 }
 
-function RequireAuth({ signedIn, setSignedIn }) {
+function RequireAuth({ signedIn, setSignedIn, email, password }) {
   function signIn() {
     setSignedIn(true);
   }
 
-
   if(!signedIn) {
-    return <Splash signInCB={signIn} />
+    return <Splash signInCB={signIn} email={email} password={password} />
   }
   else {
     return <Outlet />

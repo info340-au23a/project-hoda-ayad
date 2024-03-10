@@ -51,6 +51,7 @@ export function SetupPassword({setPassword}) {
 }
 
 export function SetupSkill({email, password}) {
+  const navigate = useNavigate();
   const handleSubmit = function() {
     // create user using firebase
     const auth = getAuth();
@@ -69,6 +70,7 @@ export function SetupSkill({email, password}) {
     // navigate to splash
       console.log(email);
       console.log(password);
+      navigate('/');
   };
   return (
     <div className="page set-up">
