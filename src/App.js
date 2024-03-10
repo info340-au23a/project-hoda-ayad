@@ -14,7 +14,7 @@ import Home from './pages/Home';
 import Chat from './pages/Chat';
 import Profile from './pages/Profile';
 import Footer from './components/Footer';
-import {SetupBasic, SetupEducation, SetupPassword, SetupSkill} from './pages/Setup';
+import {ResetPassword, SetupBasic, SetupEducation, SetupPassword, SetupSkill} from './pages/Setup';
 
 
 import SAMPLE_POSTS from './sample-data.json';
@@ -26,13 +26,9 @@ function Authenticator({ signedIn, setSignInCB, children}) {
     setSignInCB(toggle);
   }
 
-  const location = useLocation();
-  const isNavBarVisible = location.pathname !== '/set-up-college' && location.pathname !== '/set-up-password'&&
-    location.pathname !== '/set-up-skills' && location.pathname !== '/set-up-basic' && location.pathname !== '/';
-
   return (
     <div className="App full-height">
-      {isNavBarVisible && <NavBar setSignInCB={toggleSignIn} />}
+      <NavBar setSignInCB={toggleSignIn} />
       <Routes>
         <Route path='/' element={<RequireAuth signedIn={signedIn} setSignedIn={toggleSignIn}/>} >
           {children}
@@ -41,6 +37,7 @@ function Authenticator({ signedIn, setSignInCB, children}) {
         <Route path="set-up-college" element={<SetupEducation />} />
         <Route path="set-up-password" element={<SetupPassword />} />
         <Route path="set-up-skills" element={<SetupSkill />} />
+        <Route path="reset-password" element={<ResetPassword />} />
       </Routes>
     </div>
   )
@@ -73,8 +70,9 @@ function App() {
   }
 
   const location = useLocation();
-  const isFooterVisible = location.pathname !== '/set-up-college' && location.pathname !== '/set-up-password'&&
-    location.pathname !== '/set-up-skills' && location.pathname !== '/set-up-basic' && location.pathname !== '/';
+  const isFooterVisible = location.pathname !== '/set-up-college' && location.pathname !== '/set-up-password' &&
+    location.pathname !== '/set-up-skills' && location.pathname !== '/set-up-basic' && location.pathname !== '/' &&
+    location.pathname !== '/reset-password';;
 
   return (
     <div>

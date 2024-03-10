@@ -1,53 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { Routes, Route, useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-function Setup(props) {
-  let [email, setEmail] = useState('');
-  let [pw, setPw] = useState('');
-
-  const navigate = useNavigate();
-
-  return (
-    <Routes>
-      <Route path="set-up-basic" element={<SetupBasic setEmail={setEmail} />} />
-      <Route path="set-up-college" element={<SetupEducation />} />
-      <Route path="set-up-password" element={<SetupPassword />} />
-      <Route path="set-up-skills" element={<SetupSkill />} />
-    </Routes>
-  )
-
-  /**
-
-  let views = [<SetupBasic setEmail={setEmail} />, <SetupEducation />, <SetupPassword setPw={setPw}/>, <SetupSkill/>];
-  let [currView, updateView] = useState(0);
-
-  let nextView = function() {
-    updateView(currView+1);
-  }
-
-  let handleSubmit = function(event) {
-    event.preventDefault();
-    props.setSignInCB(true);
-    navigate('/');
-  }
-
-  return (
-    <div className="page set-up">
-      <h2>Get Connected</h2>
-      {views[currView]}
-      {currView < views.length ? <button onClick={nextView}>Continue</button> : <button onClick={handleSubmit}>Complete Registration</button>}
-    </div>
-  )
-  */
-}
 
 export function SetupBasic({setEmail}) {
-  const navigate = useNavigate();
-  let nextView = function(event) {
-    event.preventDefault();
-    navigate('/set-up-college');
-  }
+  const nextView = useCustomNavigate();
   return (
     <div className="page set-up">
       <h2>Get Connected</h2>
@@ -56,18 +13,14 @@ export function SetupBasic({setEmail}) {
         <input type="text" placeholder="Username"></input>
         <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input>
       </form>
-      <button onClick={nextView}>Continue</button>
+      <button onClick={nextView('/set-up-college')}>Continue</button>
     </div>
 
   )
 }
 
 export function SetupEducation() {
-  const navigate = useNavigate();
-  let nextView = function(event) {
-    event.preventDefault();
-    navigate('/set-up-password');
-  }
+  const nextView = useCustomNavigate();
   return (
     <div className="page set-up">
       <h2>Get Connected</h2>
@@ -76,18 +29,14 @@ export function SetupEducation() {
         <input type="text" placeholder="Major"></input>
         <input type="number" placeholder="Expected Graduation Date"></input>
       </form>
-      <button onClick={nextView}>Continue</button>
+      <button onClick={nextView('/set-up-password')}>Continue</button>
     </div>
 
   )
 }
 
 export function SetupPassword() {
-  const navigate = useNavigate();
-  let nextView = function(event) {
-    event.preventDefault();
-    navigate('/set-up-skills');
-  }
+  const nextView = useCustomNavigate();
   return (
     <div className="page set-up">
       <h2>Get Connected</h2>
@@ -95,18 +44,14 @@ export function SetupPassword() {
         <input type="password" placeholder="Create Password"></input>
         <input type="password" placeholder="Re-enter Password"></input>
       </form>
-      <button onClick={nextView}>Continue</button>
+      <button onClick={nextView('/set-up-skills')}>Continue</button>
     </div>
 
   )
 }
 
 export function SetupSkill() {
-  const navigate = useNavigate();
-  let handleSubmit = function(event) {
-    event.preventDefault();
-    navigate('/');
-  }
+  const nextView = useCustomNavigate();
   return (
     <div className="page set-up">
       <h2>Get Connected</h2>
@@ -119,10 +64,34 @@ export function SetupSkill() {
         </p>
         <input id="inputSkills" type="text" placeholder="What are your skills?"></input>
       </form>
-      <button onClick={handleSubmit}>Complete Registration</button>
+      <button onClick={nextView('/')}>Complete Registration</button>
     </div>
 
   )
 }
 
-export default Setup;
+export function ResetPassword() {
+  const nextView = useCustomNavigate();
+  return (
+    <div className="page set-up">
+      <h2>Reset Password</h2>
+      <form>
+        <input type="text" placeholder="Email"></input>
+        <input type="password" placeholder="New Password"></input>
+        <input type="password" placeholder="Re-enter Password"></input>
+      </form>
+      <button onClick={nextView('/')}>Return to Login</button>
+    </div>
+  )
+}
+
+function useCustomNavigate() {
+  const navigate = useNavigate();
+
+  const nextView = (path) => (event) => {
+    event.preventDefault();
+    navigate(path);
+  };
+
+  return nextView;
+}

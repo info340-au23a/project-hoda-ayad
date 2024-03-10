@@ -16,7 +16,7 @@ function Splash(props) {
         <input type="email" id="email" placeholder="Email"></input>
         <input type="password" id="password" placeholder="Password"></input>
         <button type="submit" id="log-in-button">Log In</button>
-        <a id="forgot-password">Forgot Password?</a>
+        <Link to="reset-password" id="forgot-password">Forgot Password?</Link>
         <label id="dont-have-account" for="register">Don't have an account?</label>
         <Link to='set-up-basic'>Register Now</Link>
       </form>

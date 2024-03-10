@@ -23,7 +23,7 @@ function Footer(props) {
             <Col><a href="mailto:kchong@uw.edu">kchong@uw.edu</a></Col>
             <Col><a href="emmafin@uw.edu">emmafin@uw.edu</a></Col>
           </Row>
-        </div> 
+        </div>
 
         <div className="extra-small-footer-content">
           Contact us at:&nbsp;&nbsp;&nbsp;
@@ -35,11 +35,11 @@ function Footer(props) {
             <Col><a href="mailto:kchong@uw.edu">kchong@uw.edu</a></Col>
             <Col><a href="emmafin@uw.edu">emmafin@uw.edu</a></Col>
           </Row>
-        </div> 
+        </div>
 
-            
+
       </div>
     );
   }
-  
+
   export default Footer;

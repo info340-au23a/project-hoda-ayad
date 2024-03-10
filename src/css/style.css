@@ -244,6 +244,7 @@ html, body, #root, .App {
 #splash {
   height: 100%;
   justify-content: space-evenly;
+  margin-bottom: 0;
 }
 
 #splash, #splash input, #splash button {
@@ -332,7 +333,7 @@ html, body, #root, .App {
     overflow-y: hidden;
     padding-bottom: 10em;
   }
-  
+
   .message-heading {
     border-bottom: solid lightgray;
     text-align: center;
@@ -341,16 +342,16 @@ html, body, #root, .App {
     background-color: white;
     padding-bottom: 1em;
   }
-  
+
   .message-heading h3 {
     padding-top: 15px;
   }
-  
+
   .message-heading h2 {
     font-size: medium;
     padding-bottom: 10px;
   }
-  
+
   .messaging {
     flex: 0 1 auto;
     flex-flow: column nowrap;
@@ -361,14 +362,14 @@ html, body, #root, .App {
     height: 100%;
     overflow-y: auto;
   }
-  
+
   /* date message was sent */
   time {
     text-align: center;
     padding-left: 5px;
     display: flex;
   }
-  
+
   /* message sent from other person, on left side of chat.
    contains a profile picture (#profile-icon) and a message (.message) */
   .other-messages {
@@ -377,7 +378,7 @@ html, body, #root, .App {
     padding-top: 5px;
     padding-bottom: 5px;
   }
-  
+
   /* message sent from other person */
   .other-messages .message {
     background-color: rgb(233, 233, 233);
@@ -386,22 +387,22 @@ html, body, #root, .App {
     padding: 0 1em;
     margin-left: 10px;
   }
-  
+
   /* ther person profile pic */
   .other-messages #profile-pic {
     height: 1.5em;
     padding-right: 2px;
     margin-right: 1px;
-    
+
   }
-  
+
   /* message sent from user, on right side of chat.
    contains a profile picture (#profile-icon) and a message (.message) */
   .my-messages {
     display: flex;
     justify-content: flex-end;
   }
-  
+
   .my-messages .message {
     background-color: #C3D5F5;
     border-radius: 14px;
@@ -410,16 +411,16 @@ html, body, #root, .App {
     margin: 22px;
     padding: 0 1rem;
   }
-  
+
   .my-messages #profile-pic {
     height: 1.5em;
     padding-right: 1px;
     margin-right: 1px;
     margin-left: -15px;
   }
-  
+
   .subDiv {
-    
+
     max-width: 100%;
     padding: 0 .5em;
     background-color: white;
@@ -435,6 +436,10 @@ html, body, #root, .App {
 
   #splash #password, #splash #log-in-button, #splash #forgot-password, #splash #dont-have-account {
     margin-top: 25%;
+  }
+
+  .set-up {
+    margin-bottom: 0;
   }
 }
 
