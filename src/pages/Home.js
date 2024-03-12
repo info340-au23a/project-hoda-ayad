@@ -20,7 +20,22 @@ function Home(props) {
     const [data, setData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
 
-    
+    function applyFilter(query, role, loc) {
+        setQuery(query);
+        setRole(role);
+        setLocation(loc);
+        //setSelectedPosting(null);
+        setFilteredData(() => {
+            const filteredPostings = data.filter((posting) => {
+                const nameMatch = (query === '') || ((posting.title.toLowerCase()).includes(query.toLowerCase()));
+                const roleMatch = (role === 'All Roles') || (posting.roles.includes(role));
+                const locMatch = (loc === 'All Locations') || (loc === posting.location);
+                return nameMatch && roleMatch && locMatch;
+            });
+            return filteredPostings;
+        });
+    }
+
     // gets data as an array
     useEffect(() => {
         const db = getDatabase();
@@ -50,23 +65,6 @@ function Home(props) {
     const locOptions = [...new Set(data.reduce((all, current) => {
         return all.concat(current.location);
     }, []))].sort();
-
-
-    function applyFilter(query, role, loc) {
-        setQuery(query);
-        setRole(role);
-        setLocation(loc);
-        //setSelectedPosting(null);
-        setFilteredData(() => {
-            const filteredPostings = data.filter((posting) => {
-                const nameMatch = (query === '') || ((posting.title.toLowerCase()).includes(query.toLowerCase()));
-                const roleMatch = (role === 'All Roles') || (posting.roles.includes(role));
-                const locMatch = (loc === 'All Locations') || (loc === posting.location);
-                return nameMatch && roleMatch && locMatch;
-            });
-            return filteredPostings;
-        });
-    }
 
     function selectPosting(posting) {
         setSelectedPosting(posting);
