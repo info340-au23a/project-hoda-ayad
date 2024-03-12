@@ -351,6 +351,9 @@ html, body, #root, .App {
   margin-top: 20%;
 }
 
+.error-message {
+  color: red;
+}
 
 @media (min-width: 769px) {
 
