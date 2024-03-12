@@ -65,7 +65,7 @@ function Chat(props) {
       <div className="page chat">
         {isNotPhone ? 
           <Row className='inbox-view content-container'>
-            <Col className='p-0 border posting-list-container'>
+            <Col className='p-0 border inbox-list-container'>
               < InboxHeader applyFilterCallback={applyFilter} clearFilterCallback={clearFilter} />
               < MessageCardRow key="message-list" message={filteredData} selectConvoCallback={selectConversation} />
             </Col>
@@ -76,11 +76,11 @@ function Chat(props) {
             <div className="inbox-view">
               {
                 viewList ? 
-                  <div className='posting-list-container col' >
+                  <div className='inbox-list-container col' >
                     < InboxHeader applyFilterCallback={applyFilter} clearFilterCallback={clearFilter} />
                     < MessageCardRow key="message-list" message={filteredData} selectConvoCallback={selectConversation} />
                   </div>
-                : <ChatWindow key="posting-window" data={selectedChat} handleBackClickCb={handleBackClick} isNotPhone={isNotPhone}/>} 
+                : <ChatWindow key="posting-window" data={selectedChat} handleBackClickCb={handleBackClick} isNotPhone={isNotPhone} db={data} />} 
             </div> 
         }
       </div>
