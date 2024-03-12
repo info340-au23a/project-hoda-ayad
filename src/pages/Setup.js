@@ -4,51 +4,49 @@ import { useNavigate } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { getDatabase, ref, set } from "firebase/database";
 
-export function SetupBasic({setEmail, setName, setUsername}) {
+
+export function SetupBasic({ setEmail, setName, setUsername }) {
   const nextView = useCustomNavigate();
   return (
     <div className="page set-up">
       <h2>Get Connected</h2>
-      <form>
+      <form onSubmit={nextView('/set-up-college')}>
         <input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)}></input>
         <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)}></input>
         <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input>
+        <button type="submit">Continue</button>
       </form>
-      <button onClick={nextView('/set-up-college')}>Continue</button>
     </div>
-
-  )
+  );
 }
 
-export function SetupEducation({ setCollege, setMajor, setGradDate}) {
+export function SetupEducation({ setCollege, setMajor, setGradDate }) {
   const nextView = useCustomNavigate();
   return (
     <div className="page set-up">
       <h2>Get Connected</h2>
-      <form>
+      <form onSubmit={nextView('/set-up-password')}>
         <input type="text" placeholder="College" onChange={(e) => setCollege(e.target.value)}></input>
         <input type="text" placeholder="Major" onChange={(e) => setMajor(e.target.value)}></input>
         <input type="date" placeholder="Expected Graduation Date" onChange={(e) => setGradDate(e.target.value)}></input>
+        <button type="submit">Continue</button>
       </form>
-      <button onClick={nextView('/set-up-password')}>Continue</button>
     </div>
-
-  )
+  );
 }
 
-export function SetupPassword({setPassword}) {
+export function SetupPassword({ setPassword }) {
   const nextView = useCustomNavigate();
   return (
     <div className="page set-up">
       <h2>Get Connected</h2>
-      <form>
+      <form onSubmitCapture={(nextView('/set-up-skills'))}>
         <input type="password" placeholder="Create Password" onChange={(e) => setPassword(e.target.value)}></input>
         <input type="password" placeholder="Re-enter Password"></input>
+        <button type="submit">Continue</button>
       </form>
-      <button onClick={nextView('/set-up-skills')}>Continue</button>
     </div>
-
-  )
+  );
 }
 
 export function SetupSkill({ setSkills, email, password, name, username, college, major, gradDate, skills }) {
@@ -78,19 +76,18 @@ export function SetupSkill({ setSkills, email, password, name, username, college
   return (
     <div className="page set-up">
       <h2>Get Connected</h2>
-      <form>
-        <p>Campus Cloud is all about finding and working with other sutdents with varying
+      <form onSubmit={handleSubmit}>
+        <p>Campus Cloud is all about finding and working with other students with varying
               skills and knowledge.
         </p>
         <p>In order to showcase your abilities and have the best experience, create a list
             of skillsets for others to see!
         </p>
         <input id="inputSkills" type="text" placeholder="What are your skills?"></input>
+        <button type="submit">Complete Registration</button>
       </form>
-      <button onClick={handleSubmit}>Complete Registration</button>
     </div>
-
-  )
+  );
 }
 
 export function ResetPassword() {
@@ -102,10 +99,10 @@ export function ResetPassword() {
         <input type="text" placeholder="Email"></input>
         <input type="password" placeholder="New Password"></input>
         <input type="password" placeholder="Re-enter Password"></input>
+        <button type="button" onClick={nextView('/')}>Return to Login</button>
       </form>
-      <button onClick={nextView('/')}>Return to Login</button>
     </div>
-  )
+  );
 }
 
 function useCustomNavigate() {
