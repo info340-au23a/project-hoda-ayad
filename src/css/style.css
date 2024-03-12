@@ -100,8 +100,106 @@ html, body, #root, .App {
 
 
 /* Messaging center */
+#list-viewer {
+  width: 27em;
+  padding: 0;
+}
 
-#inbox {
+.middle-right {
+  display: block;
+  width: 100%;
+  background-color: white;
+  flex-grow: 0;
+  overflow-y: hidden;
+  padding-bottom: 10em;
+}
+
+.message-heading {
+  border-bottom: solid lightgray;
+  text-align: center;
+  position: sticky;
+  top: .5em;
+  background-color: white;
+  padding-bottom: 1em;
+}
+
+.message-heading h3 {
+  padding-top: 15px;
+}
+
+.message-heading h2 {
+  font-size: medium;
+  padding-bottom: 10px;
+}
+
+.messaging {
+  flex: 0 1 auto;
+  flex-flow: column nowrap;
+  padding-top: 35px;
+  padding-bottom: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 430px;
+  overflow-y: auto;
+}
+
+/* message sent from other person, on left side of chat.
+ contains a profile picture (#profile-icon) and a message (.message) */
+.other-messages {
+  display: flex;
+  align-self: flex-start;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* message sent from other person */
+.other-messages .message {
+  background-color: rgb(233, 233, 233);
+  border-radius: 14px;
+  max-width: 75%;
+  padding: 0 1em;
+  margin-left: 10px;
+}
+
+/* ther person profile pic */
+.other-messages .profile-pic {
+  height: 1.5em;
+  padding-right: 2px;
+  margin-right: 1px;
+
+}
+
+/* message sent from user, on right side of chat.
+ contains a profile picture (#profile-icon) and a message (.message) */
+.my-messages {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.my-messages .message {
+  background-color: #C3D5F5;
+  border-radius: 14px;
+  max-width: 75%;
+  margin-left: 2em;
+  margin: 22px;
+  padding: 0 1rem;
+}
+
+.my-messages .profile-pic {
+  height: 1.5em;
+  padding-right: 1px;
+  margin-right: 1px;
+  margin-left: -15px;
+}
+
+.subDiv {
+
+  max-width: 100%;
+  padding: 0 .5em;
+  background-color: white;
+}
+
+.inbox-view {
   display: flex;
   height: 100%;
   min-width: 100%;
@@ -110,87 +208,50 @@ html, body, #root, .App {
   overflow-y: hidden;
 }
 
-/* profile picture */
-#inbox #profile-icon {
-  display: flex;
-  align-items: center;
-  margin-left: 0;
-}
-
-/* profile picture */
-img #profile-pic {
-  height: 2em;
-  border-radius: 50%;
-}
-
-/* scroll through people in inbox */
-#list-viewer {
-  background-color: white;
-  flex: 0 0 auto;
-  height: 100%;
-  width: 100%;
-  padding: 0;
-  border-right: solid lightgray;
-  overflow: hidden;
-}
-
 /* contains "inbox" text (h1) and compose icon (.compose-message) */
-#inbox-heading {
+.inbox-heading {
   width: 100%;
   border-bottom: solid lightgray;
   position: sticky;
   background-color: white;
 }
 
-#inbox-heading h4 {
+.inbox-heading h4 {
   font-size: 2rem;
   font-weight: bold;
   margin: 0 .5em;
   margin-top: 1.5rem;
   padding-bottom: .5em;
+  padding-left: 5%;
 }
 
-#inbox-heading #search-bar-formating {
-  padding: 0.5em 1em;
+.search-inbox {
+  padding-bottom: 10px;
+  width: 95%;
+  padding-left: 5%;
+
 }
 
 .message-list {
   height: 100%;
+  width: 100%;
   padding-bottom: 9em;
   overflow-y: auto;
 }
 
-/* each individual message. contains a profile picture (#profile-icon), identifiers of the people (#identifiers) (name (h2), identity (h3), and snipet of last message (p)) */
-.message-card {
-  border-bottom: solid lightgray;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
+.inbox-list-container {
+  width: 195px;
 }
-
-.message-card #title {
-  font-style: italic;
-}
-
-#profile-icon p {
-  padding-left: .5em;
-}
-
-#inbox #profile-icon p {
-  font-weight: 500;
-  font-size: 1.5rem;
-  margin-bottom: .5em;
-}
-
-.message-card p {
-  margin: 0;
-  padding: .25em 0;
-}
-
 /* scroll through conversation and send message */
 .middle-right {
   display: none;
 }
+
+.draft-wrapper {
+  display: block;
+  bottom: 72px;
+}
+
 
 /* Set up pages */
 
@@ -293,10 +354,6 @@ img #profile-pic {
 
 @media (min-width: 769px) {
 
-  .draft-wrapper {
-    width: 0%;
-  }
-
   .set-up input {
     width: 200%;
   }
@@ -318,112 +375,6 @@ img #profile-pic {
 
   .footer .extra-small-footer-content {
     display: none;
-  }
-
-  #list-viewer {
-    width: 27em;
-    padding: 0;
-  }
-
-  .middle-right {
-    display: block;
-    width: 100%;
-    background-color: white;
-    flex-grow: 0;
-    overflow-y: hidden;
-    padding-bottom: 10em;
-  }
-
-  .message-heading {
-    border-bottom: solid lightgray;
-    text-align: center;
-    position: sticky;
-    top: .5em;
-    background-color: white;
-    padding-bottom: 1em;
-  }
-
-  .message-heading h3 {
-    padding-top: 15px;
-  }
-
-  .message-heading h2 {
-    font-size: medium;
-    padding-bottom: 10px;
-  }
-
-  .messaging {
-    flex: 0 1 auto;
-    flex-flow: column nowrap;
-    padding-top: 35px;
-    padding-bottom: 0px;
-    padding-left: 20px;
-    padding-right: 20px;
-    height: 100%;
-    overflow-y: auto;
-  }
-
-  /* date message was sent */
-  time {
-    text-align: center;
-    padding-left: 5px;
-    display: flex;
-  }
-
-  /* message sent from other person, on left side of chat.
-   contains a profile picture (#profile-icon) and a message (.message) */
-  .other-messages {
-    display: flex;
-    align-self: flex-start;
-    padding-top: 5px;
-    padding-bottom: 5px;
-  }
-
-  /* message sent from other person */
-  .other-messages .message {
-    background-color: rgb(233, 233, 233);
-    border-radius: 14px;
-    max-width: 75%;
-    padding: 0 1em;
-    margin-left: 10px;
-  }
-
-  /* ther person profile pic */
-  .other-messages #profile-pic {
-    height: 1.5em;
-    padding-right: 2px;
-    margin-right: 1px;
-
-  }
-
-  /* message sent from user, on right side of chat.
-   contains a profile picture (#profile-icon) and a message (.message) */
-  .my-messages {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .my-messages .message {
-    background-color: #C3D5F5;
-    border-radius: 14px;
-    max-width: 75%;
-    margin-left: 2em;
-    margin: 22px;
-    padding: 0 1rem;
-  }
-
-  .my-messages #profile-pic {
-    height: 1.5em;
-    padding-right: 1px;
-    margin-right: 1px;
-    margin-left: -15px;
-  }
-
-  .subDiv {
-
-    max-width: 100%;
-    padding: 0 .5em;
-    background-color: white;
   }
 
   #splash input {
