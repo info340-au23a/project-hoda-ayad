@@ -7,7 +7,7 @@ import NavBar from './components/NavBar';
 import {ResetPassword, SetupBasic, SetupEducation, SetupPassword, SetupSkill} from './pages/Setup';
 import { RequireAuth } from './App';
 
-function Authenticator({ signedIn, setSignInCB, children}) {
+function Authenticator({ signedIn, setSignInCB, children, setUser}) {
   function toggleSignIn(toggle) {
     setSignInCB(toggle);
   }
@@ -16,7 +16,6 @@ function Authenticator({ signedIn, setSignInCB, children}) {
   // use states to keep track of user info so the infromation from each set-up component can be relayed to each other and the Splash
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [uid, setUser] = useState('');
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [college, setCollege] = useState('');
