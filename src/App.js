@@ -80,7 +80,7 @@ function App() {
 
   const location = useLocation();
   const isFooterVisible = location.pathname !== '/set-up-college' && location.pathname !== '/set-up-password' &&
-    location.pathname !== '/set-up-skills' && location.pathname !== '/set-up-basic' && location.pathname !== '/' &&
+    location.pathname !== '/set-up-skills' && location.pathname !== '/set-up-basic' &&
     location.pathname !== '/reset-password';;
 
   return (

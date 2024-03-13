@@ -1,7 +1,8 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardSubtitle, CardTitle, CardText, Label, Form, Button, Input, InputGroup } from "reactstrap";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { getDatabase, set as firebaseSet, ref, onValue } from "firebase/database";
 
 
 export function InboxHeader(props) {
@@ -126,8 +127,29 @@ function OtherResponse(index, msg, profilePhoto) {
 }
 
  function Converse({data}) {
+    
+    const [convo, setConvo] = useState([]);
+
+    useEffect(() => {
+        const db = getDatabase();
+        const convoRef = ref(db, `chat/${data.id}/convo`);
+        const unregisterFunction = onValue(convoRef, (snapshot) => {
+                const convoArr = Object.values(snapshot.val()).map(
+                    (value) => (value));;
+                
+                setConvo(convoArr);
+            })
+        
+        
+
+        function cleanup() {
+            unregisterFunction();
+        }
+        return cleanup
+    }, []);
+
     let index = -1;
-    const conversation = data.convo.map((msg) => {
+    const conversation = convo.map((msg) => {
         let who = msg.substring(0, 1);
         msg = msg.substring(2, msg.length)
         index++;
@@ -144,20 +166,41 @@ function OtherResponse(index, msg, profilePhoto) {
     );
 }
 
-function SendMessage({db, person}) {
-   /*
-    const [query, setQuery] = useState('');
+function SendMessage({db, personID}) {
 
-    function handleInput(event) {
-        setQuery(event.target.value);
-    }
+    const [draft, setDraft] = useState('');
+    const [convo, setConvo] = useState([]);
+
+    useEffect(() => {
+        const db = getDatabase();
+        const convoRef = ref(db, `chat/${personID}/convo`);
+        const unregisterFunction = onValue(convoRef, (snapshot) => {
+                const convoArr = Object.values(snapshot.val()).map(
+                    (value) => (value));;
+                
+                setConvo(convoArr);
+            })
+        
+        
+
+        function cleanup() {
+            unregisterFunction();
+        }
+        return cleanup
+    }, []);
 
     function handleSend() {
-        const message = "M " + query;
-        update(db, "")
-        setQuery('');
+        const db = getDatabase();
+        const convoRef = ref(db, `chat/${personID}/convo`);
+       if (draft !== '') {
+       
+            setConvo([...convo, `M ${draft}`])
+          
+            firebaseSet(convoRef, [...convo, `M ${draft}`])
+            .then(setDraft(''))
+        }
     }
-    */
+   
     return (
         <div className="draft-wrapper">
             <InputGroup className="draft-message" style={{bottom:'0px'}}>
@@ -166,8 +209,10 @@ function SendMessage({db, person}) {
                     name="send" /* value={query} onChange={handleInput} */
                     placeholder="type your message..."
                     className="to-send"
+                    value={draft}
+                    onChange={(e) => {setDraft(e.target.value)}}
                     />
-                <Button /* onClick={handleSend} */color="success" className="btn">
+                <Button onClick={handleSend} color="success" className="btn">
                     Send
                 </Button>
             </InputGroup>
@@ -187,7 +232,7 @@ function ConversationView({ data, db }) {
             <MessageHeader data={data} />
             <Converse data={data} />
             <div className="subDiv">
-              <SendMessage db={db} person={data.name} />
+              <SendMessage db={db} personID={data.id} />
             </div>
         </>
     );

@@ -6,12 +6,12 @@ function Footer(props) {
     return (
       <div className="footer">
         <div className="large-footer-content">
-          <Row className="footer-content">
-              <Col>Contact us at: </Col>
-              <Col><a href="mailto:hayad03@uw.edu">hayad03@uw.edu</a></Col>
-              <Col><a href="mailto:yohhn@uw.edu">yohhn@uw.edu</a></Col>
-              <Col><a href="mailto:kchong@uw.edu">kchong@uw.edu</a></Col>
-              <Col><a href="emmafin@uw.edu">emmafin@uw.edu</a></Col>
+          <Row className="content-small">
+            <Col><a href="mailto:hayad03@uw.edu">hayad03@uw.edu</a></Col>
+            <Col><a href="mailto:yohhn@uw.edu">yohhn@uw.edu</a></Col>
+            <Col><a href="mailto:kchong@uw.edu">kchong@uw.edu</a></Col>
+            <Col><a href="emmafin@uw.edu">emmafin@uw.edu</a></Col>
+            <Col className='col-3'>&#169; Campus Cloud 2024</Col>
           </Row>
         </div>
 
@@ -22,6 +22,7 @@ function Footer(props) {
             <Col><a href="mailto:yohhn@uw.edu">yohhn@uw.edu</a></Col>
             <Col><a href="mailto:kchong@uw.edu">kchong@uw.edu</a></Col>
             <Col><a href="emmafin@uw.edu">emmafin@uw.edu</a></Col>
+            <Col className='col-3'>&#169; Campus Cloud 2024</Col>
           </Row>
         </div>
 
@@ -35,6 +36,7 @@ function Footer(props) {
             <Col><a href="mailto:kchong@uw.edu">kchong@uw.edu</a></Col>
             <Col><a href="emmafin@uw.edu">emmafin@uw.edu</a></Col>
           </Row>
+          <Row><Col>&#169; Campus Cloud 2024</Col></Row>
         </div>
 
 
