@@ -10,7 +10,7 @@ import Chat from './pages/Chat';
 import Profile from './pages/Profile';
 import Footer from './components/Footer';
 import {ResetPassword, SetupBasic, SetupEducation, SetupPassword, SetupSkill} from './pages/Setup';
-import Authenticator from './Authenticator';
+import Authenticator from './components/Authenticator';
 
 
 import SAMPLE_POSTS from './sample-data.json';

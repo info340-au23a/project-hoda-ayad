@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './css/style.css';
 import { Routes, Route, Outlet,useLocation } from "react-router-dom";
 
-import NavBar from './components/NavBar';
-import {ResetPassword, SetupBasic, SetupEducation, SetupPassword, SetupSkill} from './pages/Setup';
-import { RequireAuth } from './App';
+import NavBar from './NavBar';
+import {ResetPassword, SetupBasic, SetupEducation, SetupPassword, SetupSkill} from '../pages/Setup';
+import { RequireAuth } from '../App';
 
 function Authenticator({ signedIn, setSignInCB, children, setUser}) {
   function toggleSignIn(toggle) {
