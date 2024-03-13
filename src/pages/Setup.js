@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import { getDatabase, ref, set } from "firebase/database";
 
 
@@ -106,23 +106,37 @@ export function SetupSkill({ setSkills, email, password, name, username, college
 }
 
 export function ResetPassword({ password, setPassword }) {
-  const [confirmPw, setConfirmPw] = useState('');
+  const [confirmEmail, setConfirmEmail] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const navigate = useNavigate();
+  const handleClick = function(event) {
+    event.preventDefault();
+    sendPasswordResetEmail(getAuth(), confirmEmail)
+      .then(() => {
+        // Password reset email sent!
+        console.log("Password reset email sent successfully.");
+        setErrorMsg("")
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // Handle errors
+        console.error(errorCode, errorMessage);
+        setErrorMsg(errorMessage);
+      });
+  }
+
   const handleSubmit = function(event) {
     event.preventDefault();
-    if (password != confirmPw) {
-      setErrorMsg('Password do not match');
-    } else {
-      navigate('/');
-    }
+    navigate('/');
   }
+
   return (
     <div className="page set-up">
       <h2>Reset Password</h2>
       <form onSubmit={handleSubmit}>
-      <input type="password" placeholder="Create Password" onChange={(e) => setPassword(e.target.value)}></input>
-        <input type="password" placeholder="Re-enter Password" onChange={(e) => setConfirmPw(e.target.value)}></input>
+        <input type="email" placeholder="Account's Email" onChange={(e) => setConfirmEmail(e.target.value)}></input>
+        <button onClick={handleClick}>Submit - Check your email!</button>
         {errorMsg && <div className="error-message">{errorMsg}</div>} {/* Display error message if exists */}
         <button type="submit">Return to Login</button>
       </form>
