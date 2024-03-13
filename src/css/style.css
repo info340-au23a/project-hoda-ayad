@@ -272,7 +272,7 @@ html, body, #root, .App {
 }
 
 .set-up input, .set-up button {
-  border: 2px solid #fff;
+  border: .2em solid #fff;
   border-radius: 18px;
 }
 
@@ -323,7 +323,7 @@ html, body, #root, .App {
 }
 
 .splash input, .splash .log-in-button {
-  border: 2px solid #fff;
+  border: .1em solid #fff;
   border-radius: 18px;
 }
 
