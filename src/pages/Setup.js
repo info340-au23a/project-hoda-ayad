@@ -41,7 +41,7 @@ export function SetupPassword({ password, setPassword }) {
   const navigate = useNavigate();
   const handleSubmit = function(event) {
     event.preventDefault();
-    if (password != confirmPw) {
+    if (password !== confirmPw) {
       setErrorMsg('Password do not match');
     } else {
       navigate('/set-up-skills');
@@ -65,24 +65,19 @@ export function SetupSkill({ setSkills, email, password, name, username, college
   const [errorMsg, setErrorMsg] = useState('');
   const handleSubmit = function(event) {
     event.preventDefault();
-    // create user using firebase
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed up
         const user = userCredential.user;
         let uid = user.uid;
         writeUserData(name, username, college, major, gradDate, skills, uid)
-        // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        // ..
         setErrorMsg(errorMessage);
       });
 
-    // navigate to splash
       console.log(email);
       console.log(password);
       navigate('/');
@@ -113,14 +108,11 @@ export function ResetPassword({ password, setPassword }) {
     event.preventDefault();
     sendPasswordResetEmail(getAuth(), confirmEmail)
       .then(() => {
-        // Password reset email sent!
-        console.log("Password reset email sent successfully.");
         setErrorMsg("")
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        // Handle errors
         console.error(errorCode, errorMessage);
         setErrorMsg(errorMessage);
       });

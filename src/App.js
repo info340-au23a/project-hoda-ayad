@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/style.css';
-import { Routes, Route, Outlet,useLocation } from "react-router-dom";
+import { Route, Outlet,useLocation } from "react-router-dom";
 
-import NavBar from './components/NavBar';
 import Splash from './pages/Splash';
 import Home from './pages/Home';
 import Chat from './pages/Chat';
 import Profile from './pages/Profile';
 import Footer from './components/Footer';
-import {ResetPassword, SetupBasic, SetupEducation, SetupPassword, SetupSkill} from './pages/Setup';
 import Authenticator from './components/Authenticator';
 
 

@@ -51,7 +51,6 @@ function MessageCard({data, onClick}) {
         sampleMsg = sampleMsg.substring(2, upTo);
     }
     
-    let msgDate = data.endPoint[data.endPoint.length-1].date;
     return (
 
         <Card className="text-start" onClick={() => onClick(data)} style={{border:'none', 
@@ -106,7 +105,7 @@ function UserResponse(index, msg, profilePhoto) {
                 <p>{ msg }</p>
             </div>
             <div className="profile-icon">
-            <img className="profile-pic" style={{border:'none', borderRadius:'50%',  textAlign:'start', maxWidth:'3rem', maxHeight:'3rem'}} src={profilePhoto} alt="profile photo"/>
+            <img className="profile-pic" style={{border:'none', borderRadius:'50%',  textAlign:'start', maxWidth:'3rem', maxHeight:'3rem'}} src={profilePhoto} alt="profile"/>
             </div>
         </div>
     );
@@ -117,7 +116,7 @@ function OtherResponse(index, msg, profilePhoto) {
     return (
         <div className="other-messages" key={uniqueKey}>
             <div className="profile-icon">
-            <img className="profile-pic" style={{border:'none', borderRadius:'50%',  textAlign:'start', maxWidth:'3rem', maxHeight:'3rem'}} src={profilePhoto} alt="profile photo" />
+            <img className="profile-pic" style={{border:'none', borderRadius:'50%',  textAlign:'start', maxWidth:'3rem', maxHeight:'3rem'}} src={profilePhoto} alt="profile" />
             </div>
             <div className="message">
                 <p>{msg}</p>
@@ -155,9 +154,9 @@ function OtherResponse(index, msg, profilePhoto) {
         index++;
         if(who === "O") {
             return OtherResponse(index, msg, data.profilePic);
-        } else if (who === "M") {
-            return UserResponse(index, msg, data.profilePic);
-        }
+        } 
+        return UserResponse(index, msg, data.profilePic);
+        
     });
     return (
         <div className="messaging">

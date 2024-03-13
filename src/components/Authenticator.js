@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Routes, Route, Outlet,useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import NavBar from './NavBar';
 import {ResetPassword, SetupBasic, SetupEducation, SetupPassword, SetupSkill} from '../pages/Setup';
@@ -11,8 +11,6 @@ function Authenticator({ signedIn, setSignInCB, children, setUser}) {
     setSignInCB(toggle);
   }
 
-  // use states to keep track of user email and password for firebase sign up
-  // use states to keep track of user info so the infromation from each set-up component can be relayed to each other and the Splash
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');

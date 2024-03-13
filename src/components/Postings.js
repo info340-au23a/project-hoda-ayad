@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { Card, CardSubtitle, CardTitle, CardText,
-         Row, Col, Badge, Button, Accordion, AccordionHeader, AccordionBody, AccordionItem } from 'reactstrap';
+         Row, Col, Badge, Accordion, AccordionHeader, AccordionBody, AccordionItem } from 'reactstrap';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
@@ -60,7 +60,7 @@ function PostingCard({ data, onClick }) {
         }
     }
 
-    const roleBadges = data.roles.map((role) => <Badge color={getBadgeColor(role)} className={`m-1`} pill>{role}</Badge>)
+    const roleBadges = data.roles.map((role) => <Badge key={role} color={getBadgeColor(role)} className={`m-1`} pill>{role}</Badge>)
 
     return (
         <Card className=" text-start" onClick={() => onClick(data)} style={{border:'none', 
@@ -85,7 +85,7 @@ function PostingCard({ data, onClick }) {
 }
 
 function PostingView({ data }) {
-    const roleBadges = data.roles.map((role) => <Badge className="m-1"pill>{role}</Badge>)
+    const roleBadges = data.roles.map((role) => <Badge key={role} className="m-1"pill>{role}</Badge>)
 
     const [open, setOpen] = useState('');
     const toggle = (id) => {
@@ -97,7 +97,7 @@ function PostingView({ data }) {
     };
 
     return (
-        <div className="p-4 px-5">
+        <div className="p-4 px-5" key={data.id}>
             <div className="mb-2">
                 {roleBadges}
             </div>
