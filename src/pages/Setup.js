@@ -11,9 +11,12 @@ export function SetupBasic({ setEmail, setName, setUsername }) {
     <div className="page set-up">
       <h2>Get Connected</h2>
       <form onSubmit={nextView('/set-up-college')}>
-        <input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)}></input>
-        <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)}></input>
-        <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input>
+        <label htmlFor="name" className='visually-hidden'>Name</label>
+        <input id='name' type="text" placeholder="Name" onChange={(e) => setName(e.target.value)}></input>
+        <label htmlFor="username" className='visually-hidden'>Username</label>
+        <input id='username' type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)}></input>
+        <label htmlFor="email" className='visually-hidden'>Email</label>
+        <input id='email' type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input>
         <button type="submit">Continue</button>
       </form>
     </div>
@@ -26,9 +29,12 @@ export function SetupEducation({ setCollege, setMajor, setGradDate }) {
     <div className="page set-up">
       <h2>Get Connected</h2>
       <form onSubmit={nextView('/set-up-password')}>
-        <input type="text" placeholder="College" onChange={(e) => setCollege(e.target.value)}></input>
-        <input type="text" placeholder="Major" onChange={(e) => setMajor(e.target.value)}></input>
-        <input type="date" placeholder="Expected Graduation Date" onChange={(e) => setGradDate(e.target.value)}></input>
+        <label htmlFor="college" className='visually-hidden'>College</label>
+        <input id='college' type="text" placeholder="College" onChange={(e) => setCollege(e.target.value)}></input>
+        <label htmlFor="major" className='visually-hidden'>Major</label>
+        <input id='major' type="text" placeholder="Major" onChange={(e) => setMajor(e.target.value)}></input>
+        <label htmlFor="grad-date" className='visually-hidden'>Expected Graduation Date</label>
+        <input id='grad-date' type="date" placeholder="Expected Graduation Date" onChange={(e) => setGradDate(e.target.value)}></input>
         <button type="submit">Continue</button>
       </form>
     </div>
@@ -52,8 +58,10 @@ export function SetupPassword({ password, setPassword }) {
       <h2>Get Connected</h2>
       {errorMsg && <p className="error-message">{errorMsg}</p>} {/* Display error message if exists */}
       <form onSubmitCapture={handleSubmit}>
-        <input type="password" placeholder="Create Password" onChange={(e) => setPassword(e.target.value)}></input>
-        <input type="password" placeholder="Re-enter Password" onChange={(e) => setConfirmPw(e.target.value)}></input>
+        <label htmlFor="password-create" className='visually-hidden'>Create Password</label>
+        <input id='password-create' type="password" placeholder="Create Password" onChange={(e) => setPassword(e.target.value)}></input>
+        <label htmlFor="password-reenter" className='visually-hidden'>Reenter Password</label>
+        <input id='password-reenter' type="password" placeholder="Re-enter Password" onChange={(e) => setConfirmPw(e.target.value)}></input>
         <button type="submit">Continue</button>
       </form>
     </div>
@@ -96,7 +104,8 @@ export function SetupSkill({ setSkills, email, password, name, username, college
         </p>
         <p>In order to showcase your abilities and have the best experience, create a list
             of skillsets for others to see!
-        </p>
+        </p>p-0[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]
+        <label htmlFor="inputSkills" className='visually-hidden'>Input Skills</label>
         <input id="inputSkills" type="text" placeholder="What are your skills?" onChange={(e) => setSkills(e.target.value)}></input>
         <button type="submit">Complete Registration</button>
       </form>
@@ -132,7 +141,8 @@ export function ResetPassword() {
       <h2>Reset Password</h2>
       {errorMsg && <p className="error-message">{errorMsg}</p>} {/* Display error message if exists */}
       <form onSubmit={handleSubmit}>
-        <input type="email" placeholder="Account's Email" onChange={(e) => setConfirmEmail(e.target.value)}></input>
+        <label htmlFor="email-login" className='visually-hidden'>Email</label>
+        <input id='email-login' type="email" placeholder="Account's Email" onChange={(e) => setConfirmEmail(e.target.value)}></input>
         <button onClick={handleClick}>Submit</button>
         <button type="submit">Return to Login</button>
       </form>

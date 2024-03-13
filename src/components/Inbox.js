@@ -20,7 +20,7 @@ export function InboxHeader(props) {
 
     return (
         <div className="inbox-heading" id="col-header">
-            <h4>Inbox</h4> 
+            <h2>Inbox</h2> 
             <Form id="search-bar-form">
                 <Label 
                     className="visually-hidden"
@@ -203,9 +203,14 @@ function SendMessage({db, personID}) {
     return (
         <div className="draft-wrapper">
             <InputGroup className="draft-message" style={{bottom:'0px'}}>
+                <Label 
+                    className="visually-hidden"
+                    for="messageBox">
+                        Message Box
+                </Label>
                 <Input 
                     id="messageBox"
-                    name="send" /* value={query} onChange={handleInput} */
+                    name="send"
                     placeholder="type your message..."
                     className="to-send"
                     value={draft}
