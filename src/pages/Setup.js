@@ -35,14 +35,25 @@ export function SetupEducation({ setCollege, setMajor, setGradDate }) {
   );
 }
 
-export function SetupPassword({ setPassword }) {
-  const nextView = useCustomNavigate();
+export function SetupPassword({ password, setPassword }) {
+  const [confirmPw, setConfirmPw] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
+  const navigate = useNavigate();
+  const handleSubmit = function(event) {
+    event.preventDefault();
+    if (password != confirmPw) {
+      setErrorMsg('Password do not match');
+    } else {
+      navigate('/set-up-skills');
+    }
+  }
   return (
     <div className="page set-up">
       <h2>Get Connected</h2>
-      <form onSubmitCapture={(nextView('/set-up-skills'))}>
+      <form onSubmitCapture={handleSubmit}>
         <input type="password" placeholder="Create Password" onChange={(e) => setPassword(e.target.value)}></input>
-        <input type="password" placeholder="Re-enter Password"></input>
+        <input type="password" placeholder="Re-enter Password" onChange={(e) => setConfirmPw(e.target.value)}></input>
+        {errorMsg && <div className="error-message">{errorMsg}</div>} {/* Display error message if exists */}
         <button type="submit">Continue</button>
       </form>
     </div>
@@ -51,7 +62,9 @@ export function SetupPassword({ setPassword }) {
 
 export function SetupSkill({ setSkills, email, password, name, username, college, major, gradDate, skills }) {
   const navigate = useNavigate();
-  const handleSubmit = function() {
+  const [errorMsg, setErrorMsg] = useState('');
+  const handleSubmit = function(event) {
+    event.preventDefault();
     // create user using firebase
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
@@ -66,6 +79,7 @@ export function SetupSkill({ setSkills, email, password, name, username, college
         const errorCode = error.code;
         const errorMessage = error.message;
         // ..
+        setErrorMsg(errorMessage);
       });
 
     // navigate to splash
@@ -84,22 +98,33 @@ export function SetupSkill({ setSkills, email, password, name, username, college
             of skillsets for others to see!
         </p>
         <input id="inputSkills" type="text" placeholder="What are your skills?"></input>
+        {errorMsg && <div className="error-message">{errorMsg}</div>} {/* Display error message if exists */}
         <button type="submit">Complete Registration</button>
       </form>
     </div>
   );
 }
 
-export function ResetPassword() {
-  const nextView = useCustomNavigate();
+export function ResetPassword({ password, setPassword }) {
+  const [confirmPw, setConfirmPw] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
+  const navigate = useNavigate();
+  const handleSubmit = function(event) {
+    event.preventDefault();
+    if (password != confirmPw) {
+      setErrorMsg('Password do not match');
+    } else {
+      navigate('/');
+    }
+  }
   return (
     <div className="page set-up">
       <h2>Reset Password</h2>
-      <form>
-        <input type="text" placeholder="Email"></input>
-        <input type="password" placeholder="New Password"></input>
-        <input type="password" placeholder="Re-enter Password"></input>
-        <button type="button" onClick={nextView('/')}>Return to Login</button>
+      <form onSubmit={handleSubmit}>
+      <input type="password" placeholder="Create Password" onChange={(e) => setPassword(e.target.value)}></input>
+        <input type="password" placeholder="Re-enter Password" onChange={(e) => setConfirmPw(e.target.value)}></input>
+        {errorMsg && <div className="error-message">{errorMsg}</div>} {/* Display error message if exists */}
+        <button type="submit">Return to Login</button>
       </form>
     </div>
   );

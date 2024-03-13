@@ -34,10 +34,10 @@ function Authenticator({ signedIn, setSignInCB, children, setUser}) {
         </Route>
         <Route path="set-up-basic" element={<SetupBasic setEmail={setEmail} setName={setName} setUsername={setUsername} />} />
         <Route path="set-up-college" element={<SetupEducation setCollege={setCollege} setMajor={setMajor} setGradDate={setGradDate} />} />
-        <Route path="set-up-password" element={<SetupPassword setPassword={setPassword} />} />
+        <Route path="set-up-password" element={<SetupPassword password={password} setPassword={setPassword} />} />
         <Route path="set-up-skills" element={<SetupSkill setSkills={setSkills} email={email} password={password} name={name}
           username={username} college={college} major={major} gradDate={gradDate} skills={skills} />} />
-        <Route path="reset-password" element={<ResetPassword />} />
+        <Route path="reset-password" element={<ResetPassword password={password} setPassword={setPassword} />} />
         {children}
       </Routes>
     </div>
