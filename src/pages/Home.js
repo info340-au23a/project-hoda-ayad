@@ -95,12 +95,12 @@ function Home(props) {
                         <PostingWindow key="posting-window" data={selectedPosting} isNotPhone={isNotPhone}/>
                     </Col>
                 </Row> :
-                <div className='postings-view'>
+                <section className='postings-view'>
                     {viewList ? <PostingsList key="postings-list" className='posting-list-container col' postings={filteredData} selectPostingCallback={selectPosting}/>
                     : <PostingWindow key="posting-window" 
                                      data={selectedPosting} handleBackClickCb={handleBackClick} 
                                      isNotPhone={isNotPhone}/>}
-                </div>
+                </section>
             }
         </div>
     );

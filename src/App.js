@@ -11,10 +11,6 @@ import Footer from './components/Footer';
 import Authenticator from './components/Authenticator';
 
 
-import SAMPLE_POSTS from './sample-data.json';
-import SAMPLE_CHATS from './chat-sample-data.json';
-
-
 export function RequireAuth({ signedIn, setSignedIn, email, password, setUser, setEmail, setPassword }) {
   function signIn() {
     setSignedIn(true);
@@ -30,8 +26,6 @@ export function RequireAuth({ signedIn, setSignedIn, email, password, setUser, s
 
 
 function App() {
-  const samplePosts = SAMPLE_POSTS;
-  const sampleChats = SAMPLE_CHATS;
 
   const [signedIn, setSignedIn] = useState(false);
   const [uid, setUser] = useState('');
@@ -51,8 +45,8 @@ function App() {
 
               <Authenticator signedIn={signedIn} setSignInCB={toggleSignIn} setUser={setUser} >
 
-                  <Route index element={<Home postings={samplePosts} />} />
-                  <Route path="chat" element={<Chat chats={sampleChats} />} />
+                  <Route index element={<Home/>} />
+                  <Route path="chat" element={<Chat />} />
                   <Route path="profile" element={<Profile />} />
                   <Route path="*" element={<span className='text-center'>Page Not Found :(</span>} />
 
