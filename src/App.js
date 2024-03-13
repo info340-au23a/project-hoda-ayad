@@ -56,6 +56,7 @@ function App() {
                   <Route index element={<Home postings={samplePosts} />} />
                   <Route path="chat" element={<Chat chats={sampleChats} />} />
                   <Route path="profile" element={<Profile />} />
+                  <Route path="*" element={<span className='text-center'>Page Not Found :(</span>} />
 
               </Authenticator>
 
