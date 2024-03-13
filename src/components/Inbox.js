@@ -193,10 +193,10 @@ function SendMessage({db, personID}) {
         const db = getDatabase();
         const convoRef = ref(db, `chat/${personID}/convo`);
        if (draft !== '') {
-       
             setConvo([...convo, `M ${draft}`])
           
             firebaseSet(convoRef, [...convo, `M ${draft}`])
+            .catch((err) => {console.log(err)})
             .then(setDraft(''))
         }
     }
