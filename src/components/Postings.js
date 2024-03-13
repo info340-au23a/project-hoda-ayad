@@ -119,7 +119,7 @@ function PostingView({ data }) {
                         Qualifications
                     </AccordionHeader>
                     <AccordionBody accordionId="quals">
-                        list of reqs
+                        {data.quals}
                     </AccordionBody>
                 </AccordionItem>
                 <AccordionItem>
@@ -127,7 +127,7 @@ function PostingView({ data }) {
                         Current Progress
                     </AccordionHeader>
                     <AccordionBody accordionId="progress">
-                        progress description
+                        {data.progress}
                     </AccordionBody>
                 </AccordionItem>
             </Accordion>
