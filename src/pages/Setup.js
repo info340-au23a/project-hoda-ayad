@@ -74,7 +74,7 @@ export function SetupSkill({ setSkills, email, password, name, username, college
   const handleSubmit = function(event) {
     event.preventDefault();
     const auth = getAuth();
-    if (email == '' || password == '') {
+    if (email === '' || password === '') {
       setErrorMsg('Missing email and/or password');
     } else {
       createUserWithEmailAndPassword(auth, email, password)

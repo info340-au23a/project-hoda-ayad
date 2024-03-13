@@ -84,7 +84,8 @@ function Home(props) {
             <JobFilter roleOptions={roleOptions} 
                   locOptions={locOptions}
                   applyFilterCallback={applyFilter}
-                  clearFilterCallback={clearFilter}/>
+                  clearFilterCallback={clearFilter}
+                  isNotPhone={isNotPhone}/>
             {isNotPhone ? 
                 <Row className='postings-view content-container'>
                     <Col className='p-0 border posting-list-container'>

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import {
-    Form, Input, Row, Col, Label, Button
+    Form, Input, Row, Col, Label, Button, InputGroup
 } from 'reactstrap'
 
 export default function JobFilter(props) {
@@ -45,9 +45,9 @@ export default function JobFilter(props) {
     
 
     return (
-        <Form className="job-filter-form p-4">
-            <Row>
-                <Col>
+        <Form className={`job-filter-form p-4 d-flex flex-
+                                        ${props.isNotPhone ? 'column' : 'row'}`}>
+                <InputGroup>
                     <Label 
                         className="visually-hidden"
                         for="search">
@@ -58,8 +58,8 @@ export default function JobFilter(props) {
                         type="search" 
                         value={query}
                         onChange={handleInput}/>
-                </Col>
-                <Col>
+                </InputGroup>
+                <InputGroup>
                     <Label 
                         className="visually-hidden"
                         for="role-select">
@@ -75,8 +75,8 @@ export default function JobFilter(props) {
                         </option>
                         {roleElems}
                     </Input>
-                </Col>
-                <Col>
+                </InputGroup>
+                <InputGroup>
                     <Label 
                         className="visually-hidden"
                         for="location-select">
@@ -92,13 +92,13 @@ export default function JobFilter(props) {
                         </option>
                         {locElems}
                     </Input>
-                </Col>
-                <Col className="px-0">
+                </InputGroup>
+                <InputGroup className="px-0">
                     <Button onClick={handleClear}>
                         Clear
                     </Button>
-                </Col>
-            </Row>
+                </InputGroup>
+            
         </Form>
     )
 }

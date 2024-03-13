@@ -49,6 +49,10 @@ html, body, #root, .App {
   height: 100%;
 }
 
+.home .input-group {
+  padding: .5em;
+}
+
 /* footer organizer */
 .footer {
   bottom: 0;
