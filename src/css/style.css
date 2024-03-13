@@ -272,7 +272,7 @@ html, body, #root, .App {
 }
 
 .set-up input, .set-up button {
-  border: .2em solid #fff;
+  border: .1em solid #fff;
   border-radius: 18px;
 }
 
@@ -337,6 +337,14 @@ html, body, #root, .App {
 
 .error-message {
   color: red;
+}
+
+input[type="date"]:before {
+  content: attr(placeholder) !important;
+}
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
+  content: "";
 }
 
 @media (min-width: 769px) {

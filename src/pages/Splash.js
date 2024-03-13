@@ -26,10 +26,11 @@ function Splash(props) {
   return (
     <div className="page splash">
       <h2>Welcome to<br></br>Campus Cloud</h2>
+      {errorMsg && <p className="error-message">{errorMsg}</p>} {/* Display error message if exists */}
       <form onSubmit={handleSubmit}>
         <input type="email" className="email" placeholder="Email" onChange={(e) => props.setEmail(e.target.value)}></input>
         <input type="password" className="password" placeholder="Password" onChange={(e) => props.setPassword(e.target.value)}></input>
-        {errorMsg && <p className="error-message">{errorMsg}</p>} {/* Display error message if exists */}
+
         <button type="submit" className="log-in-button">Log In</button>
         <Link to="reset-password" className="forgot-password">Forgot Password?</Link>
         <label className="dont-have-account" htmlFor="register">Don't have an account?</label>

@@ -42,7 +42,7 @@ export function SetupPassword({ password, setPassword }) {
   const handleSubmit = function(event) {
     event.preventDefault();
     if (password !== confirmPw) {
-      setErrorMsg('Password do not match');
+      setErrorMsg('Passwords do not match');
     } else {
       navigate('/set-up-skills');
     }
@@ -50,10 +50,10 @@ export function SetupPassword({ password, setPassword }) {
   return (
     <div className="page set-up">
       <h2>Get Connected</h2>
+      {errorMsg && <p className="error-message">{errorMsg}</p>} {/* Display error message if exists */}
       <form onSubmitCapture={handleSubmit}>
         <input type="password" placeholder="Create Password" onChange={(e) => setPassword(e.target.value)}></input>
         <input type="password" placeholder="Re-enter Password" onChange={(e) => setConfirmPw(e.target.value)}></input>
-        {errorMsg && <p className="error-message">{errorMsg}</p>} {/* Display error message if exists */}
         <button type="submit">Continue</button>
       </form>
     </div>
@@ -66,7 +66,10 @@ export function SetupSkill({ setSkills, email, password, name, username, college
   const handleSubmit = function(event) {
     event.preventDefault();
     const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email, password)
+    if (email == '' || password == '') {
+      setErrorMsg('Missing and/or password');
+    } else {
+      createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
         let uid = user.uid;
@@ -81,10 +84,12 @@ export function SetupSkill({ setSkills, email, password, name, username, college
       console.log(email);
       console.log(password);
       navigate('/');
+    }
   };
   return (
     <div className="page set-up">
       <h2>Get Connected</h2>
+      {errorMsg && <p className="error-message">{errorMsg}</p>} {/* Display error message if exists */}
       <form onSubmit={handleSubmit}>
         <p>Campus Cloud is all about finding and working with other students with varying
               skills and knowledge.
@@ -92,15 +97,14 @@ export function SetupSkill({ setSkills, email, password, name, username, college
         <p>In order to showcase your abilities and have the best experience, create a list
             of skillsets for others to see!
         </p>
-        <input id="inputSkills" type="text" placeholder="What are your skills?"></input>
-        {errorMsg && <p className="error-message">{errorMsg}</p>} {/* Display error message if exists */}
+        <input id="inputSkills" type="text" placeholder="What are your skills?" onChange={(e) => setSkills(e.target.value)}></input>
         <button type="submit">Complete Registration</button>
       </form>
     </div>
   );
 }
 
-export function ResetPassword({ password, setPassword }) {
+export function ResetPassword() {
   const [confirmEmail, setConfirmEmail] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const navigate = useNavigate();
@@ -126,10 +130,10 @@ export function ResetPassword({ password, setPassword }) {
   return (
     <div className="page set-up">
       <h2>Reset Password</h2>
+      {errorMsg && <p className="error-message">{errorMsg}</p>} {/* Display error message if exists */}
       <form onSubmit={handleSubmit}>
         <input type="email" placeholder="Account's Email" onChange={(e) => setConfirmEmail(e.target.value)}></input>
-        <button onClick={handleClick}>Submit - Check your email!</button>
-        {errorMsg && <p className="error-message">{errorMsg}</p>} {/* Display error message if exists */}
+        <button onClick={handleClick}>Submit</button>
         <button type="submit">Return to Login</button>
       </form>
     </div>
