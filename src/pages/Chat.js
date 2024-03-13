@@ -27,7 +27,7 @@ function Chat(props) {
     });
   }
 
-  // gets data as an array
+
   useEffect(() => {
     const db = getDatabase();
     const chatRef = ref(db, 'chat');
@@ -37,7 +37,6 @@ function Chat(props) {
             ([key, value]) => ({ id: key, ...value }));;
         
         setData(dataArr);
-        // initializes filteredData
         applyFilter(query);
     })
 

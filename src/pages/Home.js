@@ -10,9 +10,9 @@ function Home(props) {
         query: '(min-width: 600px)'
       })
 
-    // Handle mobile toggle view
+   
     const [viewList, setViewList] = useState(true);
-    // Other states
+
     const [query, setQuery] = useState('');
     const [role, setRole] = useState('All Roles');
     const [location, setLocation] = useState('All Locations');
@@ -24,7 +24,6 @@ function Home(props) {
         setQuery(query);
         setRole(role);
         setLocation(loc);
-        //setSelectedPosting(null);
         setFilteredData(() => {
             const filteredPostings = data.filter((posting) => {
                 const nameMatch = (query === '') || ((posting.title.toLowerCase()).includes(query.toLowerCase()));
@@ -36,7 +35,7 @@ function Home(props) {
         });
     }
 
-    // gets data as an array
+ 
     useEffect(() => {
         const db = getDatabase();
         const postingsRef = ref(db, 'postings');
@@ -46,7 +45,6 @@ function Home(props) {
                 ([key, value]) => ({ id: key, ...value }));;
             
             setData(dataArr);
-            // initializes filteredData
             applyFilter(query, role, location);
         })
 
