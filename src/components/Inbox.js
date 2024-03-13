@@ -116,7 +116,7 @@ function OtherResponse(index, msg, profilePhoto) {
     return (
         <div className="other-messages" key={uniqueKey}>
             <div className="profile-icon">
-            <img className="profile-pic" style={{border:'none', borderRadius:'50%',  textAlign:'start', maxWidth:'3rem', maxHeight:'3rem'}} src={profilePhoto} alt="profile" />
+            <img className="profile-pic" style={{border:'none', borderRadius:'50%',  textAlign:'start', maxWidth:'3rem', maxHeight:'3rem'}} src={profilePhoto} alt="user profile avatar" />
             </div>
             <div className="message">
                 <p>{msg}</p>

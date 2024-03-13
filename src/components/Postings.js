@@ -25,7 +25,7 @@ export function PostingWindow({ data, handleBackClickCb, isNotPhone }) {
 
     return (
         <Card className="p-4 text-start" style={styling}>
-            {isNotPhone ? <></> : <div onClick={handleBack}><FaArrowLeftLong aria-label="Back button"/></div>}
+            {isNotPhone ? <></> : <div onClick={handleBack} role='button' aria-label="back button"><FaArrowLeftLong /></div>}
             {windowContent}
         </Card>
     )

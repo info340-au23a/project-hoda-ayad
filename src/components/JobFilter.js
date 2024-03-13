@@ -95,8 +95,8 @@ export default function JobFilter(props) {
                     </Input>
                 </InputGroup>
                 <InputGroup className="px-0">
-                    <Button onClick={handleClear}>
-                        <FaRegTrashAlt aria-label='clear'/>
+                    <Button onClick={handleClear} aria-label='clear'>
+                        <FaRegTrashAlt/>
                     </Button>
                 </InputGroup>
             

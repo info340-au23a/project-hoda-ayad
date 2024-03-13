@@ -28,7 +28,7 @@ function NavBar({ signedIn, setSignInCB, setUser }) {
   return (
     <div className="nav-bar">
       <Navbar expand="md">
-        <NavbarBrand tag={Link} to="/">
+        <NavbarBrand tag={Link} to="/" role='button'>
           <img src='img/logo.png' style={{'height':'1em', 'margin':'.5em'}} alt='a globe, the website logo'/>
           Campus Cloud
         </NavbarBrand>
