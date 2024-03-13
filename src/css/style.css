@@ -141,6 +141,10 @@ html, body, #root, .App {
   overflow-y: auto;
 }
 
+.message p {
+  margin: .5em 0em;
+}
+
 /* message sent from other person, on left side of chat.
  contains a profile picture (#profile-icon) and a message (.message) */
 .other-messages {
