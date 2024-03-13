@@ -53,7 +53,7 @@ export function SetupPassword({ password, setPassword }) {
       <form onSubmitCapture={handleSubmit}>
         <input type="password" placeholder="Create Password" onChange={(e) => setPassword(e.target.value)}></input>
         <input type="password" placeholder="Re-enter Password" onChange={(e) => setConfirmPw(e.target.value)}></input>
-        {errorMsg && <div className="error-message">{errorMsg}</div>} {/* Display error message if exists */}
+        {errorMsg && <p className="error-message">{errorMsg}</p>} {/* Display error message if exists */}
         <button type="submit">Continue</button>
       </form>
     </div>
@@ -98,7 +98,7 @@ export function SetupSkill({ setSkills, email, password, name, username, college
             of skillsets for others to see!
         </p>
         <input id="inputSkills" type="text" placeholder="What are your skills?"></input>
-        {errorMsg && <div className="error-message">{errorMsg}</div>} {/* Display error message if exists */}
+        {errorMsg && <p className="error-message">{errorMsg}</p>} {/* Display error message if exists */}
         <button type="submit">Complete Registration</button>
       </form>
     </div>
@@ -137,7 +137,7 @@ export function ResetPassword({ password, setPassword }) {
       <form onSubmit={handleSubmit}>
         <input type="email" placeholder="Account's Email" onChange={(e) => setConfirmEmail(e.target.value)}></input>
         <button onClick={handleClick}>Submit - Check your email!</button>
-        {errorMsg && <div className="error-message">{errorMsg}</div>} {/* Display error message if exists */}
+        {errorMsg && <p className="error-message">{errorMsg}</p>} {/* Display error message if exists */}
         <button type="submit">Return to Login</button>
       </form>
     </div>

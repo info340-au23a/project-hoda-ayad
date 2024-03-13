@@ -11,7 +11,7 @@ import {
 import { Link, useLocation } from 'react-router-dom';
 import { getAuth, signOut } from "firebase/auth";
 
-function NavBar({ setSignInCB, setUser }) {
+function NavBar({ signedIn, setSignInCB, setUser }) {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
@@ -28,18 +28,6 @@ function NavBar({ setSignInCB, setUser }) {
       });
   }
 
-  // Define an array of paths where the Chat and Log Out should be hidden
-  const hideOnPaths = [
-    '/set-up-basic',
-    '/set-up-college',
-    '/set-up-password',
-    '/set-up-skills',
-    '/reset-password'
-  ];
-
-  // Check if the current pathname is one of the paths to hide Chat and Log Out
-  const shouldHide = hideOnPaths.includes(location.pathname);
-
   return (
     <div className="nav-bar">
       <Navbar expand="md">
@@ -49,7 +37,7 @@ function NavBar({ setSignInCB, setUser }) {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
-            {!shouldHide && (
+            {signedIn && (
               <NavItem>
                 <NavLink tag={Link} to="/chat">
                   Chat
@@ -57,7 +45,7 @@ function NavBar({ setSignInCB, setUser }) {
               </NavItem>
             )}
           </Nav>
-          {!shouldHide && (
+          {signedIn && (
             <NavLink tag={Link} to="/" onClick={handleLogOut}>
               Log Out
             </NavLink>

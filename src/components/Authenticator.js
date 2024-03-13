@@ -24,7 +24,7 @@ function Authenticator({ signedIn, setSignInCB, children, setUser}) {
 
   return (
     <div className="App full-height">
-      <NavBar setSignInCB={toggleSignIn} setUser={setUser} />
+      <NavBar signedIn={signedIn} setSignInCB={toggleSignIn} setUser={setUser} />
       <Routes>
         <Route path='/' element={<RequireAuth signedIn={signedIn} setSignedIn={toggleSignIn} email={email}
           password={password} setUser={setUser} setEmail={setEmail} setPassword={setPassword}
