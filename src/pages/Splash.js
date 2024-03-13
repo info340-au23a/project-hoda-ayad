@@ -11,10 +11,8 @@ function Splash(props) {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, props.email, props.password)
       .then((userCredential) => {
-        // Signed in
         const user = userCredential.user;
         props.setUser(user.uid);
-        console.log(user.uid);
         props.signInCB();
       })
       .catch((error) => {
@@ -34,7 +32,7 @@ function Splash(props) {
         {errorMsg && <div className="error-message">{errorMsg}</div>} {/* Display error message if exists */}
         <button type="submit" className="log-in-button">Log In</button>
         <Link to="reset-password" className="forgot-password">Forgot Password?</Link>
-        <label className="dont-have-account" for="register">Don't have an account?</label>
+        <label className="dont-have-account" htmlFor="register">Don't have an account?</label>
         <Link to='set-up-basic'>Register Now</Link>
       </form>
     </div>
