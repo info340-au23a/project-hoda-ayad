@@ -104,7 +104,7 @@ export function SetupSkill({ setSkills, email, password, name, username, college
         </p>
         <p>In order to showcase your abilities and have the best experience, create a list
             of skillsets for others to see!
-        </p>p-0[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]
+        </p>
         <label htmlFor="inputSkills" className='visually-hidden'>Input Skills</label>
         <input id="inputSkills" type="text" placeholder="What are your skills?" onChange={(e) => setSkills(e.target.value)}></input>
         <button type="submit">Complete Registration</button>

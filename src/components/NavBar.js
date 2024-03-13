@@ -29,25 +29,26 @@ function NavBar({ signedIn, setSignInCB, setUser }) {
     <div className="nav-bar">
       <Navbar expand="md">
         <NavbarBrand tag={Link} to="/">
+          <img src='img/logo.png' style={{'height':'1em', 'margin':'.5em'}} alt='a globe, the website logo'/>
           Campus Cloud
         </NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
+        {signedIn && <NavbarToggler onClick={toggle} />}
+        {signedIn && (<Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
-            {signedIn && (
+            
               <NavItem>
                 <NavLink tag={Link} to="/chat">
                   Chat
                 </NavLink>
               </NavItem>
-            )}
+            
           </Nav>
-          {signedIn && (
+          
             <NavLink tag={Link} to="/" onClick={handleLogOut}>
               Log Out
             </NavLink>
-          )}
-        </Collapse>
+        
+        </Collapse>)}
       </Navbar>
     </div>
   );

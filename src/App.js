@@ -6,7 +6,6 @@ import { Route, Outlet,useLocation } from "react-router-dom";
 import Splash from './pages/Splash';
 import Home from './pages/Home';
 import Chat from './pages/Chat';
-import Profile from './pages/Profile';
 import Footer from './components/Footer';
 import Authenticator from './components/Authenticator';
 
@@ -47,7 +46,6 @@ function App() {
 
                   <Route index element={<Home/>} />
                   <Route path="chat" element={<Chat />} />
-                  <Route path="profile" element={<Profile />} />
                   <Route path="*" element={<span className='text-center'>Page Not Found :(</span>} />
 
               </Authenticator>

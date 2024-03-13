@@ -2,8 +2,9 @@
 
 import React, { useState } from "react";
 import {
-    Form, Input, Row, Col, Label, Button, InputGroup
+    Form, Input, Label, Button, InputGroup
 } from 'reactstrap'
+import { FaRegTrashAlt } from "react-icons/fa";
 
 export default function JobFilter(props) {
 
@@ -95,7 +96,7 @@ export default function JobFilter(props) {
                 </InputGroup>
                 <InputGroup className="px-0">
                     <Button onClick={handleClear}>
-                        Clear
+                        <FaRegTrashAlt aria-label='clear'/>
                     </Button>
                 </InputGroup>
             
