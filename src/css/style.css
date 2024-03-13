@@ -122,22 +122,21 @@ html, body, #root, .App {
 }
 
 .message-heading h3 {
-  padding-top: 15px;
+  padding-top: 1rem;
 }
 
 .message-heading h2 {
   font-size: medium;
-  padding-bottom: 10px;
 }
 
 .messaging {
   flex: 0 1 auto;
   flex-flow: column nowrap;
-  padding-top: 35px;
-  padding-bottom: 0px;
-  padding-left: 20px;
-  padding-right: 20px;
-  height: 430px;
+  padding-top: 1rem;
+  padding-bottom: 0rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 28.5rem;
   overflow-y: auto;
 }
 
@@ -150,25 +149,22 @@ html, body, #root, .App {
 .other-messages {
   display: flex;
   align-self: flex-start;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 /* message sent from other person */
 .other-messages .message {
   background-color: rgb(233, 233, 233);
-  border-radius: 14px;
+  border-radius: 1rem;
   max-width: 75%;
   padding: 0 1em;
-  margin-left: 10px;
+  margin-left: .5rem;
 }
 
 /* ther person profile pic */
 .other-messages .profile-pic {
   height: 1.5em;
-  padding-right: 2px;
-  margin-right: 1px;
-
 }
 
 /* message sent from user, on right side of chat.
@@ -176,22 +172,20 @@ html, body, #root, .App {
 .my-messages {
   display: flex;
   justify-content: flex-end;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .my-messages .message {
   background-color: #C3D5F5;
-  border-radius: 14px;
+  border-radius: 1rem;
   max-width: 75%;
-  margin-left: 2em;
-  margin: 22px;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
 }
 
 .my-messages .profile-pic {
   height: 1.5em;
-  padding-right: 1px;
-  margin-right: 1px;
-  margin-left: -15px;
+  margin-left: 0.5rem;
 }
 
 .subDiv {
@@ -228,7 +222,7 @@ html, body, #root, .App {
 }
 
 .search-inbox {
-  padding-bottom: 10px;
+  padding-bottom: 1.5rem;
   width: 95%;
   padding-left: 5%;
 
@@ -241,17 +235,9 @@ html, body, #root, .App {
   overflow-y: auto;
 }
 
-.inbox-list-container {
-  width: 195px;
-}
 /* scroll through conversation and send message */
 .middle-right {
   display: none;
-}
-
-.draft-wrapper {
-  display: block;
-  bottom: 72px;
 }
 
 
