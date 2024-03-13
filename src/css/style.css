@@ -20,19 +20,16 @@ html, body, #root, .App {
   flex-direction: column;
 }
 
-/* page div including filter bar */
 .home, .chat {
   overflow: hidden;
 }
 
-/* parent content reactstrap Row element */
 .row.content-container {
   height: 100%;
   overflow: auto;
   border-top: solid lightgray;
 }
 
-/* col 1 reactstrap Col with child div containing reactstrap Cards */
 .col {
   overflow-y: auto;
   height: 100%;
@@ -72,6 +69,7 @@ html, body, #root, .App {
   display: none;
 }
 
+/* Button styling */
 .btn {
   border: none;
 }
@@ -154,7 +152,7 @@ html, body, #root, .App {
   padding-bottom: 5px;
 }
 
-/* message sent from other person */
+
 .other-messages .message {
   background-color: rgb(233, 233, 233);
   border-radius: 14px;
@@ -163,7 +161,6 @@ html, body, #root, .App {
   margin-left: 10px;
 }
 
-/* ther person profile pic */
 .other-messages .profile-pic {
   height: 1.5em;
   padding-right: 2px;
@@ -210,7 +207,6 @@ html, body, #root, .App {
   overflow-y: hidden;
 }
 
-/* contains "inbox" text (h1) and compose icon (.compose-message) */
 .inbox-heading {
   width: 100%;
   border-bottom: solid lightgray;
